@@ -1,0 +1,150 @@
+:root {
+  --primary: #3e4a56;
+  --bg-color: #f1f1f1;
+}
+
+html {
+  font-family: "Nunito", sans-serif;
+  color: var(--primary);
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-color);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary);
+}
+
+/* LAYOUTS */
+.vw-100 {
+  width: 100vw;
+}
+
+.vh-100 {
+  height: 100vh;
+}
+
+.min-vw-100 {
+  min-width: 100vw;
+}
+
+.min-vh-100 {
+  min-height: 100vh;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+/* FORMS */
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.form-row:not(:last-child) {
+  margin-bottom: 8px;
+}
+
+.form-row > * {
+  flex: 1;
+}
+
+.form-group {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  position: absolute;
+  top: 8px;
+  left: 10px;
+  font-size: 16px;
+  line-height: 2rem;
+  padding: 0 4px;
+
+  transition: transform 0.2s, top 0.2s, left 0.2s;
+}
+
+.form-group label + input::-webkit-input-placeholder,
+.form-group label + textarea::-webkit-input-placeholder {
+  opacity: 0;
+}
+
+.form-group label:has(+ input:not(:placeholder-shown)),
+.form-group input:not(:placeholder-shown) + label,
+.form-group label:has(+ textarea:not(:placeholder-shown)),
+.form-group textarea:not(:placeholder-shown) + label,
+.form-group input:focus + label,
+.form-group label:has(+ input:focus) {
+  top: -2px;
+  left: 0;
+  transform: scale(0.8) translateY(-50%);
+  background-color: white;
+}
+
+form input,
+form textarea {
+  border-radius: 8px;
+  border: 1px solid var(--primary);
+  padding: 8px 12px;
+  font-size: 16px;
+  line-height: 2rem;
+  background-color: white;
+
+  resize: none;
+}
+
+form input:-webkit-autofill,
+form input:-webkit-autofill:focus,
+form textarea:-webkit-autofill,
+form textarea:-webkit-autofill:focus {
+  transition: background-color 600000s 0s, color 600000s 0s;
+}
+
+form input[data-autocompleted],
+form textarea[data-autocompleted] {
+  background-color: white;
+}
+
+form .form-row:not(:first-child) {
+  margin-top: 14px;
+}
+
+form button[type="submit"] {
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid var(--primary);
+  background-color: var(--primary);
+  color: white;
+  font-size: 18px;
+  line-height: 2rem;
+
+  transition: background-color 0.2s;
+}
+
+form button[type="submit"]:hover {
+  background-color: #1e252b;
+}
