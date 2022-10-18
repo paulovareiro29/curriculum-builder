@@ -20,7 +20,7 @@
     <div class="profile">
       <div class="profile-header">
         <img
-          src="./assets/photo.jpg"
+          src="./src/assets/photo.jpg"
           alt="Paulo Vareiro's profile picture"
           class="profile-picture"
         />

@@ -7,6 +7,6 @@
     <title>Error 404</title>
 </head>
 <body>
-    404
+    Error 404 - PAGE NOT FOUND
 </body>
 </html>
