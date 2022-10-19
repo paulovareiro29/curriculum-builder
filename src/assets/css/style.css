@@ -166,3 +166,28 @@ form button[type="submit"] {
 form button[type="submit"]:hover {
   background-color: #1e252b;
 }
+
+/* FLOATING BUTTON */
+.floating-button {
+  position: fixed;
+  bottom: 35px;
+  right: 35px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  border: 0;
+
+  background-color: var(--primary);
+  color: white;
+  cursor: pointer;
+}
+
+.floating-button.floating-button-left {
+  right: auto;
+  left: 35px;
+}

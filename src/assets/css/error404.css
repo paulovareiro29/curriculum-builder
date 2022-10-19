@@ -1,0 +1,21 @@
+.error404 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  max-width: 450px;
+}
+
+.error404 * {
+  margin: 0;
+  text-align: center;
+}
+
+.error404 h1 {
+  font-size: 7rem;
+}
+
+.error404 h5 {
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+}
