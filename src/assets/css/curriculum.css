@@ -1,37 +1,3 @@
-/* NAVBAR */
-.navbar {
-  max-width: 1150px;
-  margin: auto;
-  border: 4px solid var(--primary);
-  margin-bottom: 16px;
-  background-color: white;
-}
-
-.navbar .navbar-wrapper {
-  display: flex;
-  align-items: center;
-
-  padding: 8px 20px;
-  gap: 8px;
-}
-
-.navbar .navbar-wrapper > * {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 8px;
-
-  flex: 1;
-}
-
-.navbar .navbar-wrapper > *:last-child {
-  justify-content: flex-end;
-}
-
-.navbar .navbar-wrapper * {
-  margin: 0;
-}
-
 /* PROFILE */
 .profile {
   max-width: 1150px;

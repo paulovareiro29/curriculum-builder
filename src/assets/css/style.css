@@ -1,5 +1,6 @@
 :root {
   --primary: #3e4a56;
+  --secondary: #6c757d;
   --bg-color: #f1f1f1;
   --success: #57b657;
   --danger: #ff4747;
@@ -157,14 +158,84 @@ form button[type="submit"] {
   border: 1px solid var(--primary);
   background-color: var(--primary);
   color: white;
-  font-size: 18px;
-  line-height: 2rem;
+  line-height: 1.5rem;
 
   transition: background-color 0.2s;
 }
 
 form button[type="submit"]:hover {
   background-color: #1e252b;
+}
+
+/* MODAL */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  z-index: 999;
+
+  opacity: 0;
+  pointer-events: none;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal.show {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.modal .modal-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+
+  background-color: #1e252b47;
+  z-index: -1;
+}
+
+.modal .modal-wrapper {
+  position: relative;
+  width: 478px;
+  border-radius: 12px;
+  background-color: white;
+  border: 1px solid var(--primary);
+
+  transform: scale(0);
+  -webkit-transform: scale(0);
+  transform-origin: 50% 50%;
+  -webkit-origin: 50% 50%;
+  transition: transform 0.3s, -webkit-transform 0.3s;
+}
+
+.modal.show .modal-wrapper {
+  transform: scale(1);
+}
+
+.modal .modal-title {
+  margin: 0;
+  padding: 20px;
+  border-bottom: 1px solid var(--secondary);
+}
+
+.modal .modal-close {
+  position: absolute;
+  top: 23px;
+  right: 20px;
+
+  cursor: pointer;
+}
+
+.modal .modal-body {
+  padding: 20px;
 }
 
 /* FLOATING BUTTON */
@@ -190,4 +261,38 @@ form button[type="submit"]:hover {
 .floating-button.floating-button-left {
   right: auto;
   left: 35px;
+}
+
+/* NAVBAR */
+.navbar {
+  max-width: 1150px;
+  margin: auto;
+  border: 4px solid var(--primary);
+  margin-bottom: 16px;
+  background-color: white;
+}
+
+.navbar .navbar-wrapper {
+  display: flex;
+  align-items: center;
+
+  padding: 8px 20px;
+  gap: 8px;
+}
+
+.navbar .navbar-wrapper > * {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+
+  flex: 1;
+}
+
+.navbar .navbar-wrapper > *:last-child {
+  justify-content: flex-end;
+}
+
+.navbar .navbar-wrapper * {
+  margin: 0;
 }

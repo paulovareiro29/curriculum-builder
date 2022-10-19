@@ -17,8 +17,62 @@
     <script src="https://kit.fontawesome.com/be947b2e4a.js" crossorigin="anonymous"></script>
   </head>
   <body>
+    <div class="modal" id="new-curriculum">
+      <div class="modal-background"></div>
+      <div class="modal-wrapper">
+        <h4 class="modal-title">
+          Add new Curriculum
+          <i class="fa-solid fa-xmark modal-close"></i>
+        </h4>
+        <div class="modal-body">
+          <form action="#" method="POST">
+            <div class="form-row">
+              <div class="form-group">
+                  <label for="name">Name</label>
+                  <input
+                    type="text"
+                    name="name"
+                    id="name"
+                    placeholder="Name"
+                  />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                  <label for="person_name">Person Name</label>
+                  <input
+                    type="text"
+                    name="person_name"
+                    id="person_name"
+                    placeholder="Person Name"
+                  />
+              </div>
+            </div>
+            <div class="form-row">
+              <button type="submit">SUBMIT</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="navbar">
+      <div class="navbar-wrapper">
+        <div>
+          <a href="#" onclick="showModal('new-curriculum')">New Curriculum</a>
+        </div>
+        <div>
+          <p>Logged in as <b><?php echo $_SESSION["user"]; ?></b></p>
+          <a href="./logout">
+            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+          </a>
+        </div>
+      </div>
+    </div>
     <a class="floating-button floating-button-left" href="./">
       <i class="fa fa-arrow-left"></i>  
     </a>
+    <script src="./src/assets/js/script.js"></script>
+    <script src="./src/assets/js/backoffice.js"></script>
   </body>
 </html>

@@ -323,6 +323,7 @@
       </a>
     <?php endif; ?>
 
+    <script src="./src/assets/js/script.js"></script>
     <script src="./src/assets/js/curriculum.js"></script>
   </body>
 </html>
