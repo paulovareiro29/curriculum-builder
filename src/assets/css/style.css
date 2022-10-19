@@ -1,6 +1,7 @@
 :root {
   --primary: #3e4a56;
   --bg-color: #f1f1f1;
+  --danger: #ff4747;
 }
 
 html {
@@ -53,6 +54,11 @@ a {
 
 .flex-column {
   flex-direction: column;
+}
+
+/* COLORS */
+.color-danger {
+  color: var(--danger);
 }
 
 /* FORMS */

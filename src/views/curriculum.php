@@ -17,6 +17,20 @@
     <script src="https://kit.fontawesome.com/be947b2e4a.js" crossorigin="anonymous"></script>
   </head>
   <body>
+    <?php if(AuthController::isLoggedIn()): ?>
+      <div class="navbar">
+        <div class="navbar-wrapper">
+          <div></div>
+          <div>
+            <p>Logged in as <b><?php echo $_SESSION["user"]; ?></b></p>
+            <a href="./logout">
+              <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    <?php endif; ?>
+
     <div class="profile">
       <div class="profile-header">
         <img
@@ -188,12 +202,6 @@
                     refactoring and optimization
                   </p>
                 </li>
-                <li>
-                  <p>
-                    Implemented new features like work highlighting and resumes
-                    live-preview.
-                  </p>
-                </li>
                 <li><p>Refactored old website design.</p></li>
               </ul>
             </div>
@@ -307,16 +315,12 @@
       </div>
     </div>
 
-    <a class="floating-button" href="./login">
-      <i class="fa fa-user-circle"></i>
-    </a>
+    <?php if(!AuthController::isLoggedIn()): ?>
+      <a class="floating-button" href="./login">
+        <i class="fa fa-user-circle"></i>
+      </a>
+    <?php endif; ?>
 
-    <script>
-      document.getElementById("contact-form").onsubmit = (e) => {
-        e.preventDefault();
-
-        alert("Thank you for submiting!");
-      };
-    </script>
+    <script src="./src/assets/js/curriculum.js"></script>
   </body>
 </html>

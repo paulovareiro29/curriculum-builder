@@ -1,3 +1,24 @@
+<?php
+
+  if(AuthController::isLoggedIn()){
+    AuthController::redirectToIndex();
+  }
+
+  $msg = "";
+  if($_SERVER["REQUEST_METHOD"] === "POST") {
+    $username = $_POST["username"];
+    $password = $_POST["password"];
+
+    $msg = "Incorrect username / password";
+
+    if(UserController::validate($username, $password)) {
+      $_SESSION["user"] = $username;
+      AuthController::redirectToIndex();
+    }
+  }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -25,11 +46,13 @@
         <div class="login-header">
         <h1>Admin Panel</h1>
           <p>Sign in to your administrator account</p>
-
+          <?php 
+            if($msg !== "") echo "<p class=\"color-danger\">{$msg}</p>";
+          ?>
         </div>
 
 
-        <form action="">
+        <form action="#" method="POST">
           <div class="form-row">
             <div class="form-group">
               <label for="username">Username</label>
