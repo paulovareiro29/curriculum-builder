@@ -14,6 +14,10 @@
 
   $dir = $_SERVER['REQUEST_URI'];
   $baseUri = str_replace("/curriculum", "", $dir);
+  
+  if(strpos($baseUri, "?")){
+    $baseUri = substr($baseUri,0, strpos($baseUri, "?"));
+  }
 
   switch ($baseUri) {
     case '/':
