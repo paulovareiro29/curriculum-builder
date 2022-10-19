@@ -20,7 +20,9 @@
     <?php if(AuthController::isLoggedIn()): ?>
       <div class="navbar">
         <div class="navbar-wrapper">
-          <div></div>
+          <div>
+            <a href="./backoffice">Manage my curriculum</a>
+          </div>
           <div>
             <p>Logged in as <b><?php echo $_SESSION["user"]; ?></b></p>
             <a href="./logout">

@@ -35,5 +35,9 @@
 
             return false;
         }
+
+        public static function isAdmin() {
+            return self::isLoggedIn() && UserController::isAdmin($_SESSION["user"]);
+        }
     }
 

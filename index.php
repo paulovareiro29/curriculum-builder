@@ -26,6 +26,13 @@
     case '/logout':
         require __DIR__ . '/src/views/logout.php';
         break;
+    case '/backoffice':
+        if(AuthController::isAdmin()){
+          require __DIR__ . '/src/views/backoffice.php';
+        }else{
+          require __DIR__ . '/src/views/error403.php';
+        }
+        break;
     default:
         http_response_code(404);
         require __DIR__ . '/src/views/error404.php'; 

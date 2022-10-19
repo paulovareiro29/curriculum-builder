@@ -1,4 +1,4 @@
-.error404 {
+.error403 {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -7,16 +7,16 @@
   margin: 0 8px;
 }
 
-.error404 * {
+.error403 * {
   margin: 0;
   text-align: center;
 }
 
-.error404 h1 {
+.error403 h1 {
   font-size: 7rem;
 }
 
-.error404 h5 {
+.error403 h5 {
   font-size: 1.3rem;
   margin-bottom: 8px;
 }

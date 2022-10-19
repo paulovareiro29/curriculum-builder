@@ -6,6 +6,7 @@
   background-color: white;
   border-radius: 12px;
   border: 1px solid var(--primary);
+  margin: 0 8px;
 }
 
 .login h1 {
