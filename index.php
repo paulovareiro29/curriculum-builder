@@ -13,7 +13,7 @@
   session_start();
 
   $dir = $_SERVER['REQUEST_URI'];
-  $baseUri = str_replace("/curriculum", "", $dir);
+  $baseUri = substr_replace($dir, "", strpos($dir, "/curriculum"), strlen("/curriculum"));
   
   if(strpos($baseUri, "?")){
     $baseUri = substr($baseUri,0, strpos($baseUri, "?"));

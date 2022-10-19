@@ -29,3 +29,16 @@ CREATE TABLE `user_role` (
         FOREIGN KEY (`role_id`)
             REFERENCES role(`id`)
 );
+
+CREATE TABLE `curriculum` (
+    `id` INT NOT NULL AUTO_INCREMENT,
+    `name` VARCHAR(255) NOT NULL,
+    `person_name` VARCHAR(255) NOT NULL,
+    `avatar` LONGBLOB,
+    `profile` VARCHAR(255) NOT NULL DEFAULT 'Profile',
+    `info` VARCHAR(255) NOT NULL DEFAULT 'Info',
+    `skills` VARCHAR(255) NOT NULL DEFAULT 'Skills',
+    `education` VARCHAR(255) NOT NULL DEFAULT 'Education',
+    `experience` VARCHAR(255) NOT NULL DEFAULT 'Experience',
+    PRIMARY KEY (`id`)
+);

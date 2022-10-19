@@ -1,3 +1,19 @@
+<?php
+
+  $success = 0;
+  if($_SERVER['REQUEST_METHOD'] == "POST"){
+    $name = $_POST["name"];
+    $person_name = $_POST["person_name"];
+
+    if(CurriculumController::create($name, $person_name)) {
+      $success = 1;
+    }else{
+      $success = 2;
+    }
+  }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -34,6 +50,7 @@
                     name="name"
                     id="name"
                     placeholder="Name"
+                    required
                   />
               </div>
             </div>
@@ -45,11 +62,12 @@
                     name="person_name"
                     id="person_name"
                     placeholder="Person Name"
+                    required
                   />
               </div>
             </div>
             <div class="form-row">
-              <button type="submit">SUBMIT</button>
+              <button type="submit" name="new-curriculum">SUBMIT</button>
             </div>
           </form>
         </div>
@@ -68,6 +86,16 @@
           </a>
         </div>
       </div>
+    </div>
+
+    <div class="backoffice">
+
+      <?php if($success == 1):?>
+        <div class="alert alert-success">New curriculum has been created!</div>
+      <?php elseif($success == 2):?>
+        <div class="alert alert-danger">An error has occurred.</div>
+      <?php endif; ?>
+
     </div>
     <a class="floating-button floating-button-left" href="./">
       <i class="fa fa-arrow-left"></i>  

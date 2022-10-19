@@ -3,6 +3,8 @@
   max-width: 1150px;
   margin: auto;
   border: 4px solid var(--primary);
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 /* PROFILE HEADER */
