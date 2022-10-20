@@ -11,7 +11,7 @@
         }
 
         public static function redirectToIndex() {
-            self::redirectTo("./");
+            self::redirectTo("/" . $_ENV['BASE_DIR']);
         }
         
         public static function nonLoggedRedirect() {

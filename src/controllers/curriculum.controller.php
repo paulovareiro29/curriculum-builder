@@ -7,11 +7,18 @@
             return Curriculum::index();
         }
 
-        public static function create($name, $person_name) {
+        public static function create($name, $description, $avatar) {
             $curriculum = new Curriculum();
             $curriculum->name = $name;
-            $curriculum->person_name = $person_name;
+            $curriculum->description = $description;
+            $curriculum->avatar = $avatar;
+            
             return $curriculum->create();
+        }
+
+        public static function delete($id) {
+            $curriculum = new Curriculum($id);
+            return $curriculum->softdelete();
         }
 
     }

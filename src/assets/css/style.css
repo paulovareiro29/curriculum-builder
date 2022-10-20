@@ -125,6 +125,7 @@ a {
 .form-group label:has(+ textarea:focus) {
   top: -2px;
   left: 0;
+  line-height: 1rem;
   transform: scale(0.8) translateY(-50%);
   background-color: white;
 }
@@ -137,7 +138,8 @@ form textarea {
   font-size: 16px;
   line-height: 2rem;
   background-color: white;
-
+  font-family: "Nunito", sans-serif;
+  color: var(--primary);
   resize: none;
 }
 
@@ -171,6 +173,13 @@ form button[type="submit"] {
 
 form button[type="submit"]:hover {
   background-color: #1e252b;
+}
+
+button.icon {
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 0;
 }
 
 /* MODAL */

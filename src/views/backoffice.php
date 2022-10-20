@@ -95,7 +95,7 @@
         </div>
         <div>
           <p>Logged in as <b><?php echo $_SESSION["user"]; ?></b></p>
-          <a href="./logout">
+          <a href="/<?=$_ENV["BASE_DIR"] ?>/logout">
             <i class="fa-solid fa-arrow-right-from-bracket"></i>
           </a>
         </div>
@@ -107,6 +107,12 @@
       <?php if($success == 1):?>
         <div class="alert alert-success">New curriculum has been created!</div>
       <?php elseif($success == 2):?>
+        <div class="alert alert-danger">An error has occurred.</div>
+      <?php endif; ?>
+
+      <?php if(isset($_GET['deleted']) && $_GET['deleted'] == 1):?>
+        <div class="alert alert-success">Curriculum has been deleted successfuly!</div>
+      <?php elseif(isset($_GET['deleted']) && $_GET['deleted'] == 2):?>
         <div class="alert alert-danger">An error has occurred.</div>
       <?php endif; ?>
 
@@ -129,10 +135,10 @@
                   </div>
                 </div>
                 <div class="curriculum-options">
-                  <a class="icon color-warning" href="./edit/?id=<?=$curriculum['id']?>">
+                  <a class="icon color-warning" href="/<?=$_ENV["BASE_DIR"] ?>/backoffice/edit/?id=<?=$curriculum['id']?>">
                     <i class="fa-solid fa-pen-to-square"></i>
                   </a>
-                  <a class="icon color-danger" href="./delete/?id=<?=$curriculum['id']?>">
+                  <a class="icon color-danger" href="/<?=$_ENV["BASE_DIR"] ?>/backoffice/delete/?id=<?=$curriculum['id']?>">
                     <i class="fa-solid fa-trash"></i>
                   </a>
                 </div>
@@ -142,7 +148,7 @@
       </div>
       
     </div>
-    <a class="floating-button floating-button-left" href="./">
+    <a class="floating-button floating-button-left" href="/<?= $_ENV['BASE_DIR']?>">
       <i class="fa fa-arrow-left"></i>  
     </a>
     <script src="/<?= $_ENV['SRC_DIR']?>/assets/js/script.js"></script>

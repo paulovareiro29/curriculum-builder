@@ -25,9 +25,9 @@
           </div>
           <div>
             <p>Logged in as <b><?php echo $_SESSION["user"]; ?></b></p>
-            <a href="./logout">
-              <i class="fa-solid fa-arrow-right-from-bracket"></i>
-            </a>
+            <a href="/<?=$_ENV["BASE_DIR"] ?>/logout">
+            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+          </a>
           </div>
         </div>
       </div>

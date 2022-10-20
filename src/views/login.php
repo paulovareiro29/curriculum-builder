@@ -38,7 +38,7 @@
     <script src="https://kit.fontawesome.com/be947b2e4a.js" crossorigin="anonymous"></script>
   </head>
   <body>
-    <a href="./" class="floating-button floating-button-left">
+    <a class="floating-button floating-button-left" href="/<?= $_ENV['BASE_DIR']?>">
       <i class="fa fa-arrow-left"></i>  
     </a>
     <div class="vh-100 d-flex justify-center align-center">

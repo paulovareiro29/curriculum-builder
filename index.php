@@ -25,14 +25,23 @@
         require __DIR__ . '/src/views/curriculum.php';
         break;
     case '/login':
+      case '/login/':
         require __DIR__ . '/src/views/login.php';
         break;
     case '/logout':
-        require __DIR__ . '/src/views/logout.php';
+        require __DIR__ . '/src/routes/logout.route.php';
         break;
     case '/backoffice':
+      case '/backoffice/':
         if(AuthController::isAdmin()){
           require __DIR__ . '/src/views/backoffice.php';
+        }else{
+          require __DIR__ . '/src/views/error403.php';
+        }
+        break;
+    case '/backoffice/delete/':
+        if(AuthController::isAdmin()){
+          require __DIR__ . '/src/routes/curriculum/delete.route.php';
         }else{
           require __DIR__ . '/src/views/error403.php';
         }

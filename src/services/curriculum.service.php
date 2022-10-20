@@ -13,17 +13,17 @@
         public $experience;
 
         public function __construct($id = null) {
-            $this->$id = $id;
+            $this->id = $id;
         }
 
         public function create(){
-            $sql = "INSERT INTO curriculum (name, person_name, avatar) VALUES (?,?,?)";
+            $sql = "INSERT INTO curriculum (name, description, avatar) VALUES (?,?,?)";
 
             $this->connect();
             
             $stmt = $this->conn->stmt_init();
             $stmt = $this->conn->prepare($sql);
-            $stmt->bind_param("sss", $this->name, $this->person_name, $this->avatar);
+            $stmt->bind_param("sss", $this->name, $this->description, $this->avatar);
             $result = $stmt->execute();
 
             $this->close();
@@ -48,7 +48,7 @@
         }
 
         public static function index() {
-            $sql = "SELECT * FROM curriculum";
+            $sql = "SELECT * FROM curriculum WHERE deleted_at IS NULL";
 
             $conn = new mysqli($_ENV['DB_SERVER'], $_ENV['DB_USERNAME'], $_ENV['DB_PASSWORD'], $_ENV['DB_NAME']);
 
@@ -60,5 +60,21 @@
             $conn->close();
 
             return $result;
+        }
+
+        public function softdelete() {
+            if(!isset($this->id)) return false;
+
+            $sql = "UPDATE curriculum SET deleted_at = now() WHERE id = " . $this->id;
+
+            $this->connect();
+            $result = $this->conn->query($sql);
+            $this->close();
+
+            if($result == 1){
+                return true;
+            }
+
+            return false;
         }
     }

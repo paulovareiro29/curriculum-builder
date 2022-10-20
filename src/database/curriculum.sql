@@ -33,12 +33,16 @@ CREATE TABLE `user_role` (
 CREATE TABLE `curriculum` (
     `id` INT NOT NULL AUTO_INCREMENT,
     `name` VARCHAR(255) NOT NULL,
-    `person_name` VARCHAR(255) NOT NULL,
+    `description` VARCHAR(255),
+    `person_name` VARCHAR(255),
     `avatar` LONGBLOB,
     `profile` VARCHAR(255) NOT NULL DEFAULT 'Profile',
     `info` VARCHAR(255) NOT NULL DEFAULT 'Info',
     `skills` VARCHAR(255) NOT NULL DEFAULT 'Skills',
     `education` VARCHAR(255) NOT NULL DEFAULT 'Education',
     `experience` VARCHAR(255) NOT NULL DEFAULT 'Experience',
+    `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    `deleted_at` TIMESTAMP NULL DEFAULT NULL,
     PRIMARY KEY (`id`)
 );
