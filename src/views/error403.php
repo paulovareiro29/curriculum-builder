@@ -10,8 +10,8 @@
       href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./src/assets/css/style.css" />
-    <link rel="stylesheet" href="./src/assets/css/error403.css" />
+    <link rel="stylesheet" href="/<?= $_ENV['SRC_DIR']?>/assets/css/style.css" />
+    <link rel="stylesheet" href="/<?= $_ENV['SRC_DIR']?>/assets/css/error403.css" />
     <title>Error 403</title>
 
     <script src="https://kit.fontawesome.com/be947b2e4a.js" crossorigin="anonymous"></script>

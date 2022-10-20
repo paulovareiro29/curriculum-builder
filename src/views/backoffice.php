@@ -3,9 +3,10 @@
   $success = 0;
   if($_SERVER['REQUEST_METHOD'] == "POST"){
     $name = $_POST["name"];
-    $person_name = $_POST["person_name"];
-
-    if(CurriculumController::create($name, $person_name)) {
+    $description = $_POST["description"];
+    $avatar = base64_encode(file_get_contents($_FILES["avatar"]["tmp_name"]));
+    
+    if(CurriculumController::create($name, $description, $avatar)) {
       $success = 1;
     }else{
       $success = 2;
@@ -26,8 +27,8 @@
       href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./src/assets/css/style.css" />
-    <link rel="stylesheet" href="./src/assets/css/backoffice.css" />
+    <link rel="stylesheet" href="/<?= $_ENV['SRC_DIR']?>/assets/css/style.css" />
+    <link rel="stylesheet" href="/<?= $_ENV['SRC_DIR']?>/assets/css/backoffice.css" />
     <title>Paulo Vareiro n24473</title>
 
     <script src="https://kit.fontawesome.com/be947b2e4a.js" crossorigin="anonymous"></script>
@@ -41,7 +42,7 @@
           <i class="fa-solid fa-xmark modal-close"></i>
         </h4>
         <div class="modal-body">
-          <form action="#" method="POST">
+          <form action="#" method="POST" enctype="multipart/form-data">
             <div class="form-row">
               <div class="form-group">
                   <label for="name">Name</label>
@@ -56,14 +57,27 @@
             </div>
             <div class="form-row">
               <div class="form-group">
-                  <label for="person_name">Person Name</label>
-                  <input
+                  <label for="description">Description</label>
+                  <textarea
                     type="text"
-                    name="person_name"
-                    id="person_name"
-                    placeholder="Person Name"
+                    name="description"
+                    id="description"
+                    placeholder="Description"
+                    rows="4"
                     required
-                  />
+                  ></textarea>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                  <label for="avatar">Avatar</label>
+                  <input
+                    type="file"
+                    name="avatar"
+                    id="avatar"
+                    placeholder="Avatar"
+                    required
+                  ></textarea>
               </div>
             </div>
             <div class="form-row">
@@ -96,11 +110,42 @@
         <div class="alert alert-danger">An error has occurred.</div>
       <?php endif; ?>
 
+
+      <div class="curriculums">
+        <h1>My Curriculums</h1>
+        <div class="curriculums-list">
+          <?php 
+            $list = CurriculumController::index();
+
+            foreach($list as $curriculum):?>
+              <div class="curriculum">
+                <div class="curriculum-body">
+                  <div class="curriculum-avatar">
+                    <img src="data:image/jpge;base64,<?=$curriculum['avatar'];?>" alt="">
+                  </div>
+                  <div class="curriculum-info">
+                    <h3><?= $curriculum['name']?></h3>
+                    <p><?= $curriculum['description']?></p>
+                  </div>
+                </div>
+                <div class="curriculum-options">
+                  <a class="icon color-warning" href="./edit/?id=<?=$curriculum['id']?>">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                  </a>
+                  <a class="icon color-danger" href="./delete/?id=<?=$curriculum['id']?>">
+                    <i class="fa-solid fa-trash"></i>
+                  </a>
+                </div>
+              </div>
+            <?php endforeach; ?>
+        </div>
+      </div>
+      
     </div>
     <a class="floating-button floating-button-left" href="./">
       <i class="fa fa-arrow-left"></i>  
     </a>
-    <script src="./src/assets/js/script.js"></script>
-    <script src="./src/assets/js/backoffice.js"></script>
+    <script src="/<?= $_ENV['SRC_DIR']?>/assets/js/script.js"></script>
+    <script src="/<?= $_ENV['SRC_DIR']?>/assets/js/backoffice.js"></script>
   </body>
 </html>
