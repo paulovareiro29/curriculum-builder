@@ -3,6 +3,7 @@
 
     class Curriculum extends Database {
         public $id;
+        public $user_id;
         public $name;
         public $person_name;
         public $avatar;
@@ -17,13 +18,13 @@
         }
 
         public function create(){
-            $sql = "INSERT INTO curriculum (name, description, avatar) VALUES (?,?,?)";
+            $sql = "INSERT INTO curriculum (user_id, name, description, avatar) VALUES (?,?,?,?)";
 
             $this->connect();
             
             $stmt = $this->conn->stmt_init();
             $stmt = $this->conn->prepare($sql);
-            $stmt->bind_param("sss", $this->name, $this->description, $this->avatar);
+            $stmt->bind_param("isss", $this->user_id, $this->name, $this->description, $this->avatar);
             $result = $stmt->execute();
 
             $this->close();
@@ -49,6 +50,21 @@
 
         public static function index() {
             $sql = "SELECT * FROM curriculum WHERE deleted_at IS NULL";
+
+            $conn = new mysqli($_ENV['DB_SERVER'], $_ENV['DB_USERNAME'], $_ENV['DB_PASSWORD'], $_ENV['DB_NAME']);
+
+            if($conn->connect_error) {
+                die("Connection to Database has failed: " . $conn->connect_error);
+            }
+
+            $result = $conn->query($sql);
+            $conn->close();
+
+            return $result;
+        }
+
+        public static function indexByUser($id) {
+            $sql = "SELECT * FROM curriculum WHERE deleted_at IS NULL AND user_id = " . $id;
 
             $conn = new mysqli($_ENV['DB_SERVER'], $_ENV['DB_USERNAME'], $_ENV['DB_PASSWORD'], $_ENV['DB_NAME']);
 

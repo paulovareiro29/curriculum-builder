@@ -6,7 +6,7 @@
     $description = $_POST["description"];
     $avatar = base64_encode(file_get_contents($_FILES["avatar"]["tmp_name"]));
     
-    if(CurriculumController::create($name, $description, $avatar)) {
+    if(CurriculumController::create($_SESSION['user'], $name, $description, $avatar)) {
       $success = 1;
     }else{
       $success = 2;
@@ -121,7 +121,7 @@
         <h1>My Curriculums</h1>
         <div class="curriculums-list">
           <?php 
-            $list = CurriculumController::index();
+            $list = CurriculumController::indexByUser($_SESSION["user"]);
 
             foreach($list as $curriculum):?>
               <div class="curriculum">

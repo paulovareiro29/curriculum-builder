@@ -32,6 +32,7 @@ CREATE TABLE `user_role` (
 
 CREATE TABLE `curriculum` (
     `id` INT NOT NULL AUTO_INCREMENT,
+    `user_id` INT NOT NULL,
     `name` VARCHAR(255) NOT NULL,
     `description` VARCHAR(255),
     `person_name` VARCHAR(255),
@@ -44,5 +45,8 @@ CREATE TABLE `curriculum` (
     `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     `deleted_at` TIMESTAMP NULL DEFAULT NULL,
-    PRIMARY KEY (`id`)
+    PRIMARY KEY (`id`),
+    CONSTRAINT FK_CU_USER
+        FOREIGN KEY (`user_id`)
+            REFERENCES user(`id`)
 );
