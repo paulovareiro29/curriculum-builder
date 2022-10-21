@@ -50,3 +50,73 @@ CREATE TABLE `curriculum` (
         FOREIGN KEY (`user_id`)
             REFERENCES user(`id`)
 );
+
+CREATE TABLE `profile` (
+    `id` INT NOT NULL AUTO_INCREMENT,
+    `curriculum_id` INT NOT NULL,
+    `content` VARCHAR(2048) NOT NULL,
+    `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY (`id`),
+    CONSTRAINT FK_PC_PROFILE
+        FOREIGN KEY (`curriculum_id`)
+            REFERENCES curriculum(`id`)
+);
+
+CREATE TABLE `info` (
+    `id` INT NOT NULL AUTO_INCREMENT,
+    `curriculum_id` INT NOT NULL,
+    `href` VARCHAR(255) NOT NULL,
+    `content` VARCHAR(255) NOT NULL,
+    `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY (`id`),
+    CONSTRAINT FK_IC_INFO
+        FOREIGN KEY (`curriculum_id`)
+            REFERENCES curriculum(`id`)
+);
+
+CREATE TABLE `skill` (
+    `id` INT NOT NULL AUTO_INCREMENT,
+    `curriculum_id` INT NOT NULL,
+    `content` VARCHAR(255) NOT NULL,
+    `rating` FLOAT NOT NULL,
+    `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY (`id`),
+    CONSTRAINT FK_SC_SKILL
+        FOREIGN KEY (`curriculum_id`)
+            REFERENCES curriculum(`id`)
+);
+
+CREATE TABLE `education` (
+    `id` INT NOT NULL AUTO_INCREMENT,
+    `curriculum_id` INT NOT NULL,
+    `start_date` VARCHAR(255) NOT NULL,
+    `end_date` VARCHAR(255) NOT NULL,
+    `school` VARCHAR(255) NOT NULL,
+    `course` VARCHAR(255) NOT NULL,
+    `location` VARCHAR(255) NOT NULL,
+    `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY (`id`),
+    CONSTRAINT FK_EC_EDUCATION
+        FOREIGN KEY (`curriculum_id`)
+            REFERENCES curriculum(`id`)
+);
+
+CREATE TABLE `experience` (
+    `id` INT NOT NULL AUTO_INCREMENT,
+    `curriculum_id` INT NOT NULL,
+    `start_date` VARCHAR(255) NOT NULL,
+    `end_date` VARCHAR(255) NOT NULL,
+    `company` VARCHAR(255) NOT NULL,
+    `role` VARCHAR(255) NOT NULL,
+    `content` VARCHAR(2048) NOT NULL,
+    `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY (`id`),
+    CONSTRAINT FK_EC_EXPERIENCE
+        FOREIGN KEY (`curriculum_id`)
+            REFERENCES curriculum(`id`)
+);
