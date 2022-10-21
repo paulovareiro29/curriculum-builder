@@ -152,6 +152,6 @@
       <i class="fa fa-arrow-left"></i>  
     </a>
     <script src="/<?= $_ENV['SRC_DIR']?>/assets/js/script.js"></script>
-    <script src="/<?= $_ENV['SRC_DIR']?>/assets/js/backoffice.js"></script>
+    <!-- <script src="/<?= $_ENV['SRC_DIR']?>/assets/js/backoffice.js"></script> -->
   </body>
 </html>

@@ -46,6 +46,13 @@
           require __DIR__ . '/src/views/error403.php';
         }
         break;
+    case '/backoffice/edit/':
+        if(AuthController::isAdmin()){
+          require __DIR__ . '/src/views/edit.php';
+        }else{
+          require __DIR__ . '/src/views/error403.php';
+        }
+        break;
     default:
         http_response_code(404);
         require __DIR__ . '/src/views/error404.php'; 
