@@ -88,7 +88,7 @@
       </div>
     </div>
 
-    <div class="modal" id="delete-curriculum">
+    <!-- <div class="modal" id="delete-curriculum">
       <div class="modal-background"></div>
       <div class="modal-wrapper">
         <h4 class="modal-title">
@@ -100,7 +100,7 @@
           <a class="btn" href="/<?=$_ENV["BASE_DIR"] ?>/backoffice/delete/?id=<?=$curriculum['id']?>" name="delete-curriculum">CONFIRM</a>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <div class="navbar">
       <div class="navbar-wrapper">
@@ -152,9 +152,9 @@
                   <a class="icon color-warning" href="/<?=$_ENV["BASE_DIR"] ?>/backoffice/edit/?id=<?=$curriculum['id']?>">
                     <i class="fa-solid fa-pen-to-square"></i>
                   </a>
-                  <button class="icon color-danger" onclick="showModal('delete-curriculum')">
+                  <a class="icon color-danger" href="/<?=$_ENV["BASE_DIR"] ?>/backoffice/delete/?id=<?=$curriculum['id']?>">
                     <i class="fa-solid fa-trash"></i>
-                  </button>
+                  </a>
                 </div>
               </div>
             <?php endforeach; ?>
