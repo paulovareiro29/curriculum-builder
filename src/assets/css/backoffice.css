@@ -66,3 +66,9 @@
   padding-top: 8px;
   border-top: 1px solid var(--secondary);
 }
+
+/* MODAL */
+.modal#delete-curriculum p {
+  text-align: center;
+  margin: 0;
+}

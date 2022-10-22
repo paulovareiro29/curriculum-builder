@@ -83,6 +83,36 @@ a {
   color: var(--warning);
 }
 
+/* BUTTONS */
+.btn {
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid var(--primary);
+  background-color: var(--primary);
+  color: white;
+  line-height: 1.5rem;
+  font-size: 0.9rem;
+  margin: 0;
+
+  transition: background-color 0.2s;
+}
+
+.btn:hover {
+  background-color: #1e252b;
+  border-color: #1e252b;
+}
+
+.btn-danger {
+  border: 1px solid var(--danger);
+  background-color: var(--danger);
+}
+
+.btn-danger:hover {
+  background-color: #e23e3e;
+  border-color: #e23e3e;
+}
+
 /* FORMS */
 .form-row {
   display: flex;

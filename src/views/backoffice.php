@@ -88,6 +88,20 @@
       </div>
     </div>
 
+    <div class="modal" id="delete-curriculum">
+      <div class="modal-background"></div>
+      <div class="modal-wrapper">
+        <h4 class="modal-title">
+          Are you sure?
+          <i class="fa-solid fa-xmark modal-close"></i>
+        </h4>
+        <div class="modal-body">
+          <a class="btn btn-danger" name="delete-curriculum" onclick="closeModal('delete-curriculum')">CANCEL</a>
+          <a class="btn" href="/<?=$_ENV["BASE_DIR"] ?>/backoffice/delete/?id=<?=$curriculum['id']?>" name="delete-curriculum">CONFIRM</a>
+        </div>
+      </div>
+    </div>
+
     <div class="navbar">
       <div class="navbar-wrapper">
         <div>
@@ -138,9 +152,9 @@
                   <a class="icon color-warning" href="/<?=$_ENV["BASE_DIR"] ?>/backoffice/edit/?id=<?=$curriculum['id']?>">
                     <i class="fa-solid fa-pen-to-square"></i>
                   </a>
-                  <a class="icon color-danger" href="/<?=$_ENV["BASE_DIR"] ?>/backoffice/delete/?id=<?=$curriculum['id']?>">
+                  <button class="icon color-danger" onclick="showModal('delete-curriculum')">
                     <i class="fa-solid fa-trash"></i>
-                  </a>
+                  </button>
                 </div>
               </div>
             <?php endforeach; ?>

@@ -19,7 +19,7 @@ const showModal = (id) => {
   document.getElementById(id).classList.add("show");
 };
 
-const closeModal = () => {
+const closeModal = (id) => {
   document.getElementById(id).classList.remove("show");
 };
 
