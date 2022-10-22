@@ -37,7 +37,7 @@
         }
 
         public function get(){
-            $sql = "SELECT * FROM curriculum WHERE id = " . $this->id;
+            $sql = "SELECT * FROM curriculum WHERE deleted_at IS NULL AND id = " . $this->id;
 
             $this->connect();
             $result = $this->conn->query($sql);

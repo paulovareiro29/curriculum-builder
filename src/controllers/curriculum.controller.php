@@ -15,6 +15,11 @@
             return Curriculum::indexByUser($user['id']);
         }
 
+        public static function get($id){
+            $curriculum = new Curriculum($id);
+            return $curriculum->get();
+        }
+
         public static function create($username, $name, $description, $avatar) {
             $user = new User($username);
             if(($user = $user->get()) === null) return false;

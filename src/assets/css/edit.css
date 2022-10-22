@@ -18,7 +18,6 @@
 
 .curriculum > .col:last-child {
   flex: 2;
-  height: 200vh;
 }
 
 /* NAVIGATION */
@@ -69,4 +68,76 @@
   margin-right: 32px;
   width: 20px;
   height: 20px;
+}
+
+/* CONTENT */
+.curriculum > #main-content > * {
+  padding: 20px;
+}
+
+.curriculum > #main-content h1 {
+  margin-bottom: 20px;
+}
+
+.curriculum > #main-content > *:not(:first-child) {
+  display: none;
+}
+
+/* CONTENT - PROFILE */
+.curriculum > #main-content .profile-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.curriculum > #main-content .profile-avatar {
+  position: relative;
+  width: 150px;
+  height: 150px;
+
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.curriculum > #main-content .profile-avatar .avatar-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--secondary);
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  cursor: pointer;
+}
+
+.curriculum > #main-content .profile-avatar img {
+  width: 100%;
+}
+
+.curriculum > #main-content .profile-avatar figcaption {
+  position: absolute;
+  top: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  opacity: 0;
+  transition: all ease-in-out 0.2s;
+  background-color: rgba(62, 74, 86, 0);
+
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+
+  color: white;
+}
+
+.curriculum > #main-content .profile-avatar figcaption:hover {
+  opacity: 1;
+  background-color: rgba(62, 74, 86, 0.5);
+}
+
+.curriculum > #main-content .profile-avatar input[type="file"] {
+  display: none;
 }

@@ -25,7 +25,7 @@ const closeModal = (id) => {
 
 loadModals();
 
-window.history.replaceState(null, null, window.location.pathname);
+/* window.history.replaceState(null, null, window.location.pathname); */
 
 // Magic code to stop form resubmission on page refresh
 if (window.history.replaceState) {
