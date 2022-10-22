@@ -21,7 +21,7 @@
       <div class="navbar">
         <div class="navbar-wrapper">
           <div>
-            <a href="./backoffice">Manage my curriculum</a>
+            <a href="./backoffice">Manage my curriculums</a>
           </div>
           <div>
             <p>Logged in as <b><?php echo $_SESSION["user"]; ?></b></p>

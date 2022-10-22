@@ -33,6 +33,11 @@ a {
 }
 
 /* LAYOUTS */
+.main-container {
+  max-width: 1150px;
+  margin: auto;
+}
+
 .vw-100 {
   width: 100vw;
 }
