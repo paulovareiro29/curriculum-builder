@@ -5,6 +5,7 @@
   if($curriculum === null) AuthController::redirectTo("/" . $_ENV['BASE_DIR'] . "/backoffice");
   
   $info = $curriculum['info'];
+  $skills = $curriculum['skills'];
 ?>
 
 <!DOCTYPE html>
@@ -160,9 +161,9 @@
 
             <button class="btn btn-primary" type="button" id="add-info">Add new</button>
 
-            <div id="info-list">
+            <div id="info-list" class="items-list">
               <?php foreach($info as $item):?>
-                  <div class="form-row" data-info="<?= $item['id']?>">
+                  <div class="form-row" data-id="<?= $item['id']?>">
                     <div class="form-group">
                       <label>Content</label>
                       <input
@@ -196,6 +197,38 @@
               class="editable-header" 
               data-field="skills_header"
               value="<?=$curriculum['skills_header']?>"/>
+
+            <button class="btn btn-primary" type="button" id="add-skill">Add new</button>
+
+            <div id="skills-list" class="items-list">
+              <?php foreach($skills as $item):?>
+                  <div class="form-row" data-id="<?= $item['id']?>">
+                    <div class="form-group">
+                      <label>Content</label>
+                      <input
+                        type="text"
+                        data-content
+                        placeholder="Content"
+                        value="<?=$item['content']?>"
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label>Rating</label>
+                      <input
+                        type="number"
+                        data-rating
+                        placeholder="Rating"
+                        min="0"
+                        max="5"
+                        value="<?=$item['rating']?>"
+                      />
+                    </div>
+                    <button class="btn btn-danger" type="button">X</button>
+
+                  </div>
+                
+              <?php endforeach;?>
+            </div>
           </div>
 
           <div id="education">

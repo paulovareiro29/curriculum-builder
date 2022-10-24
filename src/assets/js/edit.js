@@ -22,6 +22,33 @@ const createInfoRow = () => {
   return row;
 };
 
+const createSkillRow = () => {
+  const row = `
+  <div class="form-row">
+    <div class="form-group">
+      <label>Content</label>
+      <input
+        type="text"
+        data-content
+        placeholder="Content"
+      />
+    </div>
+    <div class="form-group">
+      <label>Rating</label>
+      <input
+        type="number"
+        data-rating
+        placeholder="Rating"
+        min="0"
+        max="5"
+      />
+    </div>
+    <button class="btn btn-danger" type="button">X</button>
+  </div>`;
+
+  return row;
+};
+
 const changeWindowTo = (id) => {
   const items = document.getElementById("main-content").children;
 
@@ -78,6 +105,7 @@ const loadForm = () => {
 
     let json = {
       info: [],
+      skills: [],
     };
     for (let input of inputList) {
       const field = input.dataset.field;
@@ -100,9 +128,23 @@ const loadForm = () => {
         const href = $(row).find("input[data-href]");
 
         json.info.push({
-          id: $(row).data("info"),
+          id: $(row).data("id"),
           content: content.val(),
           href: href.val(),
+        });
+      });
+
+    /** SKILL */
+    $("#skills-list")
+      .children(".form-row")
+      .each((_, row) => {
+        const content = $(row).find("input[data-content]");
+        const rating = $(row).find("input[data-rating]");
+
+        json.skills.push({
+          id: $(row).data("id"),
+          content: content.val(),
+          rating: rating.val(),
         });
       });
 
@@ -136,9 +178,18 @@ const loadForm = () => {
   $("#info-list").on("click", ".btn-danger", (e) => {
     $(e.target).parent(".form-row").remove();
   });
+
+  /** SKILL */
+  $("#add-skill").click((e) => {
+    $("#skills-list").append(createSkillRow());
+  });
+
+  $("#skills-list").on("click", ".btn-danger", (e) => {
+    $(e.target).parent(".form-row").remove();
+  });
 };
 
 loadNavigation();
 loadForm();
 
-changeWindowTo("info");
+changeWindowTo("skills");

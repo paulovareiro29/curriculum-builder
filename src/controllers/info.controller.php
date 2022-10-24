@@ -13,8 +13,6 @@
             $info->href = $href;
             $info->content = $content;
 
-            echo $content;
-
             return $info->create();
         }
 

@@ -153,15 +153,11 @@
 }
 
 /* CONTENT - INFO */
-.curriculum #main-content #info-list {
+.curriculum #main-content .items-list {
   margin-top: 20px;
 }
 
-.curriculum #main-content #info-list > * {
-  /*   border: 1px solid var(--primary); */
-}
-
-.curriculum #main-content #info-list > * .btn-danger {
+.curriculum #main-content .items-list > * .btn-danger {
   flex: 0;
   min-width: 50px;
 }

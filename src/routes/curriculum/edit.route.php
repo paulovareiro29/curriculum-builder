@@ -11,5 +11,11 @@
         InfoController::create($id, $item['href'], $item['content']);
     }
 
+    $skills = $data['skills'];
+    SkillController::deleteByCurriculum(($id));
+    foreach($skills as $item){
+        SkillController::create($id, $item['content'], $item['rating']);
+    }
+
     http_response_code(200);
     die();
