@@ -141,7 +141,7 @@
               <div class="curriculum">
                 <div class="curriculum-body">
                   <div class="curriculum-avatar">
-                    <img src="data:image/jpge;base64,<?=$curriculum['avatar'];?>" alt="">
+                    <img src="<?=$curriculum['avatar'];?>" alt="">
                   </div>
                   <div class="curriculum-info">
                     <h3><?= $curriculum['name']?></h3>

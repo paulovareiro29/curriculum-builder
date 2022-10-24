@@ -37,6 +37,7 @@ CREATE TABLE `curriculum` (
     `description` VARCHAR(255),
     `person_name` VARCHAR(255),
     `avatar` LONGBLOB,
+    `summary` VARCHAR(2048) NOT NULL,
     `profile` VARCHAR(255) NOT NULL DEFAULT 'Profile',
     `info` VARCHAR(255) NOT NULL DEFAULT 'Info',
     `skills` VARCHAR(255) NOT NULL DEFAULT 'Skills',
@@ -51,7 +52,7 @@ CREATE TABLE `curriculum` (
             REFERENCES user(`id`)
 );
 
-CREATE TABLE `profile` (
+/* CREATE TABLE `profile` (
     `id` INT NOT NULL AUTO_INCREMENT,
     `curriculum_id` INT NOT NULL,
     `content` VARCHAR(2048) NOT NULL,
@@ -61,7 +62,7 @@ CREATE TABLE `profile` (
     CONSTRAINT FK_PC_PROFILE
         FOREIGN KEY (`curriculum_id`)
             REFERENCES curriculum(`id`)
-);
+); */
 
 CREATE TABLE `info` (
     `id` INT NOT NULL AUTO_INCREMENT,

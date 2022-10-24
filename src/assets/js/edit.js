@@ -30,4 +30,52 @@ const loadNavigation = () => {
   }
 };
 
+const toBase64 = (file) =>
+  new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = (error) => reject(error);
+  });
+
+const loadForm = () => {
+  /** AVATAR VISUAL UPDATE */
+  document.getElementById("avatar-input").onchange = (e) => {
+    toBase64(e.target.files[0]).then((file) => {
+      document.getElementById("avatar-img").src = file;
+    });
+  };
+
+  /** FORM */
+  document.getElementById("edit-form").onsubmit = async (e) => {
+    e.preventDefault();
+
+    const inputList = e.target.querySelectorAll("[data-field]");
+
+    let json = {};
+    for (let input of inputList) {
+      const field = input.dataset.field;
+      switch (field) {
+        case "avatar":
+          if (input.files[0]) {
+            json["avatar"] = await toBase64(input.files[0]);
+          }
+          break;
+        default:
+          json[`${input.dataset.field}`] = input.value;
+      }
+    }
+
+    axios
+      .post("/curriculum/api/edit/?id=" + e.target.dataset.curriculum, json)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+};
+
 loadNavigation();
+loadForm();

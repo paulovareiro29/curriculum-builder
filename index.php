@@ -53,6 +53,13 @@
           require __DIR__ . '/src/views/error403.php';
         }
         break;
+    case '/api/edit/': 
+        if(AuthController::isAdmin()) {
+          require __DIR__ . '/src/routes/curriculum/edit.route.php';
+        }else{
+          require __DIR__ . '/src/views/error403.php';
+        }
+        break;
     default:
         http_response_code(404);
         require __DIR__ . '/src/views/error404.php'; 

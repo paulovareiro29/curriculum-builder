@@ -7,6 +7,7 @@
         public $name;
         public $person_name;
         public $avatar;
+        public $summary;
         public $profile;
         public $info;
         public $skills;
@@ -45,7 +46,12 @@
 
             if(!isset($result) || $result->num_rows <= 0) return null;
 
-            foreach ($result as $row) return $row;
+            foreach ($result as $row){
+                foreach($row as $key => $field) {
+                    $this->$key = $field;
+                 }
+                return $row;
+            }
         }
 
         public static function index() {
@@ -92,5 +98,25 @@
             }
 
             return false;
+        }
+
+        public function update() {
+            $sql = "UPDATE curriculum SET 
+                name = '{$this->name}',
+                person_name = '{$this->person_name}',
+                avatar = '{$this->avatar}',
+                summary = '{$this->summary}',
+                profile = '{$this->profile}',
+                info = '{$this->info}',
+                skills = '{$this->skills}',
+                education = '{$this->education}',
+                experience = '{$this->experience}'
+                WHERE id = {$this->id}";
+            
+            $this->connect();
+            $result = $this->conn->query($sql);
+            $this->close();
+
+            return $result;
         }
     }
