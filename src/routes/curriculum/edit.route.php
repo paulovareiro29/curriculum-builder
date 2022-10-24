@@ -31,6 +31,13 @@
         }
     }
 
+    $experience = $data['experience'];
+    if(isset($experience)){
+        ExperienceController::deleteByCurriculum(($id));
+        foreach($experience as $item){
+            ExperienceController::create($id, $item['start_date'], $item['end_date'], $item['company'], $item['role'], $item['summary']);
+        }
+    }
 
     http_response_code(200);
     die();

@@ -7,6 +7,7 @@
   $info = $curriculum['info'];
   $skills = $curriculum['skills'];
   $education = $curriculum['education'];
+  $experience = $curriculum['experience'];
 ?>
 
 <!DOCTYPE html>
@@ -311,6 +312,68 @@
                 class="editable-header" 
                 data-field="experience_header"
                 value="<?=$curriculum['experience_header']?>"/>
+
+            <button class="btn btn-primary" type="button" id="add-experience">Add new</button>
+
+            <div id="experience-list" class="items-list multiple-row">
+              <?php foreach($experience as $item):?>
+                <div class="item"  data-id="<?= $item['id']?>">
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label>Start Date</label>
+                      <input
+                        type="text"
+                        data-start_date
+                        placeholder="Start Date"
+                        value="<?=$item['start_date']?>"
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label>End Date</label>
+                      <input
+                        type="text"
+                        data-end_date
+                        placeholder="End Date"
+                        value="<?=$item['end_date']?>"
+                      />
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label>Company</label>
+                      <input
+                        type="text"
+                        data-company
+                        placeholder="Company"
+                        value="<?=$item['company']?>"
+                      />
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label>Role</label>
+                      <input
+                        type="text"
+                        data-role
+                        placeholder="Role"
+                        value="<?=$item['role']?>"
+                      />
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label>Summary</label>
+                      <textarea
+                        data-summary
+                        rows="4"
+                        placeholder="Summary"
+                      ><?=$item['summary']?></textarea>                      
+                    </div>
+                  </div>
+                  <button class="btn btn-danger" type="button">x</button>
+                </div>
+              <?php endforeach;?>
+            </div>
           </div>
         </div>
         <div class="form-row">

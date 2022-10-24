@@ -106,6 +106,62 @@ const createEducationRow = () => {
   return row;
 };
 
+const createExperienceRow = () => {
+  const row = `
+  <div class="item">
+    <div class="form-row">
+      <div class="form-group">
+        <label>Start Date</label>
+        <input
+          type="text"
+          data-start_date
+          placeholder="Start Date"
+        />
+      </div>
+      <div class="form-group">
+        <label>End Date</label>
+        <input
+          type="text"
+          data-end_date
+          placeholder="End Date"
+        />
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Company</label>
+        <input
+          type="text"
+          data-company
+          placeholder="Company"
+        />
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Role</label>
+        <input
+          type="text"
+          data-role
+          placeholder="Role"
+        />
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Summary</label>
+        <textarea
+          data-summary
+          rows="4"
+          placeholder="Summary"></textarea>
+      </div>
+    </div>
+    <button class="btn btn-danger" type="button">x</button>
+  </div>`;
+
+  return row;
+};
+
 const changeWindowTo = (id) => {
   const items = document.getElementById("main-content").children;
 
@@ -164,6 +220,7 @@ const loadForm = () => {
       info: [],
       skills: [],
       education: [],
+      experience: [],
     };
 
     for (let input of inputList) {
@@ -227,6 +284,26 @@ const loadForm = () => {
         });
       });
 
+    /** EXPERIENCE */
+    $("#experience-list")
+      .children(".item")
+      .each((_, row) => {
+        const start_date = $(row).find("input[data-start_date]");
+        const end_date = $(row).find("input[data-end_date]");
+        const company = $(row).find("input[data-company]");
+        const role = $(row).find("input[data-role]");
+        const summary = $(row).find("[data-summary]");
+
+        json.experience.push({
+          id: $(row).data("id"),
+          start_date: start_date.val(),
+          end_date: end_date.val(),
+          company: company.val(),
+          role: role.val(),
+          summary: summary.val(),
+        });
+      });
+
     console.log(json);
 
     axios
@@ -275,9 +352,16 @@ const loadForm = () => {
   $("#education-list").on("click", ".btn-danger", (e) => {
     $(e.target).parent(".item").remove();
   });
+
+  /** EXPERIENCE */
+  $("#add-experience").click((e) => {
+    $("#experience-list").append(createExperienceRow());
+  });
+
+  $("#experience-list").on("click", ".btn-danger", (e) => {
+    $(e.target).parent(".item").remove();
+  });
 };
 
 loadNavigation();
 loadForm();
-
-changeWindowTo("education");

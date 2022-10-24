@@ -4,6 +4,7 @@
     include_once "{$_SERVER['DOCUMENT_ROOT']}/{$_ENV['SRC_DIR']}" . '/controllers/info.controller.php';
     include_once "{$_SERVER['DOCUMENT_ROOT']}/{$_ENV['SRC_DIR']}" . '/controllers/skill.controller.php';
     include_once "{$_SERVER['DOCUMENT_ROOT']}/{$_ENV['SRC_DIR']}" . '/controllers/education.controller.php';
+    include_once "{$_SERVER['DOCUMENT_ROOT']}/{$_ENV['SRC_DIR']}" . '/controllers/experience.controller.php';
 
     class CurriculumController {
 
@@ -25,6 +26,7 @@
             $curriculum['info'] = InfoController::indexByCurriculum($id);
             $curriculum['skills'] = SkillController::indexByCurriculum($id);
             $curriculum['education'] = EducationController::indexByCurriculum($id);
+            $curriculum['experience'] = ExperienceController::indexByCurriculum($id);
 
             return $curriculum;
         }
