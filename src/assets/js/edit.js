@@ -69,10 +69,20 @@ const loadForm = () => {
     axios
       .post("/curriculum/api/edit/?id=" + e.target.dataset.curriculum, json)
       .then((res) => {
-        console.log(res);
+        const badge = document.getElementById("badge-edit-success");
+        badge.style.display = "block";
+
+        setTimeout(() => {
+          badge.style.display = "none";
+        }, 3000);
       })
       .catch((err) => {
-        console.log(err);
+        const badge = document.getElementById("badge-edit-error");
+        badge.style.display = "block";
+
+        setTimeout(() => {
+          badge.style.display = "none";
+        }, 3000);
       });
   };
 };

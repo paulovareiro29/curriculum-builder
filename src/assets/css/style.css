@@ -76,6 +76,10 @@ p {
   display: flex;
 }
 
+.d-none {
+  display: none;
+}
+
 .justify-center {
   justify-content: center;
 }

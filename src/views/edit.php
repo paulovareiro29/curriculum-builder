@@ -40,6 +40,10 @@
       </div>
     </div>
       
+    <div id="badge-edit-success" class="main-container alert alert-success d-none">Curriculum has been saved successfuly!</div>
+    <div id="badge-edit-error" class="main-container alert alert-danger d-none">An error occured while trying to save.</div>
+
+
     <div class="main-container curriculum">
       <nav id="edit-navigation" class="col">
         <ul>
