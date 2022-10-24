@@ -5,12 +5,14 @@
     $name = $_POST["name"];
     $description = $_POST["description"];
     $avatar = base64_encode(file_get_contents($_FILES["avatar"]["tmp_name"]));
-    
+    $avatar = "data:{$_FILES['avatar']['type']};base64,{$avatar}"; 
+
+
     if(CurriculumController::create($_SESSION['user'], $name, $description, $avatar)) {
       $success = 1;
     }else{
       $success = 2;
-    }
+    } 
   }
 
 ?>
