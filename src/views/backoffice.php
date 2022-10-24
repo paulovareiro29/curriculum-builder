@@ -151,6 +151,9 @@
                   </div>
                 </div>
                 <div class="curriculum-options">
+                  <a class="icon" href="/<?=$_ENV["BASE_DIR"] ?>/?id=<?=$curriculum['id']?>">
+                    <i class="fa-solid fa-eye"></i>
+                  </a>
                   <a class="icon color-warning" href="/<?=$_ENV["BASE_DIR"] ?>/backoffice/edit/?id=<?=$curriculum['id']?>">
                     <i class="fa-solid fa-pen-to-square"></i>
                   </a>
@@ -164,9 +167,6 @@
       </div>
       
     </div>
-    <a class="floating-button floating-button-left" href="/<?= $_ENV['BASE_DIR']?>">
-      <i class="fa fa-arrow-left"></i>  
-    </a>
     <script src="/<?= $_ENV['SRC_DIR']?>/assets/js/script.js"></script>
     <!-- <script src="/<?= $_ENV['SRC_DIR']?>/assets/js/backoffice.js"></script> -->
   </body>

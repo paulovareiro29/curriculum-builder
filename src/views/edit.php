@@ -382,6 +382,10 @@
       </form>
     </div>
 
+    <a class="floating-button floating-button-left" href="/<?= $_ENV['BASE_DIR']?>/backoffice">
+      <i class="fa fa-arrow-left"></i>  
+    </a>
+
     <script src="/<?=$_ENV['SRC_DIR']?>/assets/js/jquery.js"></script>
     <script src="/<?=$_ENV['SRC_DIR']?>/assets/js/script.js"></script>
     <script src="/<?=$_ENV['SRC_DIR']?>/assets/js/edit.js"></script>
