@@ -83,6 +83,16 @@
   display: none;
 }
 
+/* CONTENT - EDITABLE HEADERS */
+.curriculum .editable-header {
+  margin-bottom: 20px;
+  border: 0;
+  font-size: 2em;
+  font-weight: bold;
+  width: 100%;
+  padding: 0;
+}
+
 /* CONTENT - PROFILE */
 .curriculum #main-content .profile-header {
   display: flex;

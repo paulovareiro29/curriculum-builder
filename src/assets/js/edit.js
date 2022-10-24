@@ -66,6 +66,8 @@ const loadForm = () => {
       }
     }
 
+    console.log(json);
+
     axios
       .post("/curriculum/api/edit/?id=" + e.target.dataset.curriculum, json)
       .then((res) => {
@@ -89,3 +91,5 @@ const loadForm = () => {
 
 loadNavigation();
 loadForm();
+
+changeWindowTo("profile");

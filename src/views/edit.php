@@ -47,7 +47,9 @@
     <div class="main-container curriculum">
       <nav id="edit-navigation" class="col">
         <ul>
-          <li class="active" data-link="profile"><i class="fa-solid fa-user"></i><p>Profile</p></li>
+          <li class="active" data-link="general"><i class="fa-solid fa-house"></i><p>General</p></li>
+          <li data-link="profile"><i class="fa-solid fa-user"></i><p>Profile</p></li>
+          <li data-link="info"><i class="fa-solid fa-circle-info"></i><p>Info</p></li>
           <li data-link="skills"><i class="fa-solid fa-star"></i><p>Skills</p></li>
           <li data-link="education"><i class="fa-sharp fa-solid fa-graduation-cap"></i><p>Education</p></li>
           <li data-link="experience"><i class="fa-solid fa-building"></i><p>Experience</p></li>
@@ -56,8 +58,47 @@
 
       <form id="edit-form" data-curriculum="<?=$curriculum['id']?>" class="col" enctype="multipart/form-data">
         <div id="main-content" class="form-row">
+          <div id="general">
+            <h1>General</h1>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  placeholder="Name"
+                  value="<?=$curriculum['name']?>"
+                  data-field="name"
+                  required
+                />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="description">Description</label>
+                <textarea
+                  type="text"
+                  name="description"
+                  id="description"
+                  placeholder="Description"
+                  rows="4"
+                  data-field="description"
+                  required
+                ><?=$curriculum['description']?></textarea>
+              </div>
+            </div>
+          </div>
+
           <div id="profile">
-            <h1>Profile</h1>
+
+            <input 
+              type="text"
+              name="profile"
+              class="editable-header" 
+              data-field="profile"
+              value="<?=$curriculum['profile']?>"/>
+
             <div class="profile-header">
               <div>
                 <div class="profile-avatar">
@@ -109,9 +150,40 @@
             
 
           </div>
-          <div id="skills"><h1>Skills</h1></div>
-          <div id="education"><h1>Education</h1></div>
-          <div id="experience"><h1>Experience</h1></div>
+
+          <div id="info">
+            <input 
+                type="text"
+                name="info"
+                class="editable-header" 
+                data-field="info"
+                value="<?=$curriculum['info']?>"/>
+          </div>
+
+          <div id="skills">
+            <input 
+              type="text"
+              name="skills"
+              class="editable-header" 
+              data-field="skills"
+              value="<?=$curriculum['skills']?>"/>
+          </div>
+          <div id="education">
+            <input 
+              type="text"
+              name="education"
+              class="editable-header" 
+              data-field="education"
+              value="<?=$curriculum['education']?>"/>
+          </div>
+          <div id="experience">
+            <input 
+                type="text"
+                name="experience"
+                class="editable-header" 
+                data-field="experience"
+                value="<?=$curriculum['experience']?>"/>
+          </div>
         </div>
         <div class="form-row">
           <button type="submit" name="edit-curriculum">SAVE</button>
