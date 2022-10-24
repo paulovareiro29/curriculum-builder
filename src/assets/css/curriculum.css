@@ -27,6 +27,7 @@
 .profile .profile-header .profile-header-info > * {
   margin: 0;
   color: var(--primary);
+  text-transform: uppercase;
 }
 
 .profile .profile-header .profile-header-info h2 {
@@ -114,6 +115,7 @@
   letter-spacing: 2px;
   margin: 0 0 8px 0;
   font-weight: 800;
+  text-transform: uppercase;
 }
 
 .profile .profile-body h4 {
@@ -239,6 +241,10 @@
 
 .profile-body .experience-section .experience ul {
   margin: 0;
+}
+
+.profile-body .experience-section .experience li {
+  line-height: 2rem;
 }
 
 @media only screen and (max-width: 576px) {
