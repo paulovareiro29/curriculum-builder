@@ -23,6 +23,8 @@
             $curriculum = new Curriculum($id);
             $curriculum = $curriculum->get();
 
+            if($curriculum === null) return null;
+
             $curriculum['info'] = InfoController::indexByCurriculum($id);
             $curriculum['skills'] = SkillController::indexByCurriculum($id);
             $curriculum['education'] = EducationController::indexByCurriculum($id);
