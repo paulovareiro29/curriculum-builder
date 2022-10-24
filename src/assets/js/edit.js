@@ -1,3 +1,27 @@
+const createInfoRow = () => {
+  const row = `
+  <div class="form-row">
+    <div class="form-group">
+      <label>Content</label>
+      <input
+        type="text"
+        data-content
+        placeholder="Content"
+      />
+    </div>
+    <div class="form-group">
+      <label>Href</label>
+      <input
+        data-href
+        placeholder="Href"
+      />
+    </div>
+    <button class="btn btn-danger" type="button">X</button>
+  </div>`;
+
+  return row;
+};
+
 const changeWindowTo = (id) => {
   const items = document.getElementById("main-content").children;
 
@@ -52,7 +76,9 @@ const loadForm = () => {
 
     const inputList = e.target.querySelectorAll("[data-field]");
 
-    let json = {};
+    let json = {
+      info: [],
+    };
     for (let input of inputList) {
       const field = input.dataset.field;
       switch (field) {
@@ -65,6 +91,20 @@ const loadForm = () => {
           json[`${input.dataset.field}`] = input.value;
       }
     }
+
+    /** INFO */
+    $("#info-list")
+      .children(".form-row")
+      .each((_, row) => {
+        const content = $(row).find("input[data-content]");
+        const href = $(row).find("input[data-href]");
+
+        json.info.push({
+          id: $(row).data("info"),
+          content: content.val(),
+          href: href.val(),
+        });
+      });
 
     console.log(json);
 
@@ -87,9 +127,18 @@ const loadForm = () => {
         }, 3000);
       });
   };
+
+  /** INFO */
+  $("#add-info").click((e) => {
+    $("#info-list").append(createInfoRow());
+  });
+
+  $("#info-list").on("click", ".btn-danger", (e) => {
+    $(e.target).parent(".form-row").remove();
+  });
 };
 
 loadNavigation();
 loadForm();
 
-changeWindowTo("profile");
+changeWindowTo("info");

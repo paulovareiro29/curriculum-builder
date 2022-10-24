@@ -2,7 +2,9 @@
   /*  Add verification to check if the curriculum 
       belongs to the user that requested           */
   $curriculum = CurriculumController::get($_GET['id']);
-  if($curriculum === null) AuthController::redirectTo("/" . $_ENV['BASE_DIR'] . "/backoffice")
+  if($curriculum === null) AuthController::redirectTo("/" . $_ENV['BASE_DIR'] . "/backoffice");
+  
+  $info = $curriculum['info'];
 ?>
 
 <!DOCTYPE html>
@@ -94,10 +96,10 @@
 
             <input 
               type="text"
-              name="profile"
+              name="profile_header"
               class="editable-header" 
-              data-field="profile"
-              value="<?=$curriculum['profile']?>"/>
+              data-field="profile_header"
+              value="<?=$curriculum['profile_header']?>"/>
 
             <div class="profile-header">
               <div>
@@ -126,7 +128,6 @@
                         placeholder="Name"
                         value="<?=$curriculum['person_name']?>"
                         data-field="person_name"
-                        required
                       />
                   </div>
                 </div>
@@ -139,9 +140,7 @@
                         id="summary"
                         placeholder="Summary"
                         rows="4"
-                        data-field="summary"
-                        required
-                      ><?=$curriculum['summary']?></textarea>
+                        data-field="summary"><?=$curriculum['summary']?></textarea>
                   </div>
                 </div>
               </div>
@@ -153,36 +152,68 @@
 
           <div id="info">
             <input 
-                type="text"
-                name="info"
-                class="editable-header" 
-                data-field="info"
-                value="<?=$curriculum['info']?>"/>
+              type="text"
+              name="info_header"
+              class="editable-header" 
+              data-field="info_header"
+              value="<?=$curriculum['info_header']?>"/>
+
+            <button class="btn btn-primary" type="button" id="add-info">Add new</button>
+
+            <div id="info-list">
+              <?php foreach($info as $item):?>
+                  <div class="form-row" data-info="<?= $item['id']?>">
+                    <div class="form-group">
+                      <label>Content</label>
+                      <input
+                        type="text"
+                        data-content
+                        placeholder="Content"
+                        value="<?=$item['content']?>"
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label>Href</label>
+                      <input
+                        data-href
+                        placeholder="Href"
+                        value="<?=$item['href']?>"
+                      />
+                    </div>
+                  <button class="btn btn-danger" type="button">X</button>
+
+                  </div>
+                
+              <?php endforeach;?>
+            </div>
+
           </div>
 
           <div id="skills">
             <input 
               type="text"
-              name="skills"
+              name="skills_header"
               class="editable-header" 
-              data-field="skills"
-              value="<?=$curriculum['skills']?>"/>
+              data-field="skills_header"
+              value="<?=$curriculum['skills_header']?>"/>
           </div>
+
           <div id="education">
             <input 
               type="text"
-              name="education"
+              name="education_header"
               class="editable-header" 
-              data-field="education"
-              value="<?=$curriculum['education']?>"/>
+              data-field="education_header"
+              value="<?=$curriculum['education_header']?>"/>
           </div>
+
           <div id="experience">
             <input 
                 type="text"
-                name="experience"
+                name="experience_header"
                 class="editable-header" 
-                data-field="experience"
-                value="<?=$curriculum['experience']?>"/>
+                data-field="experience_header"
+                value="<?=$curriculum['experience_header']?>"/>
           </div>
         </div>
         <div class="form-row">
@@ -191,6 +222,7 @@
       </form>
     </div>
 
+    <script src="/<?=$_ENV['SRC_DIR']?>/assets/js/jquery.js"></script>
     <script src="/<?=$_ENV['SRC_DIR']?>/assets/js/script.js"></script>
     <script src="/<?=$_ENV['SRC_DIR']?>/assets/js/edit.js"></script>
   </body>

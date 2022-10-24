@@ -1,6 +1,7 @@
 <?php 
     include_once "{$_SERVER['DOCUMENT_ROOT']}/{$_ENV['SRC_DIR']}" . '/services/curriculum.service.php';
     include_once "{$_SERVER['DOCUMENT_ROOT']}/{$_ENV['SRC_DIR']}" . '/services/user.service.php';
+    include_once "{$_SERVER['DOCUMENT_ROOT']}/{$_ENV['SRC_DIR']}" . '/controllers/info.controller.php';
 
     class CurriculumController {
 
@@ -17,7 +18,11 @@
 
         public static function get($id){
             $curriculum = new Curriculum($id);
-            return $curriculum->get();
+            $curriculum = $curriculum->get();
+
+            $curriculum['info'] = InfoController::indexByCurriculum($id);
+
+            return $curriculum;
         }
 
         public static function create($username, $name, $description, $avatar) {

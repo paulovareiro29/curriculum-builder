@@ -164,6 +164,7 @@ p {
   line-height: 2rem;
   padding: 0 4px;
 
+  pointer-events: none;
   transition: transform 0.2s, top 0.2s, left 0.2s;
 }
 

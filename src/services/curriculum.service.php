@@ -8,11 +8,11 @@
         public $person_name;
         public $avatar;
         public $summary;
-        public $profile;
-        public $info;
-        public $skills;
-        public $education;
-        public $experience;
+        public $profile_header;
+        public $info_header;
+        public $skills_header;
+        public $education_header;
+        public $experience_header;
 
         public function __construct($id = null) {
             $this->id = $id;
@@ -106,11 +106,11 @@
                 person_name = '{$this->person_name}',
                 avatar = '{$this->avatar}',
                 summary = '{$this->summary}',
-                profile = '{$this->profile}',
-                info = '{$this->info}',
-                skills = '{$this->skills}',
-                education = '{$this->education}',
-                experience = '{$this->experience}'
+                profile_header = '{$this->profile_header}',
+                info_header = '{$this->info_header}',
+                skills_header = '{$this->skills_header}',
+                education_header = '{$this->education_header}',
+                experience_header = '{$this->experience_header}'
                 WHERE id = {$this->id}";
             
             $this->connect();

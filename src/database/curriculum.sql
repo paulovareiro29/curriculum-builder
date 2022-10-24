@@ -38,11 +38,11 @@ CREATE TABLE `curriculum` (
     `person_name` VARCHAR(255),
     `avatar` LONGBLOB,
     `summary` VARCHAR(2048) NOT NULL,
-    `profile` VARCHAR(255) NOT NULL DEFAULT 'Profile',
-    `info` VARCHAR(255) NOT NULL DEFAULT 'Info',
-    `skills` VARCHAR(255) NOT NULL DEFAULT 'Skills',
-    `education` VARCHAR(255) NOT NULL DEFAULT 'Education',
-    `experience` VARCHAR(255) NOT NULL DEFAULT 'Experience',
+    `profile_header` VARCHAR(255) NOT NULL DEFAULT 'Profile',
+    `info_header` VARCHAR(255) NOT NULL DEFAULT 'Info',
+    `skills_header` VARCHAR(255) NOT NULL DEFAULT 'Skills',
+    `education_header` VARCHAR(255) NOT NULL DEFAULT 'Education',
+    `experience_header` VARCHAR(255) NOT NULL DEFAULT 'Experience',
     `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     `deleted_at` TIMESTAMP NULL DEFAULT NULL,
@@ -52,23 +52,11 @@ CREATE TABLE `curriculum` (
             REFERENCES user(`id`)
 );
 
-/* CREATE TABLE `profile` (
-    `id` INT NOT NULL AUTO_INCREMENT,
-    `curriculum_id` INT NOT NULL,
-    `content` VARCHAR(2048) NOT NULL,
-    `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    PRIMARY KEY (`id`),
-    CONSTRAINT FK_PC_PROFILE
-        FOREIGN KEY (`curriculum_id`)
-            REFERENCES curriculum(`id`)
-); */
-
 CREATE TABLE `info` (
     `id` INT NOT NULL AUTO_INCREMENT,
     `curriculum_id` INT NOT NULL,
-    `href` VARCHAR(255) NOT NULL,
-    `content` VARCHAR(255) NOT NULL,
+    `href` VARCHAR(255),
+    `content` VARCHAR(255),
     `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     PRIMARY KEY (`id`),

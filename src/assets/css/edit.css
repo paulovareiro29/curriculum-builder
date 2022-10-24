@@ -151,3 +151,17 @@
 .curriculum #main-content .profile-avatar input[type="file"] {
   display: none;
 }
+
+/* CONTENT - INFO */
+.curriculum #main-content #info-list {
+  margin-top: 20px;
+}
+
+.curriculum #main-content #info-list > * {
+  /*   border: 1px solid var(--primary); */
+}
+
+.curriculum #main-content #info-list > * .btn-danger {
+  flex: 0;
+  min-width: 50px;
+}
