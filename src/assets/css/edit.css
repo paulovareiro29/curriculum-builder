@@ -156,8 +156,32 @@
 .curriculum #main-content .items-list {
   margin-top: 20px;
 }
+.curriculum #main-content .items-list.multiple-row .item {
+  position: relative;
+  border: 1px solid var(--secondary);
+  padding: 10px;
+  border-radius: 8px;
+}
 
-.curriculum #main-content .items-list > * .btn-danger {
+.curriculum #main-content .items-list .item:not(:first-child) {
+  margin-top: 14px;
+}
+
+.curriculum #main-content .items-list .item:not(:last-child) {
+  margin-bottom: 8px;
+}
+
+.curriculum #main-content .items-list.multiple-row > * .btn-danger {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.curriculum #main-content .items-list:not(.multiple-row) > * .btn-danger {
   flex: 0;
   min-width: 50px;
 }

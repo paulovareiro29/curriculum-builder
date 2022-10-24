@@ -1,6 +1,6 @@
 const createInfoRow = () => {
   const row = `
-  <div class="form-row">
+  <div class="item form-row">
     <div class="form-group">
       <label>Content</label>
       <input
@@ -24,7 +24,7 @@ const createInfoRow = () => {
 
 const createSkillRow = () => {
   const row = `
-  <div class="form-row">
+  <div class="item form-row">
     <div class="form-group">
       <label>Content</label>
       <input
@@ -44,6 +44,63 @@ const createSkillRow = () => {
       />
     </div>
     <button class="btn btn-danger" type="button">X</button>
+  </div>`;
+
+  return row;
+};
+
+const createEducationRow = () => {
+  const row = `
+  <div class="item">
+    <div class="form-row">
+      <div class="form-group">
+        <label>Start Date</label>
+        <input
+          type="text"
+          data-start_date
+          placeholder="Start Date"
+        />
+      </div>
+      <div class="form-group">
+        <label>End Date</label>
+        <input
+          type="text"
+          data-end_date
+          placeholder="End Date"
+        />
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>School</label>
+        <input
+          type="text"
+          data-school
+          placeholder="School"
+        />
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Course</label>
+        <input
+          type="text"
+          data-course
+          placeholder="Course"
+        />
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Location</label>
+        <input
+          type="text"
+          data-location
+          placeholder="Location"
+        />
+      </div>
+    </div>
+    <button class="btn btn-danger" type="button">x</button>
   </div>`;
 
   return row;
@@ -106,7 +163,9 @@ const loadForm = () => {
     let json = {
       info: [],
       skills: [],
+      education: [],
     };
+
     for (let input of inputList) {
       const field = input.dataset.field;
       switch (field) {
@@ -122,7 +181,7 @@ const loadForm = () => {
 
     /** INFO */
     $("#info-list")
-      .children(".form-row")
+      .children(".item")
       .each((_, row) => {
         const content = $(row).find("input[data-content]");
         const href = $(row).find("input[data-href]");
@@ -136,7 +195,7 @@ const loadForm = () => {
 
     /** SKILL */
     $("#skills-list")
-      .children(".form-row")
+      .children(".item")
       .each((_, row) => {
         const content = $(row).find("input[data-content]");
         const rating = $(row).find("input[data-rating]");
@@ -145,6 +204,26 @@ const loadForm = () => {
           id: $(row).data("id"),
           content: content.val(),
           rating: rating.val(),
+        });
+      });
+
+    /** EDUCATION */
+    $("#education-list")
+      .children(".item")
+      .each((_, row) => {
+        const start_date = $(row).find("input[data-start_date]");
+        const end_date = $(row).find("input[data-end_date]");
+        const school = $(row).find("input[data-school]");
+        const course = $(row).find("input[data-course]");
+        const location = $(row).find("input[data-location]");
+
+        json.education.push({
+          id: $(row).data("id"),
+          start_date: start_date.val(),
+          end_date: end_date.val(),
+          school: school.val(),
+          course: course.val(),
+          location: location.val(),
         });
       });
 
@@ -176,7 +255,7 @@ const loadForm = () => {
   });
 
   $("#info-list").on("click", ".btn-danger", (e) => {
-    $(e.target).parent(".form-row").remove();
+    $(e.target).parent(".item").remove();
   });
 
   /** SKILL */
@@ -185,11 +264,20 @@ const loadForm = () => {
   });
 
   $("#skills-list").on("click", ".btn-danger", (e) => {
-    $(e.target).parent(".form-row").remove();
+    $(e.target).parent(".item").remove();
+  });
+
+  /** EDUCATION */
+  $("#add-education").click((e) => {
+    $("#education-list").append(createEducationRow());
+  });
+
+  $("#education-list").on("click", ".btn-danger", (e) => {
+    $(e.target).parent(".item").remove();
   });
 };
 
 loadNavigation();
 loadForm();
 
-changeWindowTo("skills");
+changeWindowTo("education");

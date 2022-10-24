@@ -6,6 +6,7 @@
   
   $info = $curriculum['info'];
   $skills = $curriculum['skills'];
+  $education = $curriculum['education'];
 ?>
 
 <!DOCTYPE html>
@@ -163,7 +164,7 @@
 
             <div id="info-list" class="items-list">
               <?php foreach($info as $item):?>
-                  <div class="form-row" data-id="<?= $item['id']?>">
+                  <div class="item form-row" data-id="<?= $item['id']?>">
                     <div class="form-group">
                       <label>Content</label>
                       <input
@@ -202,7 +203,7 @@
 
             <div id="skills-list" class="items-list">
               <?php foreach($skills as $item):?>
-                  <div class="form-row" data-id="<?= $item['id']?>">
+                  <div class="item form-row" data-id="<?= $item['id']?>">
                     <div class="form-group">
                       <label>Content</label>
                       <input
@@ -238,6 +239,69 @@
               class="editable-header" 
               data-field="education_header"
               value="<?=$curriculum['education_header']?>"/>
+
+              <button class="btn btn-primary" type="button" id="add-education">Add new</button>
+
+              <div id="education-list" class="items-list multiple-row">
+              <?php foreach($education as $item):?>
+                <div class="item"  data-id="<?= $item['id']?>">
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label>Start Date</label>
+                      <input
+                        type="text"
+                        data-start_date
+                        placeholder="Start Date"
+                        value="<?=$item['start_date']?>"
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label>End Date</label>
+                      <input
+                        type="text"
+                        data-end_date
+                        placeholder="End Date"
+                        value="<?=$item['end_date']?>"
+                      />
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label>School</label>
+                      <input
+                        type="text"
+                        data-school
+                        placeholder="School"
+                        value="<?=$item['school']?>"
+                      />
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label>Course</label>
+                      <input
+                        type="text"
+                        data-course
+                        placeholder="Course"
+                        value="<?=$item['course']?>"
+                      />
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label>Location</label>
+                      <input
+                        type="text"
+                        data-location
+                        placeholder="Location"
+                        value="<?=$item['location']?>"
+                      />
+                    </div>
+                  </div>
+                  <button class="btn btn-danger" type="button">x</button>
+                </div>
+              <?php endforeach;?>
+            </div>
           </div>
 
           <div id="experience">
