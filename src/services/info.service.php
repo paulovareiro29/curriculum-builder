@@ -6,19 +6,20 @@
         public $curriculum_id;
         public $href;
         public $content;
+        public $icon;
 
         public function __construct($id = null) {
             $this->id = $id;
         }
 
         public function create() {
-            $sql = "INSERT INTO info (curriculum_id, href, content) VALUES (?,?,?)";
+            $sql = "INSERT INTO info (curriculum_id, href, content, icon) VALUES (?,?,?,?)";
 
             $this->connect();
 
             $stmt = $this->conn->stmt_init();
             $stmt = $this->conn->prepare($sql);
-            $stmt->bind_param("iss", $this->curriculum_id, $this->href, $this->content);
+            $stmt->bind_param("isss", $this->curriculum_id, $this->href, $this->content, $this->icon);
             $result = $stmt->execute();
 
             $this->close();
@@ -41,7 +42,8 @@
         public function update() {
             $sql = "UPDATE info SET 
                 href = '{$this->href}',
-                content = '{$this->content}'
+                content = '{$this->content}',
+                icon = '{$this->icon}'
                 WHERE id = {$this->id}";
             
             $this->connect();

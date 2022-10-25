@@ -1,4 +1,5 @@
 <?php 
+    if(!isset($_GET['id'])) AuthController::redirectTo("/" . $_ENV['BASE_DIR'] . "/backoffice");
     $curriculum = CurriculumController::get($_GET['id']);
     if($curriculum === null) AuthController::redirectTo("/" . $_ENV['BASE_DIR'] . "/backoffice");
 
@@ -40,104 +41,107 @@
     <?php endif; ?>
 
     <div class="profile">
-      <div class="profile-header">
-        <img
-          src=<?= $curriculum['avatar']?>
-          alt="<?= $curriculum['person_name']?>'s avatar"
-          class="profile-picture"
-        />
-        <div class="profile-header-info">
-          <h2>Hello, I am</h2>
-          <h1><?= $curriculum['person_name']?></h1>
-          <h4>SOFTWARE DEVELOPER</h4>
+      <div class="curriculum">
+        <div class="profile-header">
+          <img
+            src=<?= $curriculum['avatar']?>
+            alt="<?= $curriculum['person_name']?>'s avatar"
+            class="profile-picture"
+          />
+          <div class="profile-header-info">
+            <h2>Hello, I am</h2>
+            <h1><?= $curriculum['person_name']?></h1>
+            <h4>SOFTWARE DEVELOPER</h4>
+          </div>
+        </div>
+        <div class="profile-body">
+          <!-- LEFT COLUMN -->
+          <div class="col">
+            <section class="info-section">
+              <h2><?= $curriculum['info_header']?></h2>
+              
+              <?php foreach($curriculum['info'] as $item):?>
+                <div>
+                  <?php if(empty($item['href'])):?>
+                    <i class="fa fa-2x <?=$item['icon']?>"></i>
+                    <?=$item['content']?>
+                  <?php else:?>
+                    <a href="<?= $item['href'] ?>">
+                      <i class="fa fa-2x <?=$item['icon']?>"></i>
+                      <?=$item['content']?>
+                    </a>
+                  <?php endif;?>
+                </div>
+              <?php endforeach;?>
+            </section>
+
+            <section class="skills-section">
+              <h2><?= $curriculum['skills_header']?></h2>
+              
+              <?php foreach($curriculum['skills'] as $item):?>
+                <div>
+                  <p><?=$item['content']?></p>
+                  <ul>
+                    <?php for($x = 0; $x < $item['rating']; $x++):?>
+                      <li><i class="fa fa-circle"></i></li>
+                    <?php endfor;?>
+
+                    <?php for($x = 0; $x < 5-$item['rating']; $x++):?>
+                      <li><i class="fa-regular fa-circle"></i></li>
+                    <?php endfor;?>
+                  </ul>
+                </div>
+              <?php endforeach;?>
+            </section>
+
+            <section class="education-section">
+              <h2><?= $curriculum['education_header']?></h2>
+              
+              <?php foreach($curriculum['education'] as $item):?>
+                <div class="education">
+                  <p class="education-date">
+                    <i class="fa fa-calendar"></i>
+                    <?= $item['start_date']?> - <?=$item['end_date']?>
+                  </p>
+                  <h4><?= $item['school']?></h4>
+                  <p><?= $item['course']?></p>
+                  <p><small><?= $item['location']?></small></p>
+                </div>
+              <?php endforeach;?>
+            </section>
+          </div>
+
+          <!-- RIGHT COLUMN -->
+          <div class="col">
+            <section class="profile-section">
+              <h2><?= $curriculum['profile_header']?></h2>
+              <p>
+                <?= $curriculum['summary']?>
+              </p>
+            </section>
+
+            <section class="experience-section">
+              <h2><?= $curriculum['experience_header']?></h2>
+              
+              <?php foreach($curriculum['experience'] as $item):?>
+                <div class="experience">
+                <div class="experience-title">
+                  <h4><?= $item['company']?></h4>
+                  <p class="experience-date">
+                    <i class="fa fa-calendar"></i>
+                    <?= $item['start_date']?> - <?= $item['end_date']?>
+                  </p>
+                </div>
+                <p><?= $item['role']?></p>
+                <div><?= $item['summary']?></div>
+              </div>
+              <?php endforeach;?>
+
+            </section>
+          </div>
         </div>
       </div>
-      <div class="profile-body">
-        <!-- LEFT COLUMN -->
-        <div class="col">
-          <section class="info-section">
-            <h2><?= $curriculum['info_header']?></h2>
-            
-            <?php foreach($curriculum['info'] as $item):?>
-              <div>
-                <?php if(empty($item['href'])):?>
-                  <i class="fa fa-2x fa-envelope"></i>
-                  <?= $item['content']?>
-                <?php else:?>
-                  <a href="<?= $item['href'] ?>">
-                    <i class="fa fa-2x fa-envelope"></i>
-                    <?= $item['content']?>
-                  </a>
-                <?php endif;?>
-              </div>
-            <?php endforeach;?>
-          </section>
-
-          <section class="skills-section">
-            <h2><?= $curriculum['skills_header']?></h2>
-            
-            <?php foreach($curriculum['skills'] as $item):?>
-              <div>
-                <p><?=$item['content']?></p>
-                <ul>
-                  <?php for($x = 0; $x < $item['rating']; $x++):?>
-                    <li><i class="fa fa-circle"></i></li>
-                  <?php endfor;?>
-
-                  <?php for($x = 0; $x < 5-$item['rating']; $x++):?>
-                    <li><i class="fa-regular fa-circle"></i></li>
-                  <?php endfor;?>
-                </ul>
-              </div>
-            <?php endforeach;?>
-          </section>
-
-          <section class="education-section">
-            <h2><?= $curriculum['education_header']?></h2>
-            
-            <?php foreach($curriculum['education'] as $item):?>
-              <div class="education">
-                <p class="education-date">
-                  <i class="fa fa-calendar"></i>
-                  <?= $item['start_date']?> - <?=$item['end_date']?>
-                </p>
-                <h4><?= $item['school']?></h4>
-                <p><?= $item['course']?></p>
-                <p><small><?= $item['location']?></small></p>
-              </div>
-            <?php endforeach;?>
-          </section>
-        </div>
-
-        <!-- RIGHT COLUMN -->
-        <div class="col">
-          <section class="profile-section">
-            <h2><?= $curriculum['profile_header']?></h2>
-            <p>
-              <?= $curriculum['summary']?>
-            </p>
-          </section>
-
-          <section class="experience-section">
-            <h2><?= $curriculum['experience_header']?></h2>
-            
-            <?php foreach($curriculum['experience'] as $item):?>
-              <div class="experience">
-              <div class="experience-title">
-                <h4><?= $item['company']?></h4>
-                <p class="experience-date">
-                  <i class="fa fa-calendar"></i>
-                  <?= $item['start_date']?> - <?= $item['end_date']?>
-                </p>
-              </div>
-              <p><?= $item['role']?></p>
-              <div><?= $item['summary']?></div>
-            </div>
-            <?php endforeach;?>
-
-          </section>
-        </div>
-      </div>
+      
       <div class="profile-footer">
         <h1>Contact Me!</h1>
         <form action="#" id="contact-form">

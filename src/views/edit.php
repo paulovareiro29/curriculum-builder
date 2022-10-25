@@ -183,8 +183,15 @@
                         value="<?=$item['href']?>"
                       />
                     </div>
-                  <button class="btn btn-danger" type="button">X</button>
-
+                    <div class="form-group">
+                      <label>Icon</label>
+                      <input
+                        data-icon
+                        placeholder="Icon"
+                        value="<?=$item['icon']?>"
+                      />
+                    </div>
+                    <button class="btn btn-danger" type="button">X</button>
                   </div>
                 
               <?php endforeach;?>

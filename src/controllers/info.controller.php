@@ -7,11 +7,12 @@
             return Info::indexByCurriculum($id);
         }
 
-        public static function create($curriculum_id, $href = null, $content) {
+        public static function create($curriculum_id, $href = null, $content, $icon) {
             $info = new Info();
             $info->curriculum_id = $curriculum_id;
             $info->href = $href;
             $info->content = $content;
+            $info->icon = $icon;
 
             return $info->create();
         }

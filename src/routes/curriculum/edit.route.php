@@ -9,7 +9,7 @@
     if(isset($info)){
         InfoController::deleteByCurriculum(($id));
         foreach($info as $item){
-            InfoController::create($id, $item['href'], $item['content']);
+            InfoController::create($id, $item['href'], $item['content'], $item['icon']);
         }
     }
 

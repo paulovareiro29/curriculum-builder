@@ -36,7 +36,7 @@
         if(AuthController::isAdmin()){
           require __DIR__ . '/src/views/backoffice.php';
         }else{
-          require __DIR__ . '/src/views/error403.php';
+          require __DIR__ . '/src/views/login.php';
         }
         break;
     case '/backoffice/delete/':

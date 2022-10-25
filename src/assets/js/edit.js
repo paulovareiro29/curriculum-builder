@@ -16,6 +16,13 @@ const createInfoRow = () => {
         placeholder="Href"
       />
     </div>
+    <div class="form-group">
+      <label>Icon</label>
+      <input
+        data-icon
+        placeholder="Icon"
+      />
+    </div>
     <button class="btn btn-danger" type="button">X</button>
   </div>`;
 
@@ -242,11 +249,13 @@ const loadForm = () => {
       .each((_, row) => {
         const content = $(row).find("input[data-content]");
         const href = $(row).find("input[data-href]");
+        const icon = $(row).find("input[data-icon]");
 
         json.info.push({
           id: $(row).data("id"),
           content: content.val(),
           href: href.val(),
+          icon: icon.val(),
         });
       });
 
