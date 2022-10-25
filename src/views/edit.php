@@ -163,7 +163,7 @@
 
             <button class="btn btn-primary" type="button" id="add-info">Add new</button>
 
-            <div id="info-list" class="items-list">
+            <div id="info-list" class="items-list multiple-row">
               <?php foreach($info as $item):?>
                   <div class="item form-row" data-id="<?= $item['id']?>">
                     <div class="form-group">
@@ -209,7 +209,7 @@
 
             <button class="btn btn-primary" type="button" id="add-skill">Add new</button>
 
-            <div id="skills-list" class="items-list">
+            <div id="skills-list" class="items-list multiple-row">
               <?php foreach($skills as $item):?>
                   <div class="item form-row" data-id="<?= $item['id']?>">
                     <div class="form-group">
