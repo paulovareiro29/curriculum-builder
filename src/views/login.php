@@ -44,8 +44,8 @@
     <div class="vh-100 d-flex justify-center align-center">
       <div class="login">
         <div class="login-header">
-        <h1>Admin Panel</h1>
-          <p>Sign in to your administrator account</p>
+        <h1>Login Panel</h1>
+          <p>Sign in to your account</p>
           <?php 
             if($msg !== "") echo "<p class=\"color-danger\">{$msg}</p>";
           ?>
