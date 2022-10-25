@@ -8,11 +8,11 @@
 }
 
 .messages .messages-list {
-  margin-top: 16px;
-}
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 
-.messages .messages-list > *:not(:last-child) {
-  margin-bottom: 10px;
+  margin-top: 16px;
 }
 
 .messages .messages-list .message {

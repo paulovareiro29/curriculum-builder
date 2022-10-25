@@ -21,6 +21,8 @@
     <link rel="stylesheet" href="/<?= $_ENV['SRC_DIR']?>/assets/css/curriculum.css" />
     <title>Paulo Vareiro n24473</title>
 
+    <script src="/<?= $_ENV['SRC_DIR']?>/assets/js/html2canvas.min.js" ></script>
+    <script src="/<?= $_ENV['SRC_DIR']?>/assets/js/jspdf.js" ></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://kit.fontawesome.com/be947b2e4a.js" crossorigin="anonymous"></script>
   </head>
@@ -42,7 +44,7 @@
     <?php endif; ?>
 
     <div class="profile">
-      <div class="curriculum">
+      <div id="curriculum">
         <div class="profile-header">
           <img
             src=<?= $curriculum['avatar']?>
@@ -205,6 +207,10 @@
         </form>
       </div>
     </div>
+
+    <button class="floating-button floating-button-left" id="download">
+      <i class="fa-solid fa-download"></i>
+    </button>
 
     <?php if(!AuthController::isLoggedIn()): ?>
       <a class="floating-button" href="./login">

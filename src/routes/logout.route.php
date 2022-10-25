@@ -2,5 +2,5 @@
 
 if(isset($_SESSION["user"])) {
     unset($_SESSION["user"]);
-    AuthController::redirectToIndex();
+    echo "<script>history.back()</script>";
 }

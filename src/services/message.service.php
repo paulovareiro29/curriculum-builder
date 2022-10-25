@@ -49,7 +49,7 @@
         }
 
         public static function indexByCurriculum($id) {
-            $sql = "SELECT * FROM message WHERE curriculum_id = " . $id;
+            $sql = "SELECT * FROM message WHERE curriculum_id = " . $id . " ORDER BY created_at DESC";
 
             $conn = new mysqli($_ENV['DB_SERVER'], $_ENV['DB_USERNAME'], $_ENV['DB_PASSWORD'], $_ENV['DB_NAME']);
 
@@ -69,7 +69,7 @@
         }
 
         public static function indexByUser($id) {
-            $sql = "SELECT * FROM message WHERE user_id = " . $id;
+            $sql = "SELECT * FROM message WHERE user_id = " . $id . " ORDER BY created_at DESC";
 
             $conn = new mysqli($_ENV['DB_SERVER'], $_ENV['DB_USERNAME'], $_ENV['DB_PASSWORD'], $_ENV['DB_NAME']);
 
