@@ -27,21 +27,29 @@
     <script src="https://kit.fontawesome.com/be947b2e4a.js" crossorigin="anonymous"></script>
   </head>
   <body>
-    <?php if(AuthController::isLoggedIn()): ?>
-      <div class="navbar">
-        <div class="navbar-wrapper">
-          <div>
-            <a href="./backoffice">Manage my curriculums</a>
-          </div>
-          <div>
-            <p>Logged in as <b><?php echo $_SESSION["user"]; ?></b></p>
-            <a href="/<?=$_ENV["BASE_DIR"] ?>/logout">
-            <i class="fa-solid fa-arrow-right-from-bracket"></i>
-          </a>
-          </div>
+
+    <div class="navbar">
+      <div class="navbar-wrapper">
+        <div>
+          <a href="./">Home</a>
+          <a href="./backoffice">Dashboard</a>
         </div>
+        
+          <div>
+            <?php if(AuthController::isLoggedIn()):?>
+              <p>Logged in as <b><?php echo $_SESSION["user"]; ?></b></p>
+              <a href="/<?=$_ENV["BASE_DIR"] ?>/logout">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+              </a>
+            <?php else:?>
+              <a href="/<?=$_ENV["BASE_DIR"] ?>/login">
+                Login
+              </a>
+            <?php endif;?>
+          </div>
+    
       </div>
-    <?php endif; ?>
+    </div>
 
     <div class="profile">
       <div id="curriculum">

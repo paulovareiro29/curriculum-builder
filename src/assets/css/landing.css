@@ -1,6 +1,5 @@
-.backoffice {
-  max-width: 1150px;
-  margin: auto;
+/* LANDING */
+.landing {
 }
 
 /* CURRICULUMS */
@@ -8,10 +7,7 @@
   margin-top: 32px;
 }
 
-.curriculums .title {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+.curriculums h1 {
   margin: 0 0 12px;
 }
 
@@ -70,8 +66,6 @@
   border-top: 1px solid var(--secondary);
 }
 
-/* MODAL */
-.modal#delete-curriculum p {
-  text-align: center;
-  margin: 0;
+.curriculums-list .curriculum .curriculum-options .curriculum-user {
+  margin-right: auto;
 }

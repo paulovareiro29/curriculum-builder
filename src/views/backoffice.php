@@ -108,7 +108,8 @@
     <div class="navbar">
       <div class="navbar-wrapper">
         <div>
-          <a href="#" onclick="showModal('new-curriculum')">New Curriculum</a>
+          <a href="./">Home</a>
+          <a href="./backoffice">Dashboard</a>
         </div>
         <div>
           <p>Logged in as <b><?php echo $_SESSION["user"]; ?></b></p>
@@ -133,7 +134,11 @@
 
 
       <div class="curriculums">
-        <h1>My Curriculums</h1>
+        <div class="title">
+          <h1>My Curriculums</h1>
+          <button onclick="showModal('new-curriculum')" class="btn btn-primary mb-1">New Curriculum</button>
+        </div>
+        
         <div class="curriculums-list">
           <?php $list = CurriculumController::indexByUser($_SESSION["user"]); ?>
 

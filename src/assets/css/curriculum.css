@@ -2,7 +2,7 @@
 .profile {
   max-width: 1150px;
   margin: auto;
-  border: 4px solid var(--primary);
+  border: 2px solid var(--primary);
   border-radius: 8px;
   overflow: hidden;
 }
@@ -61,8 +61,8 @@
 /* PROFILE BODY */
 .profile .profile-body {
   display: flex;
-  border-bottom: 4px solid var(--primary);
-  border-top: 4px solid var(--primary);
+  border-bottom: 1px solid var(--primary);
+  border-top: 1px solid var(--primary);
   background-color: white;
 }
 
@@ -76,7 +76,7 @@
 
 .profile .profile-body .col:first-child {
   flex: 1;
-  outline: 1px solid var(--primary);
+  /*   outline: 1px solid var(--primary); */
   border-right: 1px solid var(--primary);
 }
 
@@ -85,17 +85,17 @@
   position: absolute;
   top: 0;
   right: 0;
-  border: 10px solid transparent;
-  border-top: 10px solid var(--primary);
-  border-right: 10px solid var(--primary);
+  border: 4px solid transparent;
+  border-top: 4px solid var(--primary);
+  border-right: 4px solid var(--primary);
   width: 0;
   height: 0;
 }
 
 .profile .profile-body .col:last-child {
   flex: 2;
-  outline: 1px solid var(--primary);
-  border-left: 1px solid var(--primary);
+  /*   outline: 1px solid var(--primary); */
+  /*   border-left: 1px solid var(--primary); */
 }
 
 .profile .profile-body .col:last-child::before {
@@ -103,9 +103,9 @@
   position: absolute;
   top: 0;
   left: 0;
-  border: 10px solid transparent;
-  border-top: 10px solid var(--primary);
-  border-left: 10px solid var(--primary);
+  border: 4px solid transparent;
+  border-top: 4px solid var(--primary);
+  border-left: 4px solid var(--primary);
   width: 0;
   height: 0;
 }

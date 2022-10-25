@@ -280,7 +280,7 @@ button.icon {
   width: 478px;
   border-radius: 12px;
   background-color: white;
-  border: 1px solid var(--primary);
+  border: 1px solid var(--secondary);
 
   transform: scale(0);
   -webkit-transform: scale(0);
@@ -340,7 +340,7 @@ button.icon {
 .navbar {
   max-width: 1150px;
   margin: auto;
-  border: 4px solid var(--primary);
+  border: 1px solid var(--primary);
   margin-bottom: 16px;
   background-color: white;
   border-radius: 8px;

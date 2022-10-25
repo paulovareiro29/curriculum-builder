@@ -66,7 +66,12 @@
             $result = $conn->query($sql);
             $conn->close();
 
-            return $result;
+            $array = array();
+            foreach ($result as $row){
+                array_push($array, $row);
+            }
+
+            return $array;
         }
 
         public static function indexByUser($id) {
