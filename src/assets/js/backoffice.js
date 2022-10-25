@@ -1,4 +1,4 @@
-$("#show-delete-curriculum").click((e) => {
+$(".show-delete-curriculum").click((e) => {
   const id = $(e.target).parent().closest(".curriculum").data("id");
   $("#delete-curriculum").data("id", id);
 
@@ -26,3 +26,7 @@ $("#delete-curriculum-btn").click((e) => {
       }, 3000);
     });
 });
+
+setTimeout(() => {
+  $(".new.alert").hide();
+}, 3000);

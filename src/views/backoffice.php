@@ -122,15 +122,11 @@
     <div class="backoffice">
 
       <?php if($success == 1):?>
+        <div class="new alert alert-success">New curriculum has been created!</div>
       <?php elseif($success == 2):?>
+        <div class="new alert alert-danger">An error has occurred.</div>
       <?php endif; ?>
 
-      <?php if(isset($_GET['deleted']) && $_GET['deleted'] == 1):?>
-      <?php elseif(isset($_GET['deleted']) && $_GET['deleted'] == 2):?>
-      <?php endif; ?>
-
-      <div class="new alert alert-danger d-none">An error has occurred.</div>
-      <div class="new alert alert-success d-none">New curriculum has been created!</div>
 
       <div class="delete alert alert-danger d-none">An error has occurred.</div>
       <div class="delete alert alert-success d-none">Curriculum has been deleted successfuly!</div>
@@ -163,7 +159,7 @@
                   <a class="icon color-warning" href="/<?=$_ENV["BASE_DIR"] ?>/backoffice/edit/?id=<?=$curriculum['id']?>">
                     <i class="fa-solid fa-pen-to-square"></i>
                   </a>
-                  <a class="icon color-danger" href="#" id="show-delete-curriculum">
+                  <a class="icon color-danger show-delete-curriculum" href="#">
                     <i class="fa-solid fa-trash"></i>
                   </a>
                 </div>
