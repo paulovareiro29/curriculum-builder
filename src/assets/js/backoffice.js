@@ -10,7 +10,7 @@ $("#delete-curriculum-btn").click((e) => {
   closeModal("delete-curriculum");
 
   axios
-    .get(`/curriculum/api/delete/?id=${id}`)
+    .get(`/curriculum/api/delete?id=${id}`)
     .then(() => {
       $(`.curriculum[data-id=${id}]`).remove();
 

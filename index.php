@@ -20,8 +20,12 @@
   }
 
   switch ($baseUri) {
-    case '/':
-      case '':
+    case '':
+      case '/':
+        require __DIR__ . '/src/views/landing.php';
+        break;
+    case '/view/':
+      case '/view':
         require __DIR__ . '/src/views/curriculum.php';
         break;
     case '/login':
@@ -39,35 +43,40 @@
           require __DIR__ . '/src/views/login.php';
         }
         break;
-    case '/api/delete/':
+    case '/api/delete':
+      case '/api/delete/':
         if(AuthController::isLoggedIn()){
           require __DIR__ . '/src/routes/curriculum/delete.route.php';
         }else{
           require __DIR__ . '/src/views/error403.php';
         }
         break;
-    case '/backoffice/edit/':
+    case '/backoffice/edit':
+      case '/backoffice/edit/':
         if(AuthController::isLoggedIn()){
           require __DIR__ . '/src/views/edit.php';
         }else{
           require __DIR__ . '/src/views/error403.php';
         }
         break;
-    case '/backoffice/messages/':
-        if(AuthController::isLoggedIn()){
+    case '/backoffice/messages':
+      case '/backoffice/messages/':
+      if(AuthController::isLoggedIn()){
           require __DIR__ . '/src/views/messages.php';
         }else{
           require __DIR__ . '/src/views/error403.php';
         }
         break;
-    case '/api/edit/': 
+      case '/api/edit': 
+        case '/api/edit/': 
         if(AuthController::isLoggedIn()) {
           require __DIR__ . '/src/routes/curriculum/edit.route.php';
         }else{
           require __DIR__ . '/src/views/error403.php';
         }
         break;
-    case '/api/message/':
+    case '/api/message':
+      case '/api/message/':
         require __DIR__ . '/src/routes/message/create.route.php';
         break;
     default:

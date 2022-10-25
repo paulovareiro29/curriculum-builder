@@ -316,7 +316,7 @@ const loadForm = () => {
     console.log(json);
 
     axios
-      .post("/curriculum/api/edit/?id=" + e.target.dataset.curriculum, json)
+      .post("/curriculum/api/edit?id=" + e.target.dataset.curriculum, json)
       .then((res) => {
         const badge = document.getElementById("badge-edit-success");
         badge.style.display = "block";
