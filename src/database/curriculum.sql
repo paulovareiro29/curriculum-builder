@@ -1,5 +1,6 @@
 CREATE DATABASE curriculum;
 
+/* USER */
 CREATE TABLE `user` (
     `id` INT NOT NULL AUTO_INCREMENT,
     `username` VARCHAR(50) NOT NULL,
@@ -30,6 +31,7 @@ CREATE TABLE `user_role` (
             REFERENCES role(`id`)
 );
 
+/* CURRICULUM */
 CREATE TABLE `curriculum` (
     `id` INT NOT NULL AUTO_INCREMENT,
     `user_id` INT NOT NULL,
@@ -109,4 +111,25 @@ CREATE TABLE `experience` (
     CONSTRAINT FK_EC_EXPERIENCE
         FOREIGN KEY (`curriculum_id`)
             REFERENCES curriculum(`id`)
+);
+
+/* CONTACTS */
+CREATE TABLE `contact` (
+    `id` INT NOT NULL AUTO_INCREMENT,
+    `curriculum_id` INT NOT NULL,
+    `user_id` INT NOT NULL,
+    `first_name` VARCHAR(255) NOT NULL,
+    `last_name` VARCHAR(255),
+    `email` VARCHAR(255),
+    `phone` VARCHAR(255),
+    `message` VARCHAR(2048) NOT NULL,
+    `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY (`id`),
+    CONSTRAINT FK_CC_CURRICULUM
+        FOREIGN KEY (`curriculum_id`)
+            REFERENCES curriculum(`id`),
+    CONSTRAINT FK_CNU_USER
+        FOREIGN KEY (`user_id`)
+            REFERENCES user(`id`)
 );

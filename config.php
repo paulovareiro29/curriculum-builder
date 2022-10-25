@@ -10,3 +10,4 @@
   include_once __DIR__ . '/src/controllers/role.controller.php';
   include_once __DIR__ . '/src/controllers/auth.controller.php';
   include_once __DIR__ . '/src/controllers/curriculum.controller.php';
+  include_once __DIR__ . '/src/controllers/contact.controller.php';

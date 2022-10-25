@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="/<?= $_ENV['SRC_DIR']?>/assets/css/curriculum.css" />
     <title>Paulo Vareiro n24473</title>
 
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://kit.fontawesome.com/be947b2e4a.js" crossorigin="anonymous"></script>
   </head>
   <body>
@@ -145,22 +146,27 @@
       <div class="profile-footer">
         <h1>Contact Me!</h1>
         <form action="#" id="contact-form">
+          <div class="alert alert-success d-none">Message sent!</div>
+          <div class="alert alert-danger d-none">Error has occurred!</div>
+          <input type="hidden" name="curriculum_id" value="<?=$curriculum['id']?>">
+          <input type="hidden" name="user_id" value="<?=$curriculum['user_id']?>">
           <div class="form-row">
             <div class="form-group">
-              <label for="firstName">First Name</label>
+              <label for="first_name">First Name</label>
               <input
                 type="text"
-                name="firstName"
-                id="firstName"
+                name="first_name"
+                id="first_name"
                 placeholder="First Name"
+                required
               />
             </div>
             <div class="form-group">
-              <label for="lastName">Last Name</label>
+              <label for="last_name">Last Name</label>
               <input
                 type="text"
-                name="lastName"
-                id="lastName"
+                name="last_name"
+                id="last_name"
                 placeholder="Last Name"
               />
             </div>
@@ -168,7 +174,7 @@
           <div class="form-row">
             <div class="form-group">
               <label for="email">Email</label>
-              <input type="email" name="email" id="email" placeholder="Email" />
+              <input type="email" name="email" id="email" placeholder="Email" required/>
             </div>
             <div class="form-group">
               <label for="phone">Phone</label>
@@ -183,6 +189,7 @@
                 id="message"
                 rows="5"
                 placeholder="Message"
+                required
               ></textarea>
             </div>
           </div>
@@ -199,6 +206,7 @@
       </a>
     <?php endif; ?>
 
+    <script src="/<?=$_ENV['SRC_DIR']?>/assets/js/jquery.js"></script>
     <script src="/<?= $_ENV['SRC_DIR']?>/assets/js/script.js"></script>
     <script src="/<?= $_ENV['SRC_DIR']?>/assets/js/curriculum.js"></script>
   </body>
