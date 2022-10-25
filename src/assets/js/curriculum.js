@@ -4,13 +4,14 @@ $("#contact-form").submit((e) => {
   const form = e.target;
 
   axios
-    .post("/curriculum/api/contact/", {
+    .post("/curriculum/api/message/", {
       curriculum_id: $(form.curriculum_id).val(),
       user_id: $(form.user_id).val(),
       first_name: $(form.first_name).val(),
       last_name: $(form.last_name).val(),
       email: $(form.email).val(),
       phone: $(form.phone).val(),
+      subject: $(form.subject).val(),
       message: $(form.message).val(),
     })
     .then(() => {

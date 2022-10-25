@@ -53,6 +53,13 @@
           require __DIR__ . '/src/views/error403.php';
         }
         break;
+    case '/backoffice/messages/':
+        if(AuthController::isAdmin()){
+          require __DIR__ . '/src/views/messages.php';
+        }else{
+          require __DIR__ . '/src/views/error403.php';
+        }
+        break;
     case '/api/edit/': 
         if(AuthController::isAdmin()) {
           require __DIR__ . '/src/routes/curriculum/edit.route.php';
@@ -60,8 +67,8 @@
           require __DIR__ . '/src/views/error403.php';
         }
         break;
-    case '/api/contact/':
-        require __DIR__ . '/src/routes/contact/create.route.php';
+    case '/api/message/':
+        require __DIR__ . '/src/routes/message/create.route.php';
         break;
     default:
         http_response_code(404);

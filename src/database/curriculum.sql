@@ -114,14 +114,15 @@ CREATE TABLE `experience` (
 );
 
 /* CONTACTS */
-CREATE TABLE `contact` (
+CREATE TABLE `message` (
     `id` INT NOT NULL AUTO_INCREMENT,
     `curriculum_id` INT NOT NULL,
     `user_id` INT NOT NULL,
     `first_name` VARCHAR(255) NOT NULL,
     `last_name` VARCHAR(255),
-    `email` VARCHAR(255),
+    `email` VARCHAR(255) NOT NULL,
     `phone` VARCHAR(255),
+    `subject` VARCHAR(255) NOT NULL,
     `message` VARCHAR(2048) NOT NULL,
     `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,

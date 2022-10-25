@@ -1,7 +1,7 @@
 <?php
     include_once "{$_SERVER['DOCUMENT_ROOT']}/{$_ENV['SRC_DIR']}" . '/database/database.php';
 
-    class Contact extends Database {
+    class Message extends Database {
         public $id;
         public $curriculum_id;
         public $user_id;
@@ -9,6 +9,7 @@
         public $last_name;
         public $email;
         public $phone;
+        public $subject;
         public $message;
 
 
@@ -17,13 +18,13 @@
         }
 
         public function create(){
-            $sql = "INSERT INTO contact (curriculum_id, user_id, first_name, last_name, email, phone, message) VALUES (?,?,?,?,?,?,?)";
+            $sql = "INSERT INTO message (curriculum_id, user_id, first_name, last_name, email, phone, subject, message) VALUES (?,?,?,?,?,?,?,?)";
 
             $this->connect();
 
             $stmt = $this->conn->stmt_init();
             $stmt = $this->conn->prepare($sql);
-            $stmt->bind_param("iisssss", $this->curriculum_id, $this->user_id, $this->first_name, $this->last_name, $this->email, $this->phone, $this->message);
+            $stmt->bind_param("iissssss", $this->curriculum_id, $this->user_id, $this->first_name, $this->last_name, $this->email, $this->phone, $this->subject, $this->message);
             $result = $stmt->execute();
 
             $this->close();
@@ -36,7 +37,7 @@
         }
 
         public function get() {
-            $sql = "SELECT * FROM contact WHERE id = " . $this->id;
+            $sql = "SELECT * FROM message WHERE id = " . $this->id;
 
             $this->connect();
             $result = $this->conn->query($sql);
@@ -48,7 +49,7 @@
         }
 
         public static function indexByCurriculum($id) {
-            $sql = "SELECT * FROM contact WHERE curriculum_id = " . $id;
+            $sql = "SELECT * FROM message WHERE curriculum_id = " . $id;
 
             $conn = new mysqli($_ENV['DB_SERVER'], $_ENV['DB_USERNAME'], $_ENV['DB_PASSWORD'], $_ENV['DB_NAME']);
 
@@ -68,7 +69,7 @@
         }
 
         public static function indexByUser($id) {
-            $sql = "SELECT * FROM contact WHERE user_id = " . $id;
+            $sql = "SELECT * FROM message WHERE user_id = " . $id;
 
             $conn = new mysqli($_ENV['DB_SERVER'], $_ENV['DB_USERNAME'], $_ENV['DB_PASSWORD'], $_ENV['DB_NAME']);
 

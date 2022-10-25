@@ -183,6 +183,12 @@
           </div>
           <div class="form-row">
             <div class="form-group">
+              <label for="subject">Subject</label>
+              <input type="text" name="subject" id="subject" placeholder="Subject" required/>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
               <label for="message">Message</label>
               <textarea
                 name="message"
