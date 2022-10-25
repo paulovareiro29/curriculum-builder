@@ -61,7 +61,7 @@
         </div>
     </div>
 
-    <script src="/<?=$_ENV['SRC_DIR']?>/assets/js/jquery.js"></script>
+    <script src="/<?=$_ENV['SRC_DIR']?>/assets/js/lib/jquery.js"></script>
     <script src="/<?= $_ENV['SRC_DIR']?>/assets/js/script.js"></script>
   </body>
 </html>

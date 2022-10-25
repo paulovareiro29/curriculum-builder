@@ -39,7 +39,7 @@
           require __DIR__ . '/src/views/login.php';
         }
         break;
-    case '/backoffice/delete/':
+    case '/api/delete/':
         if(AuthController::isAdmin()){
           require __DIR__ . '/src/routes/curriculum/delete.route.php';
         }else{

@@ -33,6 +33,7 @@
     <link rel="stylesheet" href="/<?= $_ENV['SRC_DIR']?>/assets/css/backoffice.css" />
     <title>Paulo Vareiro n24473</title>
 
+    <script src="/<?= $_ENV['SRC_DIR']?>/assets/js/lib/axios.js"></script>
     <script src="https://kit.fontawesome.com/be947b2e4a.js" crossorigin="anonymous"></script>
   </head>
   <body>
@@ -90,7 +91,7 @@
       </div>
     </div>
 
-    <!-- <div class="modal" id="delete-curriculum">
+    <div class="modal" id="delete-curriculum">
       <div class="modal-background"></div>
       <div class="modal-wrapper">
         <h4 class="modal-title">
@@ -99,10 +100,10 @@
         </h4>
         <div class="modal-body">
           <a class="btn btn-danger" name="delete-curriculum" onclick="closeModal('delete-curriculum')">CANCEL</a>
-          <a class="btn" href="/<?=$_ENV["BASE_DIR"] ?>/backoffice/delete/?id=<?=$curriculum['id']?>" name="delete-curriculum">CONFIRM</a>
+          <a class="btn" name="delete-curriculum" id="delete-curriculum-btn">CONFIRM</a>
         </div>
       </div>
-    </div> -->
+    </div>
 
     <div class="navbar">
       <div class="navbar-wrapper">
@@ -121,16 +122,18 @@
     <div class="backoffice">
 
       <?php if($success == 1):?>
-        <div class="alert alert-success">New curriculum has been created!</div>
       <?php elseif($success == 2):?>
-        <div class="alert alert-danger">An error has occurred.</div>
       <?php endif; ?>
 
       <?php if(isset($_GET['deleted']) && $_GET['deleted'] == 1):?>
-        <div class="alert alert-success">Curriculum has been deleted successfuly!</div>
       <?php elseif(isset($_GET['deleted']) && $_GET['deleted'] == 2):?>
-        <div class="alert alert-danger">An error has occurred.</div>
       <?php endif; ?>
+
+      <div class="new alert alert-danger d-none">An error has occurred.</div>
+      <div class="new alert alert-success d-none">New curriculum has been created!</div>
+
+      <div class="delete alert alert-danger d-none">An error has occurred.</div>
+      <div class="delete alert alert-success d-none">Curriculum has been deleted successfuly!</div>
 
 
       <div class="curriculums">
@@ -140,7 +143,7 @@
             $list = CurriculumController::indexByUser($_SESSION["user"]);
 
             foreach($list as $curriculum):?>
-              <div class="curriculum">
+              <div class="curriculum" data-id="<?=$curriculum['id']?>">
                 <div class="curriculum-body">
                   <div class="curriculum-avatar">
                     <img src="<?=$curriculum['avatar'];?>" alt="">
@@ -160,7 +163,7 @@
                   <a class="icon color-warning" href="/<?=$_ENV["BASE_DIR"] ?>/backoffice/edit/?id=<?=$curriculum['id']?>">
                     <i class="fa-solid fa-pen-to-square"></i>
                   </a>
-                  <a class="icon color-danger" href="/<?=$_ENV["BASE_DIR"] ?>/backoffice/delete/?id=<?=$curriculum['id']?>">
+                  <a class="icon color-danger" href="#" id="show-delete-curriculum">
                     <i class="fa-solid fa-trash"></i>
                   </a>
                 </div>
@@ -171,8 +174,8 @@
       
     </div>
     
-    <script src="/<?=$_ENV['SRC_DIR']?>/assets/js/jquery.js"></script>
+    <script src="/<?=$_ENV['SRC_DIR']?>/assets/js/lib/jquery.js"></script>
     <script src="/<?= $_ENV['SRC_DIR']?>/assets/js/script.js"></script>
-    <!-- <script src="/<?= $_ENV['SRC_DIR']?>/assets/js/backoffice.js"></script> -->
+    <script src="/<?= $_ENV['SRC_DIR']?>/assets/js/backoffice.js"></script> 
   </body>
 </html>

@@ -26,7 +26,7 @@
     <link rel="stylesheet" href="/<?= $_ENV['SRC_DIR']?>/assets/css/edit.css" />
     <title>Paulo Vareiro n24473</title>
 
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="/<?= $_ENV['SRC_DIR']?>/assets/js/lib/axios.js"></script>
     <script src="https://kit.fontawesome.com/be947b2e4a.js" crossorigin="anonymous"></script>
   </head>
   <body>
@@ -393,7 +393,7 @@
       <i class="fa fa-arrow-left"></i>  
     </a>
 
-    <script src="/<?=$_ENV['SRC_DIR']?>/assets/js/jquery.js"></script>
+    <script src="/<?=$_ENV['SRC_DIR']?>/assets/js/lib/jquery.js"></script>
     <script src="/<?=$_ENV['SRC_DIR']?>/assets/js/script.js"></script>
     <script src="/<?=$_ENV['SRC_DIR']?>/assets/js/edit.js"></script>
   </body>
