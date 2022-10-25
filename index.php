@@ -33,35 +33,35 @@
         break;
     case '/backoffice':
       case '/backoffice/':
-        if(AuthController::isAdmin()){
+        if(AuthController::isLoggedIn()){
           require __DIR__ . '/src/views/backoffice.php';
         }else{
           require __DIR__ . '/src/views/login.php';
         }
         break;
     case '/api/delete/':
-        if(AuthController::isAdmin()){
+        if(AuthController::isLoggedIn()){
           require __DIR__ . '/src/routes/curriculum/delete.route.php';
         }else{
           require __DIR__ . '/src/views/error403.php';
         }
         break;
     case '/backoffice/edit/':
-        if(AuthController::isAdmin()){
+        if(AuthController::isLoggedIn()){
           require __DIR__ . '/src/views/edit.php';
         }else{
           require __DIR__ . '/src/views/error403.php';
         }
         break;
     case '/backoffice/messages/':
-        if(AuthController::isAdmin()){
+        if(AuthController::isLoggedIn()){
           require __DIR__ . '/src/views/messages.php';
         }else{
           require __DIR__ . '/src/views/error403.php';
         }
         break;
     case '/api/edit/': 
-        if(AuthController::isAdmin()) {
+        if(AuthController::isLoggedIn()) {
           require __DIR__ . '/src/routes/curriculum/edit.route.php';
         }else{
           require __DIR__ . '/src/views/error403.php';

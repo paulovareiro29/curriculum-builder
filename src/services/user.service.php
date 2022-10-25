@@ -6,7 +6,7 @@
         public $username;
         public $password;
 
-        public function __construct($username, $password = "") {
+        public function __construct($username = "", $password = "") {
             $this->username = $username;
             $this->password = $password;
         }
@@ -33,6 +33,18 @@
 
         public function get() {
             $sql = "SELECT * FROM user WHERE username LIKE \"" . $this->username . "\"";
+
+            $this->connect();
+            $result = $this->conn->query($sql);
+            $this->close();
+
+            if(!isset($result) || $result->num_rows <= 0) return null;
+
+            foreach ($result as $row) return $row;
+        }
+
+        public function getByID() {
+            $sql = "SELECT * FROM user WHERE id = " . $this->id;
 
             $this->connect();
             $result = $this->conn->query($sql);

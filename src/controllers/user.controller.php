@@ -10,6 +10,17 @@
             return $user->create();
         }
 
+        public static function get($id){
+            $user = new User();
+            $user->id = $id;
+            return $user->getByID();
+        }
+
+        public static function getByUsername($username){
+            $user = new User($username);
+            return $user->get();
+        }
+
         public static function validate($username, $password) {
             $user = new User($username, $password);
             return $user->validate();
