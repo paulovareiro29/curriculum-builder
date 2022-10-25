@@ -7,7 +7,7 @@
             return Skill::indexByCurriculum($id);
         }
 
-        public static function create($curriculum_id, $content,  $rating = 0,) {
+        public static function create($curriculum_id, $content,  $rating = 0) {
             $skill = new Skill();
             $skill->curriculum_id = $curriculum_id;
             $skill->content = $content;
