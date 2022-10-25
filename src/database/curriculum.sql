@@ -40,6 +40,7 @@ CREATE TABLE `curriculum` (
     `person_name` VARCHAR(255),
     `avatar` LONGBLOB,
     `summary` VARCHAR(2048) NOT NULL,
+    `is_public` BOOLEAN NOT NULL DEFAULT 0, 
     `profile_header` VARCHAR(255) NOT NULL DEFAULT 'Profile',
     `info_header` VARCHAR(255) NOT NULL DEFAULT 'Info',
     `skills_header` VARCHAR(255) NOT NULL DEFAULT 'Skills',

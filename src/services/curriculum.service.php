@@ -8,6 +8,7 @@
         public $person_name;
         public $avatar;
         public $summary;
+        public $is_public;
         public $profile_header;
         public $info_header;
         public $skills_header;
@@ -55,7 +56,7 @@
         }
 
         public static function index() {
-            $sql = "SELECT * FROM curriculum WHERE deleted_at IS NULL";
+            $sql = "SELECT * FROM curriculum WHERE deleted_at IS NULL AND is_public = 1";
 
             $conn = new mysqli($_ENV['DB_SERVER'], $_ENV['DB_USERNAME'], $_ENV['DB_PASSWORD'], $_ENV['DB_NAME']);
 
@@ -116,6 +117,7 @@
                 person_name = '{$this->person_name}',
                 avatar = '{$this->avatar}',
                 summary = '{$this->summary}',
+                is_public = {$this->is_public},
                 profile_header = '{$this->profile_header}',
                 info_header = '{$this->info_header}',
                 skills_header = '{$this->skills_header}',

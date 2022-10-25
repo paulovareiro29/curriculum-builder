@@ -88,8 +88,21 @@
                   placeholder="Description"
                   rows="4"
                   data-field="description"
-                  required
                 ><?=$curriculum['description']?></textarea>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-checkbox">
+                <input
+                    type="checkbox"
+                    name="is_public"
+                    id="is_public"
+                    data-field="is_public"
+                    <?php if($curriculum['is_public'] == 1):?>
+                      checked
+                    <?php endif;?>
+                  />
+                <label for="is_public">Public Curriculum</label>
               </div>
             </div>
           </div>

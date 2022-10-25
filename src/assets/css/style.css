@@ -240,6 +240,24 @@ button.icon {
   padding: 0;
 }
 
+.form-checkbox {
+  display: flex;
+  align-items: center;
+}
+
+.form-checkbox > * {
+  cursor: pointer;
+}
+
+.form-checkbox label {
+  padding: 0 8px;
+}
+
+.form-checkbox input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+}
+
 /* MODAL */
 .modal {
   position: fixed;

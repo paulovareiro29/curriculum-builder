@@ -238,6 +238,9 @@ const loadForm = () => {
             json["avatar"] = await toBase64(input.files[0]);
           }
           break;
+        case "is_public":
+          json["is_public"] = $(input).is(":checked") ? "1" : "0";
+          break;
         default:
           json[`${input.dataset.field}`] = input.value;
       }
@@ -312,8 +315,6 @@ const loadForm = () => {
           summary: summary.val(),
         });
       });
-
-    console.log(json);
 
     axios
       .post("/curriculum/api/edit?id=" + e.target.dataset.curriculum, json)
