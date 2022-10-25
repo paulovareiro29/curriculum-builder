@@ -48,8 +48,14 @@
 
         <div class="messages-list">
             <?php foreach($messages as $item):?>
-                <div class="messages">
-
+                <div class="message">
+                  <h3 class="message-title"><?=$item['subject']?> <small><?=$item['created_at']?></small></h3>
+                  <h5 class="message-sender">By: <b><?="{$item['first_name']} {$item['last_name']}"?></b></h5>
+                  <h6><?=$item['email']?></h6>
+                  <h6><?=$item['phone']?></h6>
+                  <div class="message-body">
+                    <p><?=$item['message']?></p>
+                  </div>
                 </div>
             <?php endforeach;?>
         </div>
