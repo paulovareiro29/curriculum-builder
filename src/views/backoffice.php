@@ -135,36 +135,43 @@
       <div class="curriculums">
         <h1>My Curriculums</h1>
         <div class="curriculums-list">
-          <?php 
-            $list = CurriculumController::indexByUser($_SESSION["user"]);
+          <?php $list = CurriculumController::indexByUser($_SESSION["user"]); ?>
 
-            foreach($list as $curriculum):?>
-              <div class="curriculum" data-id="<?=$curriculum['id']?>">
-                <div class="curriculum-body">
-                  <div class="curriculum-avatar">
-                    <img src="<?=$curriculum['avatar'];?>" alt="">
-                  </div>
-                  <div class="curriculum-info">
-                    <h3><?= $curriculum['name']?></h3>
-                    <p><?= $curriculum['description']?></p>
-                  </div>
+          <?php if(!$list || sizeof($list) <= 0):?>
+            <div class="empty-state">
+              <img src="/<?=$_ENV['SRC_DIR']?>/assets/images/file.svg" alt="">
+              <h3>No Curriculums Found.</h3>
+              <p>It seems like you have no curriculums, yet! Why don't you try to create one?</p>
+            </div>
+          <?php endif;?>
+
+          <?php foreach($list as $curriculum):?>
+            <div class="curriculum" data-id="<?=$curriculum['id']?>">
+              <div class="curriculum-body">
+                <div class="curriculum-avatar">
+                  <img src="<?=$curriculum['avatar'];?>" alt="">
                 </div>
-                <div class="curriculum-options">
-                  <a class="icon" href="/<?=$_ENV["BASE_DIR"] ?>/?id=<?=$curriculum['id']?>">
-                    <i class="fa-solid fa-eye"></i>
-                  </a>
-                  <a class="icon" href="/<?=$_ENV["BASE_DIR"] ?>/backoffice/messages/?id=<?=$curriculum['id']?>">
-                    <i class="fa-solid fa-envelope"></i>
-                  </a>
-                  <a class="icon color-warning" href="/<?=$_ENV["BASE_DIR"] ?>/backoffice/edit/?id=<?=$curriculum['id']?>">
-                    <i class="fa-solid fa-pen-to-square"></i>
-                  </a>
-                  <a class="icon color-danger show-delete-curriculum" href="#">
-                    <i class="fa-solid fa-trash"></i>
-                  </a>
+                <div class="curriculum-info">
+                  <h3><?= $curriculum['name']?></h3>
+                  <p><?= $curriculum['description']?></p>
                 </div>
               </div>
-            <?php endforeach; ?>
+              <div class="curriculum-options">
+                <a class="icon" href="/<?=$_ENV["BASE_DIR"] ?>/?id=<?=$curriculum['id']?>">
+                  <i class="fa-solid fa-eye"></i>
+                </a>
+                <a class="icon" href="/<?=$_ENV["BASE_DIR"] ?>/backoffice/messages/?id=<?=$curriculum['id']?>">
+                  <i class="fa-solid fa-envelope"></i>
+                </a>
+                <a class="icon color-warning" href="/<?=$_ENV["BASE_DIR"] ?>/backoffice/edit/?id=<?=$curriculum['id']?>">
+                  <i class="fa-solid fa-pen-to-square"></i>
+                </a>
+                <a class="icon color-danger show-delete-curriculum" href="#">
+                  <i class="fa-solid fa-trash"></i>
+                </a>
+              </div>
+            </div>
+          <?php endforeach; ?>
         </div>
       </div>
       

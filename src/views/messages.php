@@ -45,19 +45,26 @@
         <h1>Messages</h1>
         <h4><?=$curriculum['name']?></h4>
 
-
         <div class="messages-list">
-            <?php foreach($messages as $item):?>
-                <div class="message">
-                  <h3 class="message-title"><?=$item['subject']?> <small><?=$item['created_at']?></small></h3>
-                  <h5 class="message-sender">By: <b><?="{$item['first_name']} {$item['last_name']}"?></b></h5>
-                  <h6><?=$item['email']?></h6>
-                  <h6><?=$item['phone']?></h6>
-                  <div class="message-body">
-                    <p><?=$item['message']?></p>
-                  </div>
+          <?php if(!$messages || sizeof($messages) <= 0):?>
+            <div class="empty-state">
+              <img src="/<?=$_ENV['SRC_DIR']?>/assets/images/envelope.svg" alt="">
+              <h3>No Messages Found.</h3>
+              <p>No one has contacted you yet on this curriculum.</p>
+            </div>
+          <?php endif;?>
+
+          <?php foreach($messages as $item):?>
+              <div class="message">
+                <h3 class="message-title"><?=$item['subject']?> <small><?=$item['created_at']?></small></h3>
+                <h5 class="message-sender">By: <b><?="{$item['first_name']} {$item['last_name']}"?></b></h5>
+                <h6><?=$item['email']?></h6>
+                <h6><?=$item['phone']?></h6>
+                <div class="message-body">
+                  <p><?=$item['message']?></p>
                 </div>
-            <?php endforeach;?>
+              </div>
+          <?php endforeach;?>
         </div>
     </div>
 

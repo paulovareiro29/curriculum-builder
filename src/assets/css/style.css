@@ -397,3 +397,23 @@ button.icon {
   background-color: var(--light-warning);
   border-color: var(--warning);
 }
+
+/* EMPTY STATES */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+
+  max-width: 350px;
+}
+
+.empty-state * {
+  text-align: center;
+}
+
+.empty-state h3 {
+  font-size: 1.5rem;
+  margin: 4px 0;
+}
