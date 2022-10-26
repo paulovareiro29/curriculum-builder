@@ -19,7 +19,7 @@
     />
     <link rel="stylesheet" href="/<?= $_ENV['SRC_DIR']?>/assets/css/style.css" />
     <link rel="stylesheet" href="/<?= $_ENV['SRC_DIR']?>/assets/css/curriculum.css" />
-    <title>Paulo Vareiro n24473</title>
+    <title>Curriculum Builder</title>
 
     <script src="/<?= $_ENV['SRC_DIR']?>/assets/js/lib/html2canvas.min.js" ></script>
     <script src="/<?= $_ENV['SRC_DIR']?>/assets/js/lib/jspdf.js" ></script>

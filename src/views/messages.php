@@ -20,7 +20,7 @@
     />
     <link rel="stylesheet" href="/<?= $_ENV['SRC_DIR']?>/assets/css/style.css" />
     <link rel="stylesheet" href="/<?= $_ENV['SRC_DIR']?>/assets/css/messages.css" />
-    <title>Paulo Vareiro n24473</title>
+    <title>Curriculum Builder</title>
 
     <script src="https://kit.fontawesome.com/be947b2e4a.js" crossorigin="anonymous"></script>
   </head>
