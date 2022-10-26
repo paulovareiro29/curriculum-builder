@@ -98,7 +98,7 @@
         public function softdelete() {
             if(!isset($this->id)) return false;
 
-            $sql = "UPDATE curriculum SET deleted_at = now() WHERE id = " . $this->id;
+            $sql = "UPDATE curriculum SET deleted_at = now(), avatar = NULL WHERE id = " . $this->id;
 
             $this->connect();
             $result = $this->conn->query($sql);
