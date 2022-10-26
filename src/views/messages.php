@@ -29,7 +29,7 @@
     <div class="navbar">
       <div class="navbar-wrapper">
         <div>
-          <a href="/<?=$_ENV["BASE_DIR"] ?>/backoffice">Manage my curriculums</a>
+          <a href="/<?=$_ENV["BASE_DIR"] ?>/backoffice">Dashboard</a>
         </div>
         <div>
           <p>Logged in as <b><?php echo $_SESSION["user"]; ?></b></p>

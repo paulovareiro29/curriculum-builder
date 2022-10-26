@@ -33,7 +33,7 @@
             return $curriculum;
         }
 
-        public static function create($username, $name, $description, $avatar) {
+        public static function create($username, $name, $description = "", $avatar = "") {
             $user = new User($username);
             if(($user = $user->get()) === null) return false;
 

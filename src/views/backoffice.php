@@ -4,8 +4,12 @@
   if($_SERVER['REQUEST_METHOD'] == "POST"){
     $name = $_POST["name"];
     $description = $_POST["description"];
-    $avatar = base64_encode(file_get_contents($_FILES["avatar"]["tmp_name"]));
-    $avatar = "data:{$_FILES['avatar']['type']};base64,{$avatar}"; 
+    $avatar = null;
+
+    if(isset($_FILES['avatar']) && $_FILES['avatar']['type'] == "image/jpeg" || $_FILES['avatar']['type'] == "image/jpeg"){
+      $avatar = base64_encode(file_get_contents($_FILES["avatar"]["tmp_name"]));
+      $avatar = "data:{$_FILES['avatar']['type']};base64,{$avatar}"; 
+    }
 
 
     if(CurriculumController::create($_SESSION['user'], $name, $description, $avatar)) {
@@ -67,7 +71,6 @@
                     id="description"
                     placeholder="Description"
                     rows="4"
-                    required
                   ></textarea>
               </div>
             </div>
@@ -79,8 +82,7 @@
                     name="avatar"
                     id="avatar"
                     placeholder="Avatar"
-                    required
-                  ></textarea>
+                    accept="image/png, image/jpeg"/>
               </div>
             </div>
             <div class="form-row">

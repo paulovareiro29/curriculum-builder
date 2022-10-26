@@ -470,6 +470,7 @@ button.icon {
   justify-content: center;
   align-items: center;
   gap: 8px;
+  margin-bottom: 20px;
 }
 
 .curriculums-list .curriculum .curriculum-avatar {
@@ -498,7 +499,7 @@ button.icon {
   align-items: center;
   gap: 8px;
 
-  margin-top: 8px;
+  margin-top: auto;
   padding-top: 8px;
   border-top: 1px solid var(--secondary);
 }
