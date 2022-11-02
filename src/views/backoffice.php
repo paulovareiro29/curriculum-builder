@@ -114,7 +114,7 @@
           <a href="./backoffice">Dashboard</a>
         </div>
         <div>
-          <p>Logged in as <b><?php echo $_SESSION["user"]; ?></b></p>
+          <p class="text-end">Logged in as <b><?php echo $_SESSION["user"]; ?></b></p>
           <a href="/<?=$_ENV["BASE_DIR"] ?>/logout">
             <i class="fa-solid fa-arrow-right-from-bracket"></i>
           </a>

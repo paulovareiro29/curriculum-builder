@@ -1,12 +1,12 @@
 /* LOGIN */
 .login {
   padding: 20px;
-  width: 500px;
-
+  width: 100%;
+  max-width: 500px;
   background-color: white;
   border-radius: 12px;
   border: 1px solid var(--primary);
-  margin: 0 8px;
+  margin-top: 30px;
 }
 
 .login h1 {

@@ -41,7 +41,7 @@
     <a class="floating-button floating-button-left" href="/<?= $_ENV['BASE_DIR']?>">
       <i class="fa fa-arrow-left"></i>  
     </a>
-    <div class="vh-100 d-flex justify-center align-center">
+    <div class="w-100 vh-100 d-flex justify-center align-center">
       <div class="login">
         <div class="login-header">
         <h1>Login Panel</h1>

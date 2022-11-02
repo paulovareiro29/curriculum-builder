@@ -1,4 +1,4 @@
-.curriculum {
+.edit {
   display: flex;
   align-items: flex-start;
   gap: 32px;
@@ -6,34 +6,34 @@
   margin-top: 32px;
 }
 
-.curriculum > .col {
+.edit > .col {
   background: white;
   border: 1px solid var(--primary);
   border-radius: 8px;
 }
 
-.curriculum > .col:first-child {
+.edit > .col:first-child {
   flex: 1;
 }
 
-.curriculum > .col:last-child {
+.edit > .col:last-child {
   flex: 2;
 }
 
 /* NAVIGATION */
-.curriculum > nav {
+.edit > nav {
   position: sticky;
   top: 32px;
   overflow: hidden;
 }
 
-.curriculum > nav ul {
+.edit > nav ul {
   list-style-type: none;
   padding: 0;
   margin: 0;
 }
 
-.curriculum > nav ul li {
+.edit > nav ul li {
   display: flex;
 
   cursor: pointer;
@@ -41,25 +41,25 @@
   transition: background-color 0.2s;
 }
 
-.curriculum > nav ul li:hover,
-.curriculum > nav ul li.active {
+.edit > nav ul li:hover,
+.edit > nav ul li.active {
   background-color: var(--secondary);
 }
 
-.curriculum > nav ul li:not(:last-child) {
+.edit > nav ul li:not(:last-child) {
   border-bottom: 1px solid var(--secondary);
 }
 
-.curriculum > nav ul li.active * {
+.edit > nav ul li.active * {
   font-weight: 800;
 }
 
-.curriculum > nav ul li > p {
+.edit > nav ul li > p {
   margin: 0;
   letter-spacing: 2px;
 }
 
-.curriculum > nav ul li > i {
+.edit > nav ul li > i {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -71,20 +71,20 @@
 }
 
 /* CONTENT */
-.curriculum > form {
+.edit > form {
   padding: 20px;
 }
 
-.curriculum #main-content h1 {
+.edit #main-content h1 {
   margin-bottom: 20px;
 }
 
-.curriculum #main-content > *:not(:first-child) {
+.edit #main-content > *:not(:first-child) {
   display: none;
 }
 
 /* CONTENT - EDITABLE HEADERS */
-.curriculum .editable-header {
+.edit .editable-header {
   margin-bottom: 20px;
   border: 0;
   font-size: 2em;
@@ -94,13 +94,13 @@
 }
 
 /* CONTENT - PROFILE */
-.curriculum #main-content .profile-header {
+.edit #main-content .profile-header {
   display: flex;
   align-items: flex-start;
   gap: 20px;
 }
 
-.curriculum #main-content .profile-avatar {
+.edit #main-content .profile-avatar {
   position: relative;
   width: 150px;
   height: 150px;
@@ -109,7 +109,7 @@
   overflow: hidden;
 }
 
-.curriculum #main-content .profile-avatar .avatar-container {
+.edit #main-content .profile-avatar .avatar-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -120,11 +120,11 @@
   cursor: pointer;
 }
 
-.curriculum #main-content .profile-avatar img {
+.edit #main-content .profile-avatar img {
   width: 100%;
 }
 
-.curriculum #main-content .profile-avatar figcaption {
+.edit #main-content .profile-avatar figcaption {
   position: absolute;
   top: 0;
 
@@ -143,35 +143,35 @@
   color: white;
 }
 
-.curriculum #main-content .profile-avatar figcaption:hover {
+.edit #main-content .profile-avatar figcaption:hover {
   opacity: 1;
   background-color: rgba(62, 74, 86, 0.5);
 }
 
-.curriculum #main-content .profile-avatar input[type="file"] {
+.edit #main-content .profile-avatar input[type="file"] {
   display: none;
 }
 
 /* CONTENT - INFO */
-.curriculum #main-content .items-list {
+.edit #main-content .items-list {
   margin-top: 20px;
 }
-.curriculum #main-content .items-list.multiple-row .item {
+.edit #main-content .items-list.multiple-row .item {
   position: relative;
   border: 1px solid var(--secondary);
   padding: 10px;
   border-radius: 8px;
 }
 
-.curriculum #main-content .items-list .item:not(:first-child) {
+.edit #main-content .items-list .item:not(:first-child) {
   margin-top: 14px;
 }
 
-.curriculum #main-content .items-list .item:not(:last-child) {
+.edit #main-content .items-list .item:not(:last-child) {
   margin-bottom: 8px;
 }
 
-.curriculum #main-content .items-list.multiple-row > * .btn-danger {
+.edit #main-content .items-list.multiple-row > * .btn-danger {
   position: absolute;
   top: -10px;
   right: -10px;
@@ -181,7 +181,52 @@
   border-radius: 50%;
 }
 
-.curriculum #main-content .items-list:not(.multiple-row) > * .btn-danger {
+.edit #main-content .items-list:not(.multiple-row) > * .btn-danger {
   flex: 0;
   min-width: 50px;
+}
+
+@media only screen and (max-width: 768px) {
+  .edit {
+    flex-direction: column;
+    margin-top: 20px;
+    gap: 20px;
+  }
+
+  .edit > * {
+    width: 100%;
+  }
+
+  .edit nav {
+    position: relative;
+    top: 0px;
+  }
+
+  .edit nav > ul {
+    display: flex;
+  }
+
+  .edit nav > ul > li {
+    display: flex;
+    justify-content: center;
+    padding: 8px 0;
+    flex: 1;
+  }
+
+  .edit nav > ul > li > i {
+    margin: 0;
+  }
+
+  .edit nav > ul > li > p {
+    display: none;
+  }
+
+  .edit #main-content .profile-header {
+    align-items: center;
+    flex-direction: column;
+  }
+  .edit #main-content .profile-avatar {
+    width: 100px;
+    height: 100px;
+  }
 }

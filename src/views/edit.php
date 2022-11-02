@@ -36,7 +36,7 @@
           <a href="/<?=$_ENV["BASE_DIR"] ?>/backoffice">Dashboard</a>
         </div>
         <div>
-          <p>Logged in as <b><?php echo $_SESSION["user"]; ?></b></p>
+          <p class="text-end">Logged in as <b><?php echo $_SESSION["user"]; ?></b></p>
           <a href="/<?=$_ENV["BASE_DIR"] ?>/logout">
           <i class="fa-solid fa-arrow-right-from-bracket"></i>
         </a>
@@ -48,7 +48,7 @@
     <div id="badge-edit-error" class="main-container alert alert-danger d-none">An error occured while trying to save.</div>
 
 
-    <div class="main-container curriculum">
+    <div class="main-container edit">
       <nav id="edit-navigation" class="col">
         <ul>
           <li class="active" data-link="general"><i class="fa-solid fa-house"></i><p>General</p></li>
