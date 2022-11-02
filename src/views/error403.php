@@ -17,16 +17,14 @@
     <script src="https://kit.fontawesome.com/be947b2e4a.js" crossorigin="anonymous"></script>
   </head>
   <body>
-    <div class="vh-100 d-flex justify-center align-center">
-      <div class="error403">
-        <h1>Sorry!</h1>
-        <h5>FORBIDDEN</h5>
-        <p>
-          Sorry! The page you are trying to access a has restricted access.
-          Please refer to your system administrator.
-        </p>
-        <a class="btn" href="/<?=$_ENV["BASE_DIR"] ?>/">GO HOME</a>
-      </div>
+    <div class="error403">
+      <h1>Sorry!</h1>
+      <h5>FORBIDDEN</h5>
+      <p>
+        Sorry! The page you are trying to access a has restricted access.
+        Please refer to your system administrator.
+      </p>
+      <a class="btn" href="/<?=$_ENV["BASE_DIR"] ?>/">GO HOME</a>
     </div>
   </body>
 </html>
