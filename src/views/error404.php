@@ -18,9 +18,6 @@
     <script src="https://kit.fontawesome.com/be947b2e4a.js" crossorigin="anonymous"></script>
   </head>
   <body>
-    <button onclick="history.back()" class="floating-button floating-button-left">
-      <i class="fa fa-arrow-left"></i>  
-    </button>
     <div class="vh-100 d-flex justify-center align-center">
       <div class="error404">
         <h1>Oops!</h1>
@@ -29,6 +26,7 @@
           Uh oh, we can't seem to find the page you're looking for. It might
           have been removed, renamed, or did not exist in first place.
         </p>
+        <a class="btn" href="/<?=$_ENV["BASE_DIR"] ?>/">GO HOME</a>
       </div>
     </div>
   </body>

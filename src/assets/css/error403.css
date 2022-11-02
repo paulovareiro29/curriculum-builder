@@ -20,3 +20,7 @@
   font-size: 1.3rem;
   margin-bottom: 8px;
 }
+
+.error403 a.btn {
+  margin-top: 20px;
+}
