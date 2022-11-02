@@ -375,5 +375,3 @@ const loadForm = () => {
 
 loadNavigation();
 loadForm();
-
-changeWindowTo("info");
