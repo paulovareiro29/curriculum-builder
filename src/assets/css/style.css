@@ -188,11 +188,31 @@ p {
   transition: transform 0.2s, top 0.2s, left 0.2s;
 }
 
+.form-group select {
+  height: 100%;
+}
+
+.form-group.select-icon i {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 12px;
+
+  width: 16px;
+  height: 16px;
+}
+
+.form-group.select-icon select {
+  padding-left: 32px;
+}
+
 .form-group label + input::-webkit-input-placeholder,
 .form-group label + textarea::-webkit-input-placeholder {
   opacity: 0;
 }
 
+.form-group label:has(+ select),
+.form-group select + label,
 .form-group label:has(+ input:not(:placeholder-shown)),
 .form-group input:not(:placeholder-shown) + label,
 .form-group label:has(+ textarea:not(:placeholder-shown)),
@@ -209,7 +229,8 @@ p {
 }
 
 form input,
-form textarea {
+form textarea,
+form select {
   border-radius: 8px;
   border: 1px solid var(--primary);
   padding: 8px 12px;
@@ -224,7 +245,9 @@ form textarea {
 form input:-webkit-autofill,
 form input:-webkit-autofill:focus,
 form textarea:-webkit-autofill,
-form textarea:-webkit-autofill:focus {
+form textarea:-webkit-autofill:focus,
+form select:-webkit-autofill,
+form select:-webkit-autofill:focus {
   transition: background-color 600000s 0s, color 600000s 0s;
 }
 

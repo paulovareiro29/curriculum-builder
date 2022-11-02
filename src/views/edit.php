@@ -7,6 +7,9 @@
   $skills = $curriculum['skills'];
   $education = $curriculum['education'];
   $experience = $curriculum['experience'];
+
+
+  $icons = [ "envelope",  "phone", "location-dot"];
 ?>
 
 <!DOCTYPE html>
@@ -209,13 +212,20 @@
                         value="<?=$item['href']?>"
                       />
                     </div>
-                    <div class="form-group">
+                    <div class="form-group select-icon">
+                      <i class="icon fa <?=$item['icon']?>"></i>
                       <label>Icon</label>
-                      <input
+                      <select
                         data-icon
-                        placeholder="Icon"
-                        value="<?=$item['icon']?>"
-                      />
+                        value="<?=$item['icon']?>">
+                        <?php foreach($icons as $icon):?>
+                          <option value="<?=$icon?>"
+                            <?php if($item['icon'] == $icon):?>
+                              selected
+                            <?php endif;?>
+                            ><?=ucfirst(str_replace("-", " ", $icon ))?></option>
+                        <?php endforeach;?>
+                      </select>
                     </div>
                     <button class="btn btn-danger" type="button">X</button>
                   </div>
@@ -332,7 +342,7 @@
                       />
                     </div>
                   </div>
-                  <button class="btn btn-danger" type="button">x</button>
+                  <button class="btn btn-danger" type="button">X</button>
                 </div>
               <?php endforeach;?>
             </div>
@@ -403,7 +413,7 @@
                       ><?=$item['summary']?></textarea>                      
                     </div>
                   </div>
-                  <button class="btn btn-danger" type="button">x</button>
+                  <button class="btn btn-danger" type="button">X</button>
                 </div>
               <?php endforeach;?>
             </div>

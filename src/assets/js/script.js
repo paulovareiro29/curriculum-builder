@@ -23,8 +23,7 @@ const closeModal = (id) => {
   document.getElementById(id).classList.remove("show");
 };
 
-/** AUTO RESIZE TEXTAREA */
-
+/* AUTO RESIZE TEXTAREA */
 const loadTextAreas = () => {
   const autoResize = (el) => {
     if (!el) return;
@@ -52,8 +51,18 @@ const loadTextAreas = () => {
   });
 };
 
+/* SELECTS */
+const loadSelects = () => {
+  $("select").on("change", function () {
+    $(this)
+      .siblings("i.icon")
+      .attr("class", "icon fa fa-" + this.value);
+  });
+};
+
 loadModals();
 loadTextAreas();
+loadSelects();
 
 /* window.history.replaceState(null, null, window.location.pathname); */
 

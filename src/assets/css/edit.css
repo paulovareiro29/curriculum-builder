@@ -173,12 +173,14 @@
 
 .edit #main-content .items-list.multiple-row > * .btn-danger {
   position: absolute;
-  top: -10px;
-  right: -10px;
+  top: 0;
+  right: 0;
   padding: 0;
-  width: 32px;
-  height: 32px;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
+  text-transform: uppercase;
+  transform: translate(50%, -50%);
 }
 
 .edit #main-content .items-list:not(.multiple-row) > * .btn-danger {
