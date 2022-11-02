@@ -6,6 +6,7 @@
         public $user_id;
         public $name;
         public $person_name;
+        public $role;
         public $avatar;
         public $summary;
         public $is_public;
@@ -115,6 +116,7 @@
             $sql = "UPDATE curriculum SET 
                 name = '{$this->name}',
                 person_name = '{$this->person_name}',
+                role = '{$this->role}',
                 avatar = '{$this->avatar}',
                 summary = '{$this->summary}',
                 is_public = {$this->is_public},

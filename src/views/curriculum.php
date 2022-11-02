@@ -43,7 +43,7 @@
           <div class="profile-header-info">
             <h2>Hello, I am</h2>
             <h1><?= $curriculum['person_name']?></h1>
-            <h4>SOFTWARE DEVELOPER</h4>
+            <h4><?= $curriculum['role']?></h4>
           </div>
         </div>
         <div class="profile-body">

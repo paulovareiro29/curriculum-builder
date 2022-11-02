@@ -149,6 +149,19 @@
                 </div>
                 <div class="form-row">
                   <div class="form-group">
+                      <label for="role">Role</label>
+                      <input
+                        type="text"
+                        name="role"
+                        id="role"
+                        placeholder="Name"
+                        value="<?=$curriculum['role']?>"
+                        data-field="role"
+                      />
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
                       <label for="summary">Summary</label>
                       <textarea
                         type="text"
