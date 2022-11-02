@@ -25,28 +25,7 @@
 <body>
 
 
-  <div class="navbar">
-    <div class="navbar-wrapper">
-      <div>
-        <a href="./">Home</a>
-        <a href="./backoffice">Dashboard</a>
-      </div>
-      
-        <div>
-          <?php if(AuthController::isLoggedIn()):?>
-            <p class="text-end">Logged in as <b><?php echo $_SESSION["user"]; ?></b></p>
-            <a href="/<?=$_ENV["BASE_DIR"] ?>/logout">
-              <i class="fa-solid fa-arrow-right-from-bracket"></i>
-            </a>
-          <?php else:?>
-            <a href="/<?=$_ENV["BASE_DIR"] ?>/login">
-              Login
-            </a>
-          <?php endif;?>
-        </div>
-  
-    </div>
-  </div>
+  <?php require_once("navbar.php")?>
 
   <div class="landing main-container">
     <div class="curriculums">

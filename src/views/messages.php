@@ -26,20 +26,7 @@
   </head>
   <body>
     
-    <div class="navbar">
-      <div class="navbar-wrapper">
-        <div>
-          <a href="/<?=$_ENV["BASE_DIR"] ?>/backoffice">Dashboard</a>
-        </div>
-        <div>
-          <p class="text-end">Logged in as <b><?php echo $_SESSION["user"]; ?></b></p>
-          <a href="/<?=$_ENV["BASE_DIR"] ?>/logout">
-          <i class="fa-solid fa-arrow-right-from-bracket"></i>
-        </a>
-        </div>
-      </div>
-    </div>
-
+    <?php require_once("navbar.php")?>
 
     <div class="main-container messages">
         <h1>Messages</h1>

@@ -41,6 +41,8 @@
     <script src="https://kit.fontawesome.com/be947b2e4a.js" crossorigin="anonymous"></script>
   </head>
   <body>
+    <?php require_once("navbar.php")?>
+
     <div class="modal" id="new-curriculum">
       <div class="modal-background"></div>
       <div class="modal-wrapper">
@@ -103,21 +105,6 @@
         <div class="modal-body">
           <a class="btn btn-danger" name="delete-curriculum" onclick="closeModal('delete-curriculum')">CANCEL</a>
           <a class="btn" name="delete-curriculum" id="delete-curriculum-btn">CONFIRM</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="navbar">
-      <div class="navbar-wrapper">
-        <div>
-          <a href="./">Home</a>
-          <a href="./backoffice">Dashboard</a>
-        </div>
-        <div>
-          <p class="text-end">Logged in as <b><?php echo $_SESSION["user"]; ?></b></p>
-          <a href="/<?=$_ENV["BASE_DIR"] ?>/logout">
-            <i class="fa-solid fa-arrow-right-from-bracket"></i>
-          </a>
         </div>
       </div>
     </div>

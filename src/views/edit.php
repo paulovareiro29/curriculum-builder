@@ -33,13 +33,14 @@
     <div class="navbar">
       <div class="navbar-wrapper">
         <div>
+          <a href="/<?=$_ENV["BASE_DIR"] ?>/">Home</a>
           <a href="/<?=$_ENV["BASE_DIR"] ?>/backoffice">Dashboard</a>
         </div>
         <div>
           <p class="text-end">Logged in as <b><?php echo $_SESSION["user"]; ?></b></p>
           <a href="/<?=$_ENV["BASE_DIR"] ?>/logout">
-          <i class="fa-solid fa-arrow-right-from-bracket"></i>
-        </a>
+            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+          </a>
         </div>
       </div>
     </div>
@@ -400,10 +401,6 @@
         </div>
       </form>
     </div>
-
-    <a class="floating-button floating-button-left" href="/<?= $_ENV['BASE_DIR']?>/backoffice">
-      <i class="fa fa-arrow-left"></i>  
-    </a>
 
     <script src="/<?=$_ENV['SRC_DIR']?>/assets/js/lib/jquery.js"></script>
     <script src="/<?=$_ENV['SRC_DIR']?>/assets/js/script.js"></script>
