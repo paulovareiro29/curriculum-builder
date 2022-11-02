@@ -21,7 +21,18 @@
 
 .profile .profile-header .profile-picture {
   width: 150px;
+  height: 150px;
   border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: var(--secondary);
+}
+
+.profile .profile-header .profile-picture img {
+  width: 100%;
 }
 
 .profile .profile-header .profile-header-info > * {

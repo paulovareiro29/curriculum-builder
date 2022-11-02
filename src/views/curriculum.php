@@ -33,11 +33,13 @@
     <div class="profile">
       <div id="curriculum">
         <div class="profile-header">
-          <img
-            src=<?= $curriculum['avatar']?>
-            alt="<?= $curriculum['person_name']?>'s avatar"
-            class="profile-picture"
-          />
+          <div class="profile-picture">
+            <img
+              src=<?= $curriculum['avatar']?>
+              alt="<?= $curriculum['person_name']?>'s avatar"
+            />
+          </div>
+          
           <div class="profile-header-info">
             <h2>Hello, I am</h2>
             <h1><?= $curriculum['person_name']?></h1>
