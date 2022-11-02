@@ -41,7 +41,7 @@
         <?php endif;?>
 
         <?php foreach($list as $curriculum):?>
-          <?php $curriculum['user'] = UserController::get($curriculum['id'])?>
+          <?php $curriculum['user'] = UserController::get($curriculum['user_id'])?>
           <div class="curriculum" data-id="<?=$curriculum['id']?>">
             <div class="curriculum-body">
               <div class="curriculum-avatar">
