@@ -23,7 +23,37 @@ const closeModal = (id) => {
   document.getElementById(id).classList.remove("show");
 };
 
+/** AUTO RESIZE TEXTAREA */
+
+const loadTextAreas = () => {
+  const autoResize = (el) => {
+    if (!el) return;
+
+    el.style.height = "auto";
+    el.style.height = el.scrollHeight + "px";
+    el.scrollTop = el.scrollHeight;
+  };
+
+  $("textarea")
+    .each(function () {
+      this.setAttribute(
+        "style",
+        "height:" + this.scrollHeight + "px; overflow-y: hidden;"
+      );
+    })
+    .on("input", function () {
+      autoResize(this);
+    });
+
+  $(document).click(function () {
+    $("textarea").each(function () {
+      if ($(this).is(":visible")) autoResize(this);
+    });
+  });
+};
+
 loadModals();
+loadTextAreas();
 
 /* window.history.replaceState(null, null, window.location.pathname); */
 
