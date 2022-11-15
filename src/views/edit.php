@@ -33,20 +33,7 @@
   </head>
   <body>
 
-    <div class="navbar">
-      <div class="navbar-wrapper">
-        <div>
-          <a href="/<?=$_ENV["BASE_DIR"] ?>/">Home</a>
-          <a href="/<?=$_ENV["BASE_DIR"] ?>/backoffice">Dashboard</a>
-        </div>
-        <div>
-          <p class="text-end">Logged in as <b><?php echo $_SESSION["user"]; ?></b></p>
-          <a href="/<?=$_ENV["BASE_DIR"] ?>/logout">
-            <i class="fa-solid fa-arrow-right-from-bracket"></i>
-          </a>
-        </div>
-      </div>
-    </div>
+    <?php require_once("navbar.php")?>
       
     <div id="badge-edit-success" class="main-container alert alert-success d-none">Curriculum has been saved successfuly!</div>
     <div id="badge-edit-error" class="main-container alert alert-danger d-none">An error occured while trying to save.</div>

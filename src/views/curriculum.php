@@ -42,7 +42,7 @@
             </div>
           <?php endif;?>
           
-          <?php if(!empty($curriculum['person_name']) && !empty($curriculum['role'])):?>
+          <?php if(!empty($curriculum['person_name']) || !empty($curriculum['role'])):?>
             <div class="profile-header-info">
               <?php if(!empty($curriculum['person_name'])):?>
                 <h2>Hello, I am</h2>

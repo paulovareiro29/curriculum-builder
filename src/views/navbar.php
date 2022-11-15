@@ -5,6 +5,15 @@
         <a href="/<?=$_ENV["BASE_DIR"] ?>/backoffice">Dashboard</a>
       </div>
       <div>
+      <div>
+          <div class="darkmode-switch" id="darkmode-switch">
+            <span id="darkmode-span">Lightmode</span>
+            <label for="darkmode" class="switch">
+              <input type="checkbox" id="darkmode" />
+              <div class="slider round"></div>
+            </label>
+          </div>
+        </div>
         <?php if(AuthController::isLoggedIn()):?>
           <p class="text-end">Logged in as <b><?php echo $_SESSION["user"]; ?></b></p>
           <a href="/<?=$_ENV["BASE_DIR"] ?>/logout">

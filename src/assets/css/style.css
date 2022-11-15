@@ -1,7 +1,7 @@
 :root {
   --primary: #3e4a56;
   --secondary: #e2e3e5;
-  --bg-color: #f1f1f1;
+  --background: #f1f1f1;
   --danger: #ff4747;
   --light-danger: #f8d7da;
   --dark-danger: #721c24;
@@ -11,6 +11,8 @@
   --success: #57b657;
   --light-success: #d4edda;
   --dark-success: #155724;
+  --white: white;
+  --dark-primary: #1e252b;
 }
 
 html {
@@ -18,10 +20,20 @@ html {
   color: var(--primary);
 }
 
+body.darkmode {
+  --primary: #d3d2d1;
+  --secondary: #8b8b8b;
+  --dark-primary: #bebebe;
+  --background: #121212;
+  --white: #242424;
+  --banner: #242424;
+}
+
 body {
   margin: 0;
   padding: 0 16px 16px 16px;
-  background-color: var(--bg-color);
+  color: var(--primary);
+  background-color: var(--background);
   min-width: 375px;
   display: flex;
   flex-direction: column;
@@ -132,7 +144,7 @@ p {
   border-radius: 8px;
   border: 1px solid var(--primary);
   background-color: var(--primary);
-  color: white;
+  color: var(--white);
   line-height: 1.5rem;
   font-size: 0.9rem;
   margin: 0;
@@ -141,8 +153,8 @@ p {
 }
 
 .btn:hover {
-  background-color: #1e252b;
-  border-color: #1e252b;
+  background-color: var(--dark-primary);
+  border-color: var(--dark-primary);
 }
 
 .btn-danger {
@@ -159,7 +171,7 @@ p {
 .form-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 14px;
 }
 
 .form-row:not(:last-child) {
@@ -225,7 +237,7 @@ p {
   left: 0;
   line-height: 1rem;
   transform: scale(0.8) translateY(-50%);
-  background-color: white;
+  background-color: var(--white);
 }
 
 form input,
@@ -236,7 +248,7 @@ form select {
   padding: 8px 12px;
   font-size: 16px;
   line-height: 2rem;
-  background-color: white;
+  background-color: var(--white);
   font-family: "Nunito", sans-serif;
   color: var(--primary);
   resize: none;
@@ -253,7 +265,7 @@ form select:-webkit-autofill:focus {
 
 form input[data-autocompleted],
 form textarea[data-autocompleted] {
-  background-color: white;
+  background-color: var(--white);
 }
 
 form .form-row:not(:first-child) {
@@ -266,14 +278,14 @@ form button[type="submit"] {
   border-radius: 8px;
   border: 1px solid var(--primary);
   background-color: var(--primary);
-  color: white;
+  color: var(--white);
   line-height: 1.5rem;
 
   transition: background-color 0.2s;
 }
 
 form button[type="submit"]:hover {
-  background-color: #1e252b;
+  background-color: var(--dark-primary);
 }
 
 button.icon {
@@ -334,7 +346,8 @@ button.icon {
   height: 100%;
   cursor: pointer;
 
-  background-color: #1e252b47;
+  background-color: var(--dark-primary);
+  opacity: 0.47;
   z-index: -1;
 }
 
@@ -342,7 +355,7 @@ button.icon {
   position: relative;
   width: 478px;
   border-radius: 12px;
-  background-color: white;
+  background-color: var(--white);
   border: 1px solid var(--secondary);
 
   transform: scale(0);
@@ -396,7 +409,7 @@ button.icon {
   border: 0;
 
   background-color: var(--primary);
-  color: white;
+  color: var(--white);
   cursor: pointer;
 }
 
@@ -410,7 +423,7 @@ button.icon {
   margin: auto;
   border: 1px solid var(--primary);
   margin-bottom: 16px;
-  background-color: white;
+  background-color: var(--white);
   border-radius: 8px;
   width: 100%;
 }
@@ -511,7 +524,7 @@ button.icon {
 
   border: 1px solid var(--secondary);
   border-radius: 8px;
-  background-color: white;
+  background-color: var(--white);
 
   padding: 20px;
   max-width: 500px;
@@ -602,4 +615,60 @@ button.icon {
   .curriculums-list .curriculum .curriculum-info * {
     text-align: start;
   }
+}
+
+/* SLIDER CHECKBOX */
+.switch {
+  display: inline-block;
+  height: 24px;
+  position: relative;
+  width: 42px;
+}
+
+.switch input {
+  display: none;
+}
+
+.slider {
+  background-color: #ccc;
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: 0.4s;
+}
+
+.slider:before {
+  background-color: var(--background);
+  bottom: 4px;
+  content: "";
+  height: 16px;
+  left: 4px;
+  position: absolute;
+  transition: 0.4s;
+  width: 16px;
+}
+
+input:checked + .slider {
+  background-color: var(--primary);
+}
+
+input:checked + .slider:before {
+  transform: translateX(18px);
+}
+
+.slider.round {
+  border-radius: 999px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.darkmode-switch {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }

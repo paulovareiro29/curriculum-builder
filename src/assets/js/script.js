@@ -59,7 +59,37 @@ const loadSelects = () => {
       .attr("class", "icon fa fa-" + this.value);
   });
 };
+/* DARK MODE */
+const loadDarkmode = () => {
+  // Switch
+  let switcher = document.getElementById("darkmode");
+  let span = document.getElementById("darkmode-span");
 
+  if (switcher)
+    switcher.onclick = (e) => {
+      if (e.target.checked) {
+        if (!document.body.classList.contains("darkmode")) {
+          document.body.classList.add("darkmode");
+        }
+        span.innerHTML = "Darkmode";
+        localStorage.setItem("darkmode", true);
+      } else {
+        if (document.body.classList.contains("darkmode")) {
+          document.body.classList.remove("darkmode");
+        }
+        span.innerHTML = "Lightmode";
+        localStorage.setItem("darkmode", false);
+      }
+    };
+
+  if (localStorage.getItem("darkmode") === "true") {
+    document.body.classList.add("darkmode");
+    switcher.checked = true;
+    span.innerHTML = "Darkmode";
+  }
+};
+
+loadDarkmode();
 loadModals();
 loadTextAreas();
 loadSelects();

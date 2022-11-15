@@ -19,6 +19,10 @@
   background-color: aliceblue;
 }
 
+body.darkmode .profile .profile-header-info > * {
+  color: var(--white);
+}
+
 .profile .profile-header .profile-picture {
   width: 150px;
   height: 150px;
@@ -74,7 +78,7 @@
   display: flex;
   border-bottom: 1px solid var(--primary);
   border-top: 1px solid var(--primary);
-  background-color: white;
+  background-color: var(--white);
 }
 
 .profile .profile-body .col {
@@ -186,7 +190,7 @@
 }
 
 .profile .profile-body .info-section i::before {
-  color: white;
+  color: var(--white);
 }
 
 /* PROFILE BODY - SKILLS */
@@ -283,7 +287,7 @@
   flex-direction: column;
   align-items: center;
   padding: 20px;
-  background-color: white;
+  background-color: var(--white);
 }
 
 .profile-footer h1 {
