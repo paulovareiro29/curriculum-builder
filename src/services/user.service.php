@@ -141,4 +141,21 @@
 
             return $result;
         }
+
+        public function indexRoles() {
+            $user = $this->get();
+
+            $sql = "SELECT * FROM user_role WHERE user_id = " . $user['id'];
+
+            $this->connect();
+            $result = $this->conn->query($sql);
+            $this->close();
+
+            $array = array();
+            foreach ($result as $row){
+                array_push($array, $row);
+            }
+
+            return $array;
+        }
     }

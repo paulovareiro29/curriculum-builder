@@ -2,10 +2,11 @@
     include_once "{$_SERVER['DOCUMENT_ROOT']}/{$_ENV['SRC_DIR']}" . '/database/database.php';
 
     class Role extends Database {
+        public $id;
         public $name;
         public $description;
 
-        public function __construct($name, $description = "") {
+        public function __construct($name = "", $description = "") {
             $this->name = $name;
             $this->description = $description;
         }
@@ -31,6 +32,18 @@
 
         public function get() {
             $sql = "SELECT * FROM role WHERE name LIKE \"" . $this->name . "\"";
+
+            $this->connect();
+            $result = $this->conn->query($sql);
+            $this->close();
+
+            if(!isset($result) || $result->num_rows <= 0) return null;
+
+            foreach ($result as $row) return $row;
+        }
+
+        public function getByID() {
+            $sql = "SELECT * FROM role WHERE id = " . $this->id;
 
             $this->connect();
             $result = $this->conn->query($sql);

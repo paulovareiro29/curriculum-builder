@@ -15,5 +15,11 @@
             return $role->exists();
         }
 
+        public static function get($id) {
+            $role = new Role();
+            $role->id = $id;
+            return $role->getByID($id);
+        }
+
     }
 

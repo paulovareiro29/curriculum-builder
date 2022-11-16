@@ -13,16 +13,40 @@
         public static function get($id){
             $user = new User();
             $user->id = $id;
-            return $user->getByID();
+            $result = $user->getByID();
+            $user->username = $result["username"];
+            $roles = $user->indexRoles();
+            $array = [];
+            foreach ($roles as $role) {
+                array_push($array, RoleController::get($role["role_id"]));
+            }
+            $result["roles"] = $array;
+            return $result;
         }
 
         public static function index(){
-            return User::index();
+            $result = User::index();
+            foreach ($result as $key => $item){
+                $user = new User($item["username"]);
+                $roles = $user->indexRoles();
+                $array = [];
+                foreach ($roles as $role) {
+                    array_push($array, RoleController::get($role["role_id"]));
+                }
+                $result[$key]["roles"] = $array;
+            }
+            return $result;
         }
 
         public static function getByUsername($username){
             $user = new User($username);
-            return $user->get();
+            $roles = $user->indexRoles();
+            $array = [];
+            foreach ($roles as $role) {
+                array_push($array, RoleController::get($role["role_id"]));
+            }
+            $result["roles"] = $array;
+            return $result;
         }
 
         public static function validate($username, $password) {

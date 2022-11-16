@@ -28,7 +28,7 @@
         <thead>
           <tr>
             <th>Username</th>
-            <th>Admin</th>
+            <th>Roles</th>
             <th class="text-center">Options</th>
           </tr>
         </thead>
@@ -36,7 +36,11 @@
           <?php foreach($list as $item):?>
             <tr>
               <td><?= $item["username"]?></td>
-              <td><?= UserController::hasRole($item["username"], $_ENV["ADMIN_ROLE"]) ?></td>
+              <td>
+                  <?php foreach($item["roles"] as $role): ?>
+                    <?= $role["name"] ?>
+                  <?php endforeach;?>
+              </td>
               <td class="text-center">
                 <a class="icon color-warning" href="#">
                   <i class="fa-solid fa-pen-to-square"></i>
