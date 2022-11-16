@@ -43,6 +43,14 @@
           require __DIR__ . '/src/views/login.php';
         }
         break;
+    case '/users':
+      case '/users/':
+        if(AuthController::isAdmin()){
+          require __DIR__ . '/src/views/users.php';
+        }else{
+          require __DIR__ . '/src/views/login.php';
+        }
+        break;
     case '/api/delete':
       case '/api/delete/':
         if(AuthController::isLoggedIn()){

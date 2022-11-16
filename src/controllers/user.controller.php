@@ -16,6 +16,10 @@
             return $user->getByID();
         }
 
+        public static function index(){
+            return User::index();
+        }
+
         public static function getByUsername($username){
             $user = new User($username);
             return $user->get();

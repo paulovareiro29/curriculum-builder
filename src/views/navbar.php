@@ -3,6 +3,9 @@
       <div>
         <a href="/<?=$_ENV["BASE_DIR"] ?>/">Home</a>
         <a href="/<?=$_ENV["BASE_DIR"] ?>/backoffice">Dashboard</a>
+        <?php if(AuthController::isAdmin()):?>
+          <a href="/<?=$_ENV["BASE_DIR"] ?>/users">Users</a>
+        <?php endif;?>
       </div>
       <div>
       <div>

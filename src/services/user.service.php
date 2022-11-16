@@ -55,6 +55,26 @@
             foreach ($result as $row) return $row;
         }
 
+        public static function index() {
+            $sql = "SELECT * FROM user";
+
+            $conn = new mysqli($_ENV['DB_SERVER'], $_ENV['DB_USERNAME'], $_ENV['DB_PASSWORD'], $_ENV['DB_NAME']);
+
+            if($conn->connect_error) {
+                die("Connection to Database has failed: " . $conn->connect_error);
+            }
+
+            $result = $conn->query($sql);
+            $conn->close();
+
+            $array = array();
+            foreach ($result as $row){
+                array_push($array, $row);
+            }
+
+            return $array;
+        }
+
         public function exists(){
             return $this->get() !== null;
         }

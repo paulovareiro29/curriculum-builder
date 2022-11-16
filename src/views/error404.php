@@ -27,5 +27,7 @@
       </p>
       <a class="btn" href="/<?=$_ENV["BASE_DIR"] ?>/">GO HOME</a>
     </div>
+    <script src="/<?=$_ENV['SRC_DIR']?>/assets/js/lib/jquery.js"></script>
+    <script src="/<?= $_ENV['SRC_DIR']?>/assets/js/script.js"></script>
   </body>
 </html>

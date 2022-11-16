@@ -1,3 +1,6 @@
+<?php 
+  $list = UserController::index();
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -11,21 +14,42 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/<?= $_ENV['SRC_DIR']?>/assets/css/style.css" />
-    <link rel="stylesheet" href="/<?= $_ENV['SRC_DIR']?>/assets/css/error403.css" />
+    <link rel="stylesheet" href="/<?= $_ENV['SRC_DIR']?>/assets/css/users.css" />
     <title>Curriculum Builder</title>
 
     <script src="https://kit.fontawesome.com/be947b2e4a.js" crossorigin="anonymous"></script>
   </head>
   <body>
-    <div class="error403">
-      <h1>Sorry!</h1>
-      <h5>FORBIDDEN</h5>
-      <p>
-        Sorry! The page you are trying to access a has restricted access.
-        Please refer to your system administrator.
-      </p>
-      <a class="btn" href="/<?=$_ENV["BASE_DIR"] ?>/">GO HOME</a>
+    <?php require_once("navbar.php")?>
+
+    <div class="users-list">
+      <h1>Users</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>Username</th>
+            <th>Admin</th>
+            <th class="text-center">Options</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php foreach($list as $item):?>
+            <tr>
+              <td><?= $item["username"]?></td>
+              <td><?= UserController::hasRole($item["username"], $_ENV["ADMIN_ROLE"]) ?></td>
+              <td class="text-center">
+                <a class="icon color-warning" href="#">
+                  <i class="fa-solid fa-pen-to-square"></i>
+                </a>
+              </td>
+            </tr>
+          <?php endforeach;?>
+        </tbody>
+      </table>
+      
     </div>
+    
+
     <script src="/<?=$_ENV['SRC_DIR']?>/assets/js/lib/jquery.js"></script>
     <script src="/<?= $_ENV['SRC_DIR']?>/assets/js/script.js"></script>
   </body>
