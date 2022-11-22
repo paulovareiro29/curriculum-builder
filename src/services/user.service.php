@@ -16,43 +16,38 @@
             $password = password_hash($this->password, PASSWORD_BCRYPT);
 
             $this->connect();
-
-            $stmt = $this->conn->stmt_init();
             $stmt = $this->conn->prepare($sql);
-            $stmt->bind_param("ss", $this->username, $password);
-            $result = $stmt->execute();
-
+            $stmt->execute([$this->username, $password]);
             $this->close();
 
-            if($result == 1){
-                return true;
-            }
-
+            if($stmt->rowCount() > 0) return true;
             return false;
         }
 
         public function get() {
-            $sql = "SELECT * FROM user WHERE username LIKE \"" . $this->username . "\"";
+            $sql = "SELECT * FROM user WHERE username LIKE :username";
 
             $this->connect();
-            $result = $this->conn->query($sql);
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute(['username' => $this->username]);
+            $result = $stmt->fetch();
             $this->close();
 
-            if(!isset($result) || $result->num_rows <= 0) return null;
-
-            foreach ($result as $row) return $row;
+            if($result) return $result;
+            return null;
         }
 
         public function getByID() {
-            $sql = "SELECT * FROM user WHERE id = " . $this->id;
+            $sql = "SELECT * FROM user WHERE id = :id";
 
             $this->connect();
-            $result = $this->conn->query($sql);
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute(['id' => $this->id]);
+            $result = $stmt->fetch();
             $this->close();
 
-            if(!isset($result) || $result->num_rows <= 0) return null;
-
-            foreach ($result as $row) return $row;
+            if($result) return $result;
+            return null;
         }
 
         public function exists(){
@@ -72,15 +67,16 @@
             if(($role = $role->get()) === null) return false;
             $user = $this->get();
 
-            $sql = "SELECT * FROM user_role WHERE user_id = " . $user['id'] . " AND role_id = " . $role['id'];
+            $sql = "SELECT * FROM user_role WHERE user_id = :userid AND role_id = :roleid";
 
             $this->connect();
-            $result = $this->conn->query($sql);
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute(['userid' => $user['id'], 'roleid' => $role['id']]);
+            $result = $stmt->fetch();
             $this->close();
 
-            if(!isset($result) || $result->num_rows <= 0) return false;
-
-            return true;
+            if($result) return true;
+            return false;
         }
 
         public function addRole($rolename) {
@@ -93,16 +89,11 @@
             $sql = "INSERT INTO user_role (user_id, role_id) VALUES (?,?)";
 
             $this->connect();
-            $stmt = $this->conn->stmt_init();
             $stmt = $this->conn->prepare($sql);
-            $stmt->bind_param("ii", $user['id'], $role['id']);
-            $result = $stmt->execute();
+            $stmt->execute([$user['id'], $role['id']]);
             $this->close();
 
-            if($result == 1){
-                return true;
-            }
-
+            if($stmt->rowCount() > 0) return true;
             return false;
         }
 
@@ -113,12 +104,14 @@
             if(($role = $role->get()) === null) return false;
             $user = $this->get();
 
-            $sql = "DELETE FROM user_role WHERE user_id = " . $user['id'] . " AND role_id = " . $role['id'];
+            $sql = "DELETE FROM user_role WHERE user_id = :userid AND role_id = :roleid";
 
             $this->connect();
-            $result = $this->conn->query($sql);
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute(['userid' => $user['id'], 'roleid' => $role['id']]);
             $this->close();
 
-            return $result;
+            if($stmt->rowCount() > 0) return true;
+            return false;
         }
     }

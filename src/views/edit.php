@@ -202,7 +202,7 @@
                       />
                     </div>
                     <div class="form-group select-icon">
-                      <i class="icon fa <?=$item['icon']?>"></i>
+                      <i class="icon fa fa-<?=$item['icon']?>"></i>
                       <label>Icon</label>
                       <select
                         data-icon

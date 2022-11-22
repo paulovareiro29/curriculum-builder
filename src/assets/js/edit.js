@@ -1,5 +1,7 @@
 const createInfoRow = () => {
-  const row = `
+  const icons = ["envelope", "phone", "location-dot"];
+
+  let row = `
   <div class="item form-row">
     <div class="form-group">
       <label>Content</label>
@@ -16,12 +18,22 @@ const createInfoRow = () => {
         placeholder="Href"
       />
     </div>
-    <div class="form-group">
+    <div class="form-group select-icon">
+      <i class="icon fa fa-envelope"></i>
       <label>Icon</label>
-      <input
+      <select
         data-icon
-        placeholder="Icon"
-      />
+        value="envelope">`;
+
+  for (let i = 0; i < icons.length; i++) {
+    row += `<option value="${icons[i]}"`;
+    if (icons[i] === icons[0]) row += ` selected `;
+    let option = icons[i].replace("-", " ");
+    option = option[0].toUpperCase() + option.slice(1);
+    row += `>${option}</option>`;
+  }
+
+  row += `</select>
     </div>
     <button class="btn btn-danger" type="button">X</button>
   </div>`;
@@ -252,7 +264,7 @@ const loadForm = () => {
       .each((_, row) => {
         const content = $(row).find("input[data-content]");
         const href = $(row).find("input[data-href]");
-        const icon = $(row).find("input[data-icon]");
+        const icon = $(row).find("[data-icon]");
 
         json.info.push({
           id: $(row).data("id"),

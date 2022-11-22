@@ -19,7 +19,7 @@ $("#delete-curriculum-btn").click((e) => {
         $(".delete.alert-success").hide();
       }, 3000);
     })
-    .catch(() => {
+    .catch((err) => {
       $(".delete.alert-danger").show();
       setTimeout(() => {
         $(".delete.alert-danger").hide();
