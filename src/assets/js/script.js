@@ -89,6 +89,18 @@ const loadDarkmode = () => {
   }
 };
 
+/* NAVBAR */
+const loadNavbar = () => {
+  $("#mobile-drawer-btn").click(() => {
+    $("#mobile-drawer").toggleClass("open");
+  });
+
+  $(".drawer-background").click(() => {
+    $("#mobile-drawer").removeClass("open");
+  });
+};
+
+loadNavbar();
 loadDarkmode();
 loadModals();
 loadTextAreas();
