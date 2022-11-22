@@ -22,7 +22,11 @@
   switch ($baseUri) {
     case '':
       case '/':
-        require __DIR__ . '/src/views/publics.php';
+        require __DIR__ . '/src/views/landing.php';
+        break;
+    case '/public/':
+      case '/public':
+        require __DIR__ . '/src/views/public.php';
         break;
     case '/view/':
       case '/view':

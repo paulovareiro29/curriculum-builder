@@ -64,11 +64,11 @@
     </div>
   </div>
 
-  <?php if(!AuthController::isLoggedIn()): ?>
+<!--   <?php if(!AuthController::isLoggedIn()): ?>
     <a class="floating-button" href="./login">
       <i class="fa fa-user-circle"></i>
     </a>
-  <?php endif; ?>
+  <?php endif; ?> -->
 
   <script src="/<?=$_ENV['SRC_DIR']?>/assets/js/lib/jquery.js"></script>
   <script src="/<?= $_ENV['SRC_DIR']?>/assets/js/script.js"></script>

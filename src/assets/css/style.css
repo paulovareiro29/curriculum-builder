@@ -416,20 +416,23 @@ button.icon {
 /* NAVBAR */
 .navbar {
   margin: auto;
-  border: 1px solid var(--primary);
-  margin-bottom: 16px;
+  margin-bottom: 42px;
   background-color: var(--white);
-  border-radius: 8px;
   width: 100%;
-  max-width: 100% !important;
+  height: 64px;
+
+  display: flex;
+  align-items: center;
+
+  box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%), inset 0 -1px 0 rgb(0 0 0 / 15%);
 }
 
 .navbar .navbar-wrapper {
   display: flex;
   align-items: center;
 
-  padding: 20px;
   gap: 8px;
+  flex: 1;
 }
 
 .navbar .navbar-wrapper > * {
@@ -447,6 +450,12 @@ button.icon {
 
 .navbar .navbar-wrapper * {
   margin: 0;
+}
+
+.navbar .navbar-wrapper .logo {
+  font-weight: bolder;
+  margin-right: 16px;
+  font-size: 22px;
 }
 
 /* ALERT */
