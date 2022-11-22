@@ -18,7 +18,7 @@
     <script src="https://kit.fontawesome.com/be947b2e4a.js" crossorigin="anonymous"></script>
   </head>
   <body>
-    <div class="error404">
+    <div class="error404 container">
       <h1>Oops!</h1>
       <h5>PAGE NOT FOUND!</h5>
       <p>
@@ -27,5 +27,8 @@
       </p>
       <a class="btn" href="/<?=$_ENV["BASE_DIR"] ?>/">GO HOME</a>
     </div>
+
+    <script src="/<?=$_ENV['SRC_DIR']?>/assets/js/lib/jquery.js"></script>
+    <script src="/<?=$_ENV['SRC_DIR']?>/assets/js/script.js"></script>
   </body>
 </html>

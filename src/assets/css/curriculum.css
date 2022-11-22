@@ -1,7 +1,5 @@
 /* PROFILE */
 .profile {
-  max-width: 1150px;
-  margin: 0 16px;
   border: 2px solid var(--primary);
   border-radius: 8px;
   overflow: hidden;

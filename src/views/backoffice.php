@@ -109,7 +109,7 @@
       </div>
     </div>
 
-    <div class="backoffice">
+    <div class="backoffice container">
 
       <?php if($success == 1):?>
         <div class="new alert alert-success">New curriculum has been created!</div>

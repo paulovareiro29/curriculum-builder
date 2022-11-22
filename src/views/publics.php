@@ -27,7 +27,7 @@
 
   <?php require_once("navbar.php")?>
 
-  <div class="landing main-container">
+  <div class="landing main-container container">
     <div class="curriculums">
     <h1 class="title">Public Curriculums</h1>
       <div class="curriculums-list">

@@ -31,19 +31,9 @@ body.darkmode {
 
 body {
   margin: 0;
-  padding: 0 16px 16px 16px;
   color: var(--primary);
   background-color: var(--background);
   min-width: 375px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-body > * {
-  width: 100%;
-  max-width: 1150px;
-  flex: 1;
 }
 
 * {
@@ -66,9 +56,14 @@ p {
 }
 
 /* LAYOUTS */
-.main-container {
+.container {
+  padding-right: 16px;
+  padding-left: 16px;
+
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 1150px;
   width: 100%;
-  margin: 0 16px;
 }
 
 .w-100 {
@@ -426,6 +421,7 @@ button.icon {
   background-color: var(--white);
   border-radius: 8px;
   width: 100%;
+  max-width: 100% !important;
 }
 
 .navbar .navbar-wrapper {
