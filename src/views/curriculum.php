@@ -63,11 +63,11 @@
                   <?php foreach($curriculum['info'] as $item):?>
                     <div>
                       <?php if(empty($item['href'])):?>
-                        <i class="fa fa-2x <?=$item['icon']?>"></i>
+                        <i class="fa fa-2x fa-<?=$item['icon']?>"></i>
                         <?=$item['content']?>
                       <?php else:?>
                         <a href="<?= $item['href'] ?>">
-                          <i class="fa fa-2x <?=$item['icon']?>"></i>
+                          <i class="fa fa-2x fa-<?=$item['icon']?>"></i>
                           <?=$item['content']?>
                         </a>
                       <?php endif;?>

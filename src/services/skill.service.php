@@ -15,27 +15,25 @@
             $sql = "INSERT INTO skill (curriculum_id,  content, rating) VALUES (?,?,?)";
 
             $this->connect();
-
-            $stmt = $this->conn->stmt_init();
             $stmt = $this->conn->prepare($sql);
-            $stmt->bind_param("iss", $this->curriculum_id, $this->content, $this->rating);
-            $result = $stmt->execute();
-
+            $stmt->execute([$this->curriculum_id, $this->content, $this->rating]);
             $this->close();
 
-            return $result;
+            if($stmt->rowCount() > 0) return true;
+            return false;
         }
 
         public function get(){
-            $sql = "SELECT * FROM skill WHERE id = " . $this->id;
+            $sql = "SELECT * FROM skill WHERE id = :id";
 
             $this->connect();
-            $result = $this->conn->query($sql);
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute(['id' => $this->id]);
+            $result = $stmt->fetch();
             $this->close();
 
-            if(!isset($result) || $result->num_rows <= 0) return null;
-
-            foreach ($result as $row) return $row;
+            if($result) return $result;
+            return null;
         }
 
         public function update() {
@@ -45,65 +43,52 @@
                 WHERE id = {$this->id}";
             
             $this->connect();
-            $result = $this->conn->query($sql);
+            $stmt = $this->conn->query($sql);
             $this->close();
 
-            return $result;
+            if($stmt->rowCount() > 0) return true;
+            return false;
         }
 
         public static function index() {
             $sql = "SELECT * FROM skill";
 
-            $conn = new mysqli($_ENV['DB_SERVER'], $_ENV['DB_USERNAME'], $_ENV['DB_PASSWORD'], $_ENV['DB_NAME']);
+            $db = new Database();
+            $db->connect();
 
-            if($conn->connect_error) {
-                die("Connection to Database has failed: " . $conn->connect_error);
-            }
+            $stmt = $db->conn->query($sql);
+            $result = $stmt->fetchAll();
+            $db->close();
 
-            $result = $conn->query($sql);
-            $conn->close();
-
-            $array = array();
-            foreach ($result as $row){
-                array_push($array, $row);
-            }
-
-            return $array;
+            return $result;
         }
 
         public static function indexByCurriculum($id) {
-            $sql = "SELECT * FROM skill WHERE curriculum_id = " . $id;
+            $sql = "SELECT * FROM skill WHERE curriculum_id = :id";
 
-            $conn = new mysqli($_ENV['DB_SERVER'], $_ENV['DB_USERNAME'], $_ENV['DB_PASSWORD'], $_ENV['DB_NAME']);
+            $db = new Database();
+            $db->connect();
 
-            if($conn->connect_error) {
-                die("Connection to Database has failed: " . $conn->connect_error);
-            }
+            $stmt = $db->conn->prepare($sql);
+            $stmt->execute(['id' => $id]);
+            $result = $stmt->fetchAll();
+            $db->close();
 
-            $result = $conn->query($sql);
-            $conn->close();
-
-            $array = array();
-            foreach ($result as $row){
-                array_push($array, $row);
-            }
-
-            return $array;
+            return $result;
         }
 
         public static function deleteByCurriculum($id) {
-            $sql = "DELETE FROM skill WHERE curriculum_id = " . $id;
+            $sql = "DELETE FROM skill WHERE curriculum_id = :id";
 
-            $conn = new mysqli($_ENV['DB_SERVER'], $_ENV['DB_USERNAME'], $_ENV['DB_PASSWORD'], $_ENV['DB_NAME']);
+            $db = new Database();
+            $db->connect();
 
-            if($conn->connect_error) {
-                die("Connection to Database has failed: " . $conn->connect_error);
-            }
+            $stmt = $db->conn->prepare($sql);
+            $stmt->execute(['id' => $id]);
+            $db->close();
 
-            $result = $conn->query($sql);
-            $conn->close();
-
-            return $result;
+            if($stmt->rowCount() > 0) return true;
+            return false;
         }
 
 

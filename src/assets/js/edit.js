@@ -252,7 +252,7 @@ const loadForm = () => {
       .each((_, row) => {
         const content = $(row).find("input[data-content]");
         const href = $(row).find("input[data-href]");
-        const icon = $(row).find("input[data-icon]");
+        const icon = $(row).find("[data-icon]");
 
         json.info.push({
           id: $(row).data("id"),
@@ -321,6 +321,7 @@ const loadForm = () => {
       .then((res) => {
         const badge = document.getElementById("badge-edit-success");
         badge.style.display = "block";
+        console.log(res.data);
 
         setTimeout(() => {
           badge.style.display = "none";

@@ -5,11 +5,13 @@
     $curriculum = array_diff_key($data, ['info' => []]);
     CurriculumController::update($id, $curriculum);
 
+    $results = [];
     $info = $data['info'];
     if(isset($info)){
         InfoController::deleteByCurriculum(($id));
+        var_dump($info);
         foreach($info as $item){
-            InfoController::create($id, $item['href'], $item['content'], $item['icon']);
+            array_push($results,InfoController::create($id, $item['href'], $item['content'], $item['icon']));
         }
     }
 
@@ -40,4 +42,5 @@
     }
 
     http_response_code(200);
+    var_dump($results);
     die();

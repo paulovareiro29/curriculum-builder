@@ -24,91 +24,64 @@
             $sql = "INSERT INTO curriculum (user_id, name, description, avatar) VALUES (?,?,?,?)";
 
             $this->connect();
-            
-            $stmt = $this->conn->stmt_init();
             $stmt = $this->conn->prepare($sql);
-            $stmt->bind_param("isss", $this->user_id, $this->name, $this->description, $this->avatar);
-            $result = $stmt->execute();
-
+            $stmt->execute([$this->user_id, $this->name, $this->description, $this->avatar]);
             $this->close();
 
-            if($result == 1){
-                return true;
-            }
-
+            if($stmt->rowCount() > 0) return true;
             return false;
         }
 
         public function get(){
-            $sql = "SELECT * FROM curriculum WHERE deleted_at IS NULL AND id = " . $this->id;
+            $sql = "SELECT * FROM curriculum WHERE deleted_at IS NULL AND id = :id";
 
             $this->connect();
-            $result = $this->conn->query($sql);
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute(['id' => $this->id]);
+            $result = $stmt->fetch();
             $this->close();
 
-            if(!isset($result) || $result->num_rows <= 0) return null;
-
-            foreach ($result as $row){
-                foreach($row as $key => $field) {
-                    $this->$key = $field;
-                 }
-                return $row;
-            }
+            if(!$result) return null;
+            return $result;
         }
 
         public static function index() {
             $sql = "SELECT * FROM curriculum WHERE deleted_at IS NULL AND is_public = 1";
 
-            $conn = new mysqli($_ENV['DB_SERVER'], $_ENV['DB_USERNAME'], $_ENV['DB_PASSWORD'], $_ENV['DB_NAME']);
+            $db = new Database();
+            $db->connect();
 
-            if($conn->connect_error) {
-                die("Connection to Database has failed: " . $conn->connect_error);
-            }
+            $result = $db->conn->query($sql)->fetchAll();
+            $db->close();
 
-            $result = $conn->query($sql);
-            $conn->close();
-
-            $array = array();
-            foreach ($result as $row){
-                array_push($array, $row);
-            }
-
-            return $array;
+            return $result;
         }
 
         public static function indexByUser($id) {
-            $sql = "SELECT * FROM curriculum WHERE deleted_at IS NULL AND user_id = " . $id;
+            $sql = "SELECT * FROM curriculum WHERE deleted_at IS NULL AND user_id = :id";
 
-            $conn = new mysqli($_ENV['DB_SERVER'], $_ENV['DB_USERNAME'], $_ENV['DB_PASSWORD'], $_ENV['DB_NAME']);
+            $db = new Database();
+            $db->connect();
 
-            if($conn->connect_error) {
-                die("Connection to Database has failed: " . $conn->connect_error);
-            }
+            $stmt = $db->conn->prepare($sql);
+            $stmt->execute(['id' => $id]);
+            $result = $stmt->fetchAll();
+            $db->close();
 
-            $result = $conn->query($sql);
-            $conn->close();
-
-            $array = array();
-            foreach ($result as $row){
-                array_push($array, $row);
-            }
-
-            return $array;
+            return $result;
         }
 
         public function softdelete() {
             if(!isset($this->id)) return false;
 
-            $sql = "UPDATE curriculum SET deleted_at = now(), avatar = NULL WHERE id = " . $this->id;
+            $sql = "UPDATE curriculum SET deleted_at = now(), avatar = NULL WHERE id = :id";
 
             $this->connect();
-            $result = $this->conn->query($sql);
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute(['id' => $this->id]);
             $this->close();
 
-            if($result == 1){
-                return true;
-            }
-
+            if($stmt->rowCount() > 0) return true;
             return false;
         }
 
@@ -127,10 +100,12 @@
                 experience_header = '{$this->experience_header}'
                 WHERE id = {$this->id}";
             
+            
             $this->connect();
-            $result = $this->conn->query($sql);
+            $stmt = $this->conn->query($sql);
             $this->close();
 
-            return $result;
+            if($stmt->rowCount() > 0) return true;
+            return false;
         }
     }
