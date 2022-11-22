@@ -321,7 +321,6 @@ const loadForm = () => {
       .then((res) => {
         const badge = document.getElementById("badge-edit-success");
         badge.style.display = "block";
-        console.log(res.data);
 
         setTimeout(() => {
           badge.style.display = "none";
