@@ -35,11 +35,13 @@
 
     <?php require_once("navbar.php")?>
       
-    <div id="badge-edit-success" class="main-container alert alert-success d-none">Curriculum has been saved successfuly!</div>
-    <div id="badge-edit-error" class="main-container alert alert-danger d-none">An error occured while trying to save.</div>
+    <div class="container">
+      <div id="badge-edit-success" class="main-container alert alert-success d-none">Curriculum has been saved successfuly!</div>
+      <div id="badge-edit-error" class="main-container alert alert-danger d-none">An error occured while trying to save.</div>
+    </div>
 
 
-    <div class="main-container edit">
+    <div class="main-container edit container">
       <nav id="edit-navigation" class="col">
         <ul>
           <li class="active" data-link="general"><i class="fa-solid fa-house"></i><p>General</p></li>

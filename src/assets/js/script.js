@@ -62,33 +62,37 @@ const loadSelects = () => {
 /* DARK MODE */
 const loadDarkmode = () => {
   // Switch
-  let switcher = document.getElementById("darkmode");
-  let span = document.getElementById("darkmode-span");
+  let switcher = document.getElementById("darkmode-switch");
+  let body = document.body.classList;
 
   if (switcher)
     switcher.onclick = (e) => {
-      if (e.target.checked) {
-        if (!document.body.classList.contains("darkmode")) {
-          document.body.classList.add("darkmode");
-        }
-        span.innerHTML = "Darkmode";
-        localStorage.setItem("darkmode", true);
-      } else {
-        if (document.body.classList.contains("darkmode")) {
-          document.body.classList.remove("darkmode");
-        }
-        span.innerHTML = "Lightmode";
+      if (body.contains("darkmode")) {
+        body.remove("darkmode");
         localStorage.setItem("darkmode", false);
+      } else {
+        body.add("darkmode");
+        localStorage.setItem("darkmode", true);
       }
     };
 
   if (localStorage.getItem("darkmode") === "true") {
-    document.body.classList.add("darkmode");
-    switcher.checked = true;
-    span.innerHTML = "Darkmode";
+    body.add("darkmode");
   }
 };
 
+/* NAVBAR */
+const loadNavbar = () => {
+  $("#mobile-drawer-btn").click(() => {
+    $("#mobile-drawer").toggleClass("open");
+  });
+
+  $(".drawer-background").click(() => {
+    $("#mobile-drawer").removeClass("open");
+  });
+};
+
+loadNavbar();
 loadDarkmode();
 loadModals();
 loadTextAreas();

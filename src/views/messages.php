@@ -28,7 +28,7 @@
     
     <?php require_once("navbar.php")?>
 
-    <div class="main-container messages">
+    <div class="main-container messages container">
         <h1>Messages</h1>
         <h4><?=$curriculum['name']?></h4>
 
