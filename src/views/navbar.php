@@ -10,11 +10,8 @@
       <div>
       <div>
         <div class="darkmode-switch" id="darkmode-switch">
-            <span id="darkmode-span">Lightmode</span>
-            <label for="darkmode" class="switch">
-              <input type="checkbox" id="darkmode" />
-              <div class="slider round"></div>
-            </label>
+            <i class="fa-solid fa-sun light-icon"></i>
+            <i class="fa-solid fa-moon dark-icon"></i>
           </div>
         </div>
         <?php if(AuthController::isLoggedIn()):?>
