@@ -22,6 +22,25 @@
   background-color: var(--white);
 }
 
+.messages .messages-list .message:not(.message-viewed) {
+  border: 3px solid var(--info);
+}
+
+.messages .messages-list .message:not(.message-viewed) .message-title-wrapper {
+  color: var(--info);
+}
+
+.messages
+  .messages-list
+  .message:not(.message-viewed)
+  .message-title-wrapper::before {
+  content: "";
+  align-self: flex-start;
+  border: 8px solid var(--info);
+  border-radius: 50%;
+  margin-top: 10px;
+}
+
 .messages .messages-list .message .message-title-wrapper {
   font-size: 1.5rem;
   display: flex;
