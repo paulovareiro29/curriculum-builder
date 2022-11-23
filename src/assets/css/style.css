@@ -175,6 +175,24 @@ p {
   border-color: #e23e3e;
 }
 
+.btn-circle-md {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.btn-circle-lg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+}
+
 /* FORMS */
 .form-row {
   display: flex;
@@ -701,13 +719,6 @@ button.icon {
 
 .curriculums-list .curriculum .curriculum-options .curriculum-user {
   margin-right: auto;
-}
-
-@media only screen and (max-width: 768px) {
-  .curriculums .title {
-    flex-direction: column;
-    align-items: flex-start;
-  }
 }
 
 @media only screen and (max-width: 576px) {
