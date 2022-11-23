@@ -137,3 +137,16 @@ CREATE TABLE `message` (
         FOREIGN KEY (`user_id`)
             REFERENCES user(`id`)
 );
+
+/* CURRICULUM MANAGERS */
+CREATE TABLE `manager` (
+    `user_id` INT NOT NULL,
+    `curriculum_id` INT NOT NULL,
+    PRIMARY KEY (`user_id`, `curriculum_id`),
+    CONSTRAINT FK_M_USER
+        FOREIGN KEY (`user_id`)
+            REFERENCES user(`id`),
+    CONSTRAINT FK_M_CURRICULUM
+        FOREIGN KEY (`curriculum_id`)
+            REFERENCES curriculum(`id`)
+);

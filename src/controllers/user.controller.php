@@ -45,7 +45,9 @@
 
         public static function getByUsername($username){
             $user = new User($username);
-            $roles = $user->indexRoles();
+            if($user->get() === null) return null;
+            
+             $roles = $user->indexRoles();
 
             $array = [];
             foreach ($roles as $role) {

@@ -41,6 +41,14 @@
         }
     }
 
+    $managers = $data['managers'];
+    if(isset($managers)){
+        ManagerController::deleteByCurriculum(($id));
+        foreach($managers as $manager_id){
+            ManagerController::create($id, $manager_id);
+        }
+    }
+
     http_response_code(200);
     var_dump($results);
     die();

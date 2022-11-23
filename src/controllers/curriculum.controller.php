@@ -43,6 +43,7 @@
             $curriculum['skills'] = SkillController::indexByCurriculum($id);
             $curriculum['education'] = EducationController::indexByCurriculum($id);
             $curriculum['experience'] = ExperienceController::indexByCurriculum($id);
+            $curriculum['managers'] = ManagerController::indexByCurriculum($id);
 
             $messages = MessageController::indexByCurriculum($curriculum['id']);
             $curriculum['unread_messages'] = false;

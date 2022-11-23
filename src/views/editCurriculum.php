@@ -4,13 +4,24 @@
 
   if($curriculum === null || $user === null || $user['id'] !== $curriculum['user_id']) AuthController::redirectTo("/" . $_ENV['BASE_DIR'] . "/backoffice");
   
+  $icons = [ "envelope",  "phone", "location-dot"];
+  $availableManagers = ManagerController::index();
+
   $info = $curriculum['info'];
   $skills = $curriculum['skills'];
   $education = $curriculum['education'];
   $experience = $curriculum['experience'];
+  $managers = [];
+  foreach($curriculum['managers'] as $manager) {
+    foreach($availableManagers as $available){
+      if($manager['id'] == $available['id']) {
+        array_push($managers, $manager);
+        break;
+      }
+    }
+  }
 
-
-  $icons = [ "envelope",  "phone", "location-dot"];
+  
 ?>
 
 <!DOCTYPE html>
@@ -40,6 +51,7 @@
           <li data-link="skills"><i class="fa-solid fa-star"></i><p>Skills</p></li>
           <li data-link="education"><i class="fa-sharp fa-solid fa-graduation-cap"></i><p>Education</p></li>
           <li data-link="experience"><i class="fa-solid fa-building"></i><p>Experience</p></li>
+          <li data-link="managers"><i class="fa-solid fa-user-group"></i><p>Managers</p></li>
         </ul>
       </nav>
 
@@ -91,7 +103,6 @@
           </div>
 
           <div id="profile">
-
             <input 
               type="text"
               name="profile_header"
@@ -397,6 +408,34 @@
               <?php endforeach;?>
             </div>
           </div>
+
+          <div id="managers">
+            <h1>Managers</h1>
+
+            <button class="btn btn-primary" type="button" id="add-manager">Add new</button>
+
+            <div id="managers-list" class="items-list multiple-row">
+              <?php foreach($managers as $item):?>
+                <div class="item form-row" data-id="<?= $item['id']?>">
+                  <div class="form-group">
+                    <label>Manager</label>
+                    <select
+                      data-manager
+                      value="<?=$item['id']?>">
+                      <?php foreach($availableManagers as $manager):?>
+                        <option value="<?=$manager['id']?>"
+                          <?php if($manager['username'] == $item['username']):?>
+                            selected
+                          <?php endif;?>
+                          ><?=$manager["username"]?></option>
+                      <?php endforeach;?>
+                    </select>
+                  </div>
+                  <button class="btn btn-danger" type="button">X</button>
+                </div>
+              <?php endforeach;?>
+            </div>
+          </div>
         </div>
         <div class="form-row">
           <button type="submit" name="edit-curriculum">SAVE</button>
@@ -404,6 +443,11 @@
       </form>
     </div>
 
+    <?php echo "<script>const availableManagers = [";
+    foreach($availableManagers as $manager){
+      echo "{id: {$manager['id']}, username: '{$manager['username']}'},";
+    }
+    echo "]</script>";?>
     <script src="/<?=$_ENV['SRC_DIR']?>/assets/js/editPage.js"></script>
     <script src="/<?=$_ENV['SRC_DIR']?>/assets/js/editCurriculum.js"></script>
   </body>

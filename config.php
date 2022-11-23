@@ -11,3 +11,4 @@
   include_once __DIR__ . '/src/controllers/auth.controller.php';
   include_once __DIR__ . '/src/controllers/curriculum.controller.php';
   include_once __DIR__ . '/src/controllers/message.controller.php';
+  include_once __DIR__ . '/src/controllers/manager.controller.php';

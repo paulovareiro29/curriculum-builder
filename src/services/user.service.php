@@ -53,30 +53,36 @@
         public static function index() {
             $sql = "SELECT * FROM user";
 
-            $conn = new mysqli($_ENV['DB_SERVER'], $_ENV['DB_USERNAME'], $_ENV['DB_PASSWORD'], $_ENV['DB_NAME']);
+            $db = new Database();
+            $db->connect();
 
-            if($conn->connect_error) {
-                die("Connection to Database has failed: " . $conn->connect_error);
-            }
+            $stmt = $db->conn->query($sql);
+            $result = $stmt->fetchAll();
+            $db->close();
 
-            $result = $conn->query($sql);
-            $conn->close();
-
-            $array = array();
-            foreach ($result as $row){
-                array_push($array, $row);
-            }
-
-            return $array;
+            return $result;
         }
 
+        public static function indexManagers() {
+            $sql = "SELECT user.id, user.username, user.created_at, user.updated_at FROM user, role, user_role WHERE role.name = '{$_ENV['MANAGER_ROLE']}' AND user_role.role_id = role.id AND user_role.user_id = user.id";
+
+            $db = new Database();
+            $db->connect();
+
+            $stmt = $db->conn->query($sql);
+            $result = $stmt->fetchAll();
+            $db->close();
+
+            return $result;
+        }
+        
         public function exists(){
             return $this->get() !== null;
         }
 
         public function validate(){
             $user = $this->get();
-
+            
             if($user === null) return false;
             
             return password_verify($this->password, $user['password']);
@@ -86,6 +92,7 @@
             $role = new Role($rolename);
             if(($role = $role->get()) === null) return false;
             $user = $this->get();
+            if(!isset($user)) return false;
 
             $sql = "SELECT * FROM user_role WHERE user_id = :userid AND role_id = :roleid";
 
@@ -137,7 +144,8 @@
 
         public function indexRoles() {
             $user = $this->get();
-
+            if(!isset($user)) return [];
+            
             $sql = "SELECT * FROM user_role WHERE user_id = :userid";
 
             $this->connect();
@@ -152,6 +160,7 @@
 
         public function removeAllRoles() {
             $user = $this->get();
+            if(!isset($user)) return false;
 
             $sql = "DELETE FROM user_role WHERE user_id = :id";
 
