@@ -22,13 +22,38 @@
   background-color: var(--white);
 }
 
-.messages .messages-list .message .message-title {
-  font-size: 1.5rem;
+.messages .messages-list .message:not(.message-viewed) {
+  border: 3px solid var(--info);
 }
 
-.messages .messages-list .message .message-title small {
+.messages .messages-list .message:not(.message-viewed) .message-title-wrapper {
+  color: var(--info);
+}
+
+.messages
+  .messages-list
+  .message:not(.message-viewed)
+  .message-title-wrapper::before {
+  content: "";
+  align-self: flex-start;
+  border: 8px solid var(--info);
+  border-radius: 50%;
+  margin-top: 10px;
+}
+
+.messages .messages-list .message .message-title-wrapper {
+  font-size: 1.5rem;
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.messages .messages-list .message .message-title-wrapper .message-date {
   font-size: 0.8rem;
+  line-height: 1.5rem;
   font-weight: 300;
+  white-space: nowrap;
 }
 
 .messages .messages-list .message h5 {
@@ -43,6 +68,53 @@
 
 .messages .messages-list .message .message-body {
   margin-top: 10px;
-  padding-top: 10px;
+  padding: 10px 0;
   border-top: 1px solid var(--secondary);
+}
+
+.messages .messages-list .message .message-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.messages .messages-list .message .message-options {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+  padding-top: 10px;
+}
+
+.messages .messages-list .message .message-options > * {
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.messages .messages-list .message .message-options .message-read,
+.messages .messages-list .message .message-options .message-unread {
+  font-weight: 700;
+}
+
+.messages .messages-list .message .message-unread {
+  display: none;
+}
+
+.messages .messages-list .message .message-read {
+  display: block;
+  color: var(--info);
+}
+
+.messages .messages-list .message.message-viewed .message-unread {
+  display: block;
+}
+
+.messages .messages-list .message.message-viewed .message-read {
+  display: none;
+}
+
+@media only screen and (max-width: 576px) {
+  .messages .messages-list .message .message-title-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }

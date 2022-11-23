@@ -26,4 +26,13 @@
             return $message->create();
         }
 
+        public static function markAsRead($id) {
+            $message = new Message($id);
+            return $message->read();
+        }
+
+        public static function markAsUnread($id) {
+            $message = new Message($id);
+            return $message->unread();
+        }
     }
