@@ -11,6 +11,7 @@
   --success: #57b657;
   --light-success: #d4edda;
   --dark-success: #155724;
+  --info: #17a2b8;
   --white: white;
   --dark-primary: #1e252b;
 }
@@ -138,6 +139,10 @@ p {
 
 .color-warning {
   color: var(--warning);
+}
+
+.color-info {
+  color: var(--info);
 }
 
 /* BUTTONS */

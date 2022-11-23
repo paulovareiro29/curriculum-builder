@@ -69,4 +69,32 @@
 
             return $result;
         }
+
+        public function read() {
+            $sql = "UPDATE message SET 
+            viewed = TRUE 
+            WHERE id = {$this->id}";
+        
+            $this->connect();
+            $stmt = $this->conn->query($sql);
+            $this->close();
+
+            if($stmt->rowCount() > 0) return true;
+            return false;
+        }
+
+        public function unread() {
+            $sql = "UPDATE message SET 
+            viewed = FALSE  
+            WHERE id = {$this->id}";
+        
+            $this->connect();
+            $stmt = $this->conn->query($sql);
+            $this->close();
+
+            var_dump($stmt);
+
+            if($stmt->rowCount() > 0) return true;
+            return false;
+        }
     }

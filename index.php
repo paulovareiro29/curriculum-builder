@@ -83,6 +83,22 @@
       case '/api/message/':
         require __DIR__ . '/src/routes/message/create.route.php';
         break;
+    case '/api/message/read':
+      case '/api/message/read/':
+        if(AuthController::isLoggedIn()){
+          require __DIR__ . '/src/routes/message/read.route.php';
+        }else{
+          require __DIR__ . '/src/views/error403.php';
+        }
+        break;
+    case '/api/message/unread':
+      case '/api/message/unread/':
+        if(AuthController::isLoggedIn()){
+          require __DIR__ . '/src/routes/message/unread.route.php';
+        }else{
+          require __DIR__ . '/src/routes/message/error403.php';
+        }
+        break;   
     default:
         http_response_code(404);
         require __DIR__ . '/src/views/error404.php'; 
