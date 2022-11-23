@@ -20,6 +20,9 @@
               <i class="fa-solid fa-arrow-right-from-bracket"></i>
             </a>
         <?php else:?>
+          <a href="/<?=$_ENV["BASE_DIR"] ?>/register" class="desktop-link">
+            Create an account
+          </a>
           <a href="/<?=$_ENV["BASE_DIR"] ?>/login">
             Sign in
           </a>
@@ -43,6 +46,7 @@
           <?php if(AuthController::isLoggedIn()):?>
             <li><a href="/<?=$_ENV["BASE_DIR"] ?>/logout">Sign out</a></li>
           <?php else:?>
+            <li><a href="/<?=$_ENV["BASE_DIR"] ?>/register">Create an account</a></li>
             <li><a href="/<?=$_ENV["BASE_DIR"] ?>/login">Sign in</a></li>
           <?php endif;?>
         </ul>
