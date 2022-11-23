@@ -82,7 +82,7 @@
 
         public function validate(){
             $user = $this->get();
-
+            
             if($user === null) return false;
             
             return password_verify($this->password, $user['password']);
@@ -92,6 +92,7 @@
             $role = new Role($rolename);
             if(($role = $role->get()) === null) return false;
             $user = $this->get();
+            if(!isset($user)) return false;
 
             $sql = "SELECT * FROM user_role WHERE user_id = :userid AND role_id = :roleid";
 
@@ -143,7 +144,8 @@
 
         public function indexRoles() {
             $user = $this->get();
-
+            if(!isset($user)) return [];
+            
             $sql = "SELECT * FROM user_role WHERE user_id = :userid";
 
             $this->connect();
@@ -158,6 +160,7 @@
 
         public function removeAllRoles() {
             $user = $this->get();
+            if(!isset($user)) return false;
 
             $sql = "DELETE FROM user_role WHERE user_id = :id";
 
