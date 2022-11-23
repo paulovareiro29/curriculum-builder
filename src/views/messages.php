@@ -13,12 +13,6 @@
     
     <link rel="stylesheet" href="/<?= $_ENV['SRC_DIR']?>/assets/css/messages.css" />
     <title>Curriculum Builder</title>
-<<<<<<< HEAD
-=======
-
-    <script src="/<?= $_ENV['SRC_DIR']?>/assets/js/lib/axios.js"></script>
-    <script src="https://kit.fontawesome.com/be947b2e4a.js" crossorigin="anonymous"></script>
->>>>>>> 6d682f38dd80cd29aa3f11959261301615582561
   </head>
   <body>
     
@@ -62,6 +56,9 @@
     <script src="/<?=$_ENV['SRC_DIR']?>/assets/js/lib/jquery.js"></script>
     <script src="/<?= $_ENV['SRC_DIR']?>/assets/js/script.js"></script>
     <script src="/<?= $_ENV['SRC_DIR']?>/assets/js/messages.js"></script>
+<<<<<<< HEAD
+>>>>>>> 6d682f38dd80cd29aa3f11959261301615582561
+=======
 >>>>>>> 6d682f38dd80cd29aa3f11959261301615582561
   </body>
 </html>
