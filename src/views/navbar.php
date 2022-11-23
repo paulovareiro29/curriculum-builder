@@ -47,7 +47,7 @@
         <?php if(AuthController::isAdmin()):?>
           <h2>Admin</h2>
           <ul>
-          <li><a href="/<?=$_ENV["BASE_DIR"] ?>/users">Users</a></li><li><a href="/<?=$_ENV["BASE_DIR"] ?>/users">Users</a></li><li><a href="/<?=$_ENV["BASE_DIR"] ?>/users">Users</a></li><li><a href="/<?=$_ENV["BASE_DIR"] ?>/users">Users</a></li><li><a href="/<?=$_ENV["BASE_DIR"] ?>/users">Users</a></li><li><a href="/<?=$_ENV["BASE_DIR"] ?>/users">Users</a></li><li><a href="/<?=$_ENV["BASE_DIR"] ?>/users">Users</a></li><li><a href="/<?=$_ENV["BASE_DIR"] ?>/users">Users</a></li><li><a href="/<?=$_ENV["BASE_DIR"] ?>/users">Users</a></li><li><a href="/<?=$_ENV["BASE_DIR"] ?>/users">Users</a></li><li><a href="/<?=$_ENV["BASE_DIR"] ?>/users">Users</a></li><li><a href="/<?=$_ENV["BASE_DIR"] ?>/users">Users</a></li><li><a href="/<?=$_ENV["BASE_DIR"] ?>/users">Users</a></li><li><a href="/<?=$_ENV["BASE_DIR"] ?>/users">Users</a></li><li><a href="/<?=$_ENV["BASE_DIR"] ?>/users">Users</a></li><li><a href="/<?=$_ENV["BASE_DIR"] ?>/users">Users</a></li><li><a href="/<?=$_ENV["BASE_DIR"] ?>/users">Users</a></li><li><a href="/<?=$_ENV["BASE_DIR"] ?>/users">Users</a></li><li><a href="/<?=$_ENV["BASE_DIR"] ?>/users">Users</a></li><li><a href="/<?=$_ENV["BASE_DIR"] ?>/users">Users</a></li><li><a href="/<?=$_ENV["BASE_DIR"] ?>/users">Users</a></li><li><a href="/<?=$_ENV["BASE_DIR"] ?>/users">Users</a></li><li><a href="/<?=$_ENV["BASE_DIR"] ?>/users">Users</a></li><li><a href="/<?=$_ENV["BASE_DIR"] ?>/users">Users</a></li>
+            <li><a href="/<?=$_ENV["BASE_DIR"] ?>/users">Users</a></li>
           </ul>
         <?php endif;?>
         <h2>Account</h2>
