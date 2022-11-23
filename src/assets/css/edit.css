@@ -1,4 +1,4 @@
-.edit {
+.edit-container {
   display: flex;
   align-items: flex-start;
   gap: 32px;
@@ -6,34 +6,34 @@
   margin-top: 32px;
 }
 
-.edit > .col {
+.edit-container > .col {
   background: var(--white);
   border: 1px solid var(--primary);
   border-radius: 8px;
 }
 
-.edit > .col:first-child {
+.edit-container > .col:first-child {
   flex: 1;
 }
 
-.edit > .col:last-child {
+.edit-container > .col:last-child {
   flex: 2;
 }
 
 /* NAVIGATION */
-.edit > nav {
+.edit-container > nav {
   position: sticky;
   top: 32px;
   overflow: hidden;
 }
 
-.edit > nav ul {
+.edit-container > nav ul {
   list-style-type: none;
   padding: 0;
   margin: 0;
 }
 
-.edit > nav ul li {
+.edit-container > nav ul li {
   display: flex;
 
   cursor: pointer;
@@ -41,25 +41,25 @@
   transition: background-color 0.2s;
 }
 
-.edit > nav ul li:hover,
-.edit > nav ul li.active {
+.edit-container > nav ul li:hover,
+.edit-container > nav ul li.active {
   background-color: var(--secondary);
 }
 
-.edit > nav ul li:not(:last-child) {
+.edit-container > nav ul li:not(:last-child) {
   border-bottom: 1px solid var(--secondary);
 }
 
-.edit > nav ul li.active * {
+.edit-container > nav ul li.active * {
   font-weight: 800;
 }
 
-.edit > nav ul li > p {
+.edit-container > nav ul li > p {
   margin: 0;
   letter-spacing: 2px;
 }
 
-.edit > nav ul li > i {
+.edit-container > nav ul li > i {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -71,20 +71,20 @@
 }
 
 /* CONTENT */
-.edit > form {
+.edit-container > form {
   padding: 20px;
 }
 
-.edit #main-content h1 {
+.edit-container #main-content h1 {
   margin-bottom: 20px;
 }
 
-.edit #main-content > *:not(:first-child) {
+.edit-container #main-content > *:not(:first-child) {
   display: none;
 }
 
 /* CONTENT - EDITABLE HEADERS */
-.edit .editable-header {
+.edit-container .editable-header {
   margin-bottom: 20px;
   border: 0;
   font-size: 2em;
@@ -94,13 +94,13 @@
 }
 
 /* CONTENT - PROFILE */
-.edit #main-content .profile-header {
+.edit-container #main-content .profile-header {
   display: flex;
   align-items: flex-start;
   gap: 20px;
 }
 
-.edit #main-content .profile-avatar {
+.edit-container #main-content .profile-avatar {
   position: relative;
   width: 150px;
   height: 150px;
@@ -109,7 +109,7 @@
   overflow: hidden;
 }
 
-.edit #main-content .profile-avatar .avatar-container {
+.edit-container #main-content .profile-avatar .avatar-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -120,11 +120,11 @@
   cursor: pointer;
 }
 
-.edit #main-content .profile-avatar img {
+.edit-container #main-content .profile-avatar img {
   width: 100%;
 }
 
-.edit #main-content .profile-avatar figcaption {
+.edit-container #main-content .profile-avatar figcaption {
   position: absolute;
   top: 0;
 
@@ -143,35 +143,35 @@
   color: var(--white);
 }
 
-.edit #main-content .profile-avatar figcaption:hover {
+.edit-container #main-content .profile-avatar figcaption:hover {
   opacity: 1;
   background-color: rgba(62, 74, 86, 0.5);
 }
 
-.edit #main-content .profile-avatar input[type="file"] {
+.edit-container #main-content .profile-avatar input[type="file"] {
   display: none;
 }
 
 /* CONTENT - INFO */
-.edit #main-content .items-list {
+.edit-container #main-content .items-list {
   margin-top: 20px;
 }
-.edit #main-content .items-list.multiple-row .item {
+.edit-container #main-content .items-list.multiple-row .item {
   position: relative;
   border: 1px solid var(--secondary);
   padding: 10px;
   border-radius: 8px;
 }
 
-.edit #main-content .items-list .item:not(:first-child) {
+.edit-container #main-content .items-list .item:not(:first-child) {
   margin-top: 14px;
 }
 
-.edit #main-content .items-list .item:not(:last-child) {
+.edit-container #main-content .items-list .item:not(:last-child) {
   margin-bottom: 8px;
 }
 
-.edit #main-content .items-list.multiple-row > * .btn-danger {
+.edit-container #main-content .items-list.multiple-row > * .btn-danger {
   position: absolute;
   top: 0;
   right: 0;
@@ -183,51 +183,51 @@
   transform: translate(50%, -50%);
 }
 
-.edit #main-content .items-list:not(.multiple-row) > * .btn-danger {
+.edit-container #main-content .items-list:not(.multiple-row) > * .btn-danger {
   flex: 0;
   min-width: 50px;
 }
 
 @media only screen and (max-width: 768px) {
-  .edit {
+  .edit-container {
     flex-direction: column;
     margin-top: 20px;
     gap: 20px;
   }
 
-  .edit > * {
+  .edit-container > * {
     width: 100%;
   }
 
-  .edit nav {
+  .edit-container nav {
     position: relative;
     top: 0px;
   }
 
-  .edit nav > ul {
+  .edit-container nav > ul {
     display: flex;
   }
 
-  .edit nav > ul > li {
+  .edit-container nav > ul > li {
     display: flex;
     justify-content: center;
     padding: 8px 0;
     flex: 1;
   }
 
-  .edit nav > ul > li > i {
+  .edit-container nav > ul > li > i {
     margin: 0;
   }
 
-  .edit nav > ul > li > p {
+  .edit-container nav > ul > li > p {
     display: none;
   }
 
-  .edit #main-content .profile-header {
+  .edit-container #main-content .profile-header {
     align-items: center;
     flex-direction: column;
   }
-  .edit #main-content .profile-avatar {
+  .edit-container #main-content .profile-avatar {
     width: 100px;
     height: 100px;
   }

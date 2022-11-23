@@ -11,6 +11,18 @@
             $this->description = $description;
         }
 
+        public static function index() {
+            $sql = "SELECT * FROM role";
+
+            $db = new Database();
+            $db->connect();
+
+            $result = $db->conn->query($sql)->fetchAll();
+            $db->close();
+
+            return $result;
+        }
+
         public function create(){
             $sql = "INSERT INTO role (name, description) VALUES (?,?)";
 

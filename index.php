@@ -99,6 +99,14 @@
           require __DIR__ . '/src/views/error403.php';
         }
         break;
+      case '/api/user/edit': 
+        case '/api/user/edit/': 
+        if(AuthController::isLoggedIn()) {
+          require __DIR__ . '/src/routes/user/edit.route.php';
+        }else{
+          require __DIR__ . '/src/views/error403.php';
+        }
+        break;
     case '/api/message':
       case '/api/message/':
         require __DIR__ . '/src/routes/message/create.route.php';

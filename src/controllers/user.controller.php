@@ -78,6 +78,11 @@
             return $user->removeRole($rolename);
         }
 
+        public static function removeAllRoles($username) {
+            $user = new User($username);
+            return $user->removeAllRoles();
+        }
+
         public static function isAdmin($username) {
             return self::hasRole($username, $_ENV['ADMIN_ROLE']);
         }

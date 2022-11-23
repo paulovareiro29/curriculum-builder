@@ -149,4 +149,20 @@
             if($result) return $result;
             return [];
         }
+
+        public function removeAllRoles() {
+            $user = $this->get();
+
+            $sql = "DELETE FROM user_role WHERE user_id = :id";
+
+            $db = new Database();
+            $db->connect();
+
+            $stmt = $db->conn->prepare($sql);
+            $stmt->execute(['id' => $user['id']]);
+            $db->close();
+
+            if($stmt->rowCount() > 0) return true;
+            return false;
+        }
     }
