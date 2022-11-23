@@ -1,3 +1,9 @@
+<?php 
+    $user = UserController::get($_GET['id']);
+    if($user === null) AuthController::redirectTo("/" . $_ENV['BASE_DIR'] . "/users");
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>

@@ -138,17 +138,15 @@
         public function indexRoles() {
             $user = $this->get();
 
-            $sql = "SELECT * FROM user_role WHERE user_id = " . $user['id'];
+            $sql = "SELECT * FROM user_role WHERE user_id = :userid";
 
             $this->connect();
-            $result = $this->conn->query($sql);
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute(['userid' => $user['id']]);
+            $result = $stmt->fetchAll();
             $this->close();
 
-            $array = array();
-            foreach ($result as $row){
-                array_push($array, $row);
-            }
-
-            return $array;
+            if($result) return $result;
+            return [];
         }
     }
