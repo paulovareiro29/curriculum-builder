@@ -41,10 +41,12 @@
         public static function getByUsername($username){
             $user = new User($username);
             $roles = $user->indexRoles();
+
             $array = [];
             foreach ($roles as $role) {
                 array_push($array, RoleController::get($role["role_id"]));
             }
+            $result = $user->get();
             $result["roles"] = $array;
             return $result;
         }

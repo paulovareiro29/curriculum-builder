@@ -376,8 +376,12 @@ table tbody td {
   padding: 8px;
 }
 
-table tr {
+table {
   border: 1px solid var(--primary);
+}
+
+table tr:not(:last-child) {
+  border-bottom: 1px solid var(--primary);
 }
 
 table tbody tr:hover {

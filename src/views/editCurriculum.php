@@ -1,6 +1,7 @@
 <?php
   $user = UserController::getByUsername($_SESSION["user"]);
   $curriculum = CurriculumController::get($_GET['id']);
+
   if($curriculum === null || $user === null || $user['id'] !== $curriculum['user_id']) AuthController::redirectTo("/" . $_ENV['BASE_DIR'] . "/backoffice");
   
   $info = $curriculum['info'];

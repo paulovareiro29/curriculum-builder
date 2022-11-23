@@ -59,6 +59,14 @@
           require __DIR__ . '/src/views/login.php';
         }
         break;
+    case '/users/edit':
+      case '/users/edit/':
+        if(AuthController::isAdmin()){
+          require __DIR__ . '/src/views/editUser.php';
+        }else{
+          require __DIR__ . '/src/views/login.php';
+        }
+        break;
     case '/api/delete':
       case '/api/delete/':
         if(AuthController::isLoggedIn()){
@@ -70,7 +78,7 @@
     case '/backoffice/edit':
       case '/backoffice/edit/':
         if(AuthController::isLoggedIn()){
-          require __DIR__ . '/src/views/edit.php';
+          require __DIR__ . '/src/views/editCurriculum.php';
         }else{
           require __DIR__ . '/src/views/error403.php';
         }
