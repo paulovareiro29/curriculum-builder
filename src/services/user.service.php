@@ -53,21 +53,27 @@
         public static function index() {
             $sql = "SELECT * FROM user";
 
-            $conn = new mysqli($_ENV['DB_SERVER'], $_ENV['DB_USERNAME'], $_ENV['DB_PASSWORD'], $_ENV['DB_NAME']);
+            $db = new Database();
+            $db->connect();
 
-            if($conn->connect_error) {
-                die("Connection to Database has failed: " . $conn->connect_error);
-            }
+            $stmt = $db->conn->query($sql);
+            $result = $stmt->fetchAll();
+            $db->close();
 
-            $result = $conn->query($sql);
-            $conn->close();
+            return $result;
+        }
 
-            $array = array();
-            foreach ($result as $row){
-                array_push($array, $row);
-            }
+        public static function indexManagers() {
+            $sql = "SELECT user.id, user.username, user.created_at, user.updated_at FROM user, role, user_role WHERE role.name = '{$_ENV['MANAGER_ROLE']}' AND user_role.role_id = role.id AND user_role.user_id = user.id";
 
-            return $array;
+            $db = new Database();
+            $db->connect();
+
+            $stmt = $db->conn->query($sql);
+            $result = $stmt->fetchAll();
+            $db->close();
+
+            return $result;
         }
 
         public function exists(){
