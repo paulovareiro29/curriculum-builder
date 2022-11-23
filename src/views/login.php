@@ -34,8 +34,8 @@
     <div class="container d-flex justify-center">
       <div class="login">
         <div class="login-header">
-        <h1>Login Panel</h1>
-          <p>Sign in to your account</p>
+          <h1>Sign In</h1>
+          <p>Please enter your account details.</p>
           <?php 
             if($msg !== "") echo "<p class=\"color-danger\">{$msg}</p>";
           ?>
