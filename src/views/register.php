@@ -47,7 +47,7 @@
                     </div>
 
 
-                    <form action="#" method="POST">
+                    <form action="#" method="POST" id="register-form">
                         <div class="form-row">
                             <div class="form-group">
                             <label for="username">Username</label>
@@ -74,11 +74,11 @@
                         </div>
                         <div class="form-row">
                             <div class="form-group">
-                            <label for="confirm-password">Confirm Password</label>
+                            <label for="confirm_password">Confirm Password</label>
                             <input
                                 type="password"
-                                name="confirm-password"
-                                id="confirm-password"
+                                name="confirm_password"
+                                id="confirm_password"
                                 placeholder="Confirm Password"
                                 required
                             />
@@ -94,5 +94,7 @@
                 </div>
             </div>
         </div>
+
+        <script src="/<?=$_ENV['SRC_DIR']?>/assets/js/register.js"></script>
     </body>
 </html>

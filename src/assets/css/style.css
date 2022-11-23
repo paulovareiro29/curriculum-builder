@@ -214,6 +214,18 @@ p {
   flex-direction: column;
 }
 
+.form-group.error input,
+.form-group.error textarea,
+.form-group.error select {
+  border: 1px solid var(--danger);
+  outline: 1px solid var(--danger);
+  color: var(--danger);
+}
+
+.form-group.error label {
+  color: var(--danger);
+}
+
 .form-group label {
   position: absolute;
   top: 8px;
