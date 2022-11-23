@@ -28,14 +28,14 @@
     <title>Curriculum Builder</title>
   </head>
   <body>
-    <a class="floating-button floating-button-left" href="/<?= $_ENV['BASE_DIR']?>">
-      <i class="fa fa-arrow-left"></i>  
-    </a>
-    <div class="w-100 d-flex justify-center align-center container">
+    
+    <?php require_once("navbar.php")?>
+
+    <div class="container d-flex justify-center">
       <div class="login">
         <div class="login-header">
-        <h1>Login Panel</h1>
-          <p>Sign in to your account</p>
+          <h1>Sign In</h1>
+          <p>Please enter your account details.</p>
           <?php 
             if($msg !== "") echo "<p class=\"color-danger\">{$msg}</p>";
           ?>
@@ -51,6 +51,7 @@
                 name="username"
                 id="username"
                 placeholder="Username"
+                required
               />
             </div>
           </div>
@@ -62,6 +63,7 @@
                 name="password"
                 id="password"
                 placeholder="Password"
+                required
               />
             </div>
           </div>

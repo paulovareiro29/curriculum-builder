@@ -1,0 +1,28 @@
+/* register */
+.register {
+  padding: 20px;
+  width: 100%;
+  max-width: 500px;
+  background-color: var(--white);
+  border-radius: 12px;
+  border: 1px solid var(--primary);
+  margin-top: 30px;
+}
+
+.register h1 {
+  text-align: center;
+  margin: 0;
+}
+
+.register p {
+  text-align: center;
+  margin: 0;
+}
+
+.register .register-header {
+  margin-bottom: 22px;
+}
+
+.register .copyright {
+  margin-top: 12px;
+}

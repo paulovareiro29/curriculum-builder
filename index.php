@@ -36,6 +36,10 @@
       case '/login/':
         require __DIR__ . '/src/views/login.php';
         break;
+    case '/register':
+      case '/register/':
+        require __DIR__ . '/src/views/register.php';
+        break;
     case '/logout':
         require __DIR__ . '/src/routes/logout.route.php';
         break;
