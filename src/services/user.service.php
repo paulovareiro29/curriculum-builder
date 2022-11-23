@@ -75,7 +75,7 @@
 
             return $result;
         }
-
+        
         public function exists(){
             return $this->get() !== null;
         }

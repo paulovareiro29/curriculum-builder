@@ -181,6 +181,28 @@ const createExperienceRow = () => {
   return row;
 };
 
+const createManagerRow = () => {
+  let row = `
+  <div class="item form-row">
+    <div class="form-group">
+      <label>Manager</label>
+      <select
+        data-manager
+        value="${availableManagers[0].id}">`;
+
+  for (let i = 0; i < availableManagers.length; i++) {
+    row += `<option value="${availableManagers[i].id}"`;
+    row += `>${availableManagers[i].username}</option>`;
+  }
+
+  row += `</select>
+    </div>
+    <button class="btn btn-danger" type="button">X</button>
+  </div>`;
+
+  return row;
+};
+
 const loadForm = () => {
   /** AVATAR VISUAL UPDATE */
   document.getElementById("avatar-input").onchange = (e) => {
@@ -200,6 +222,7 @@ const loadForm = () => {
       skills: [],
       education: [],
       experience: [],
+      managers: [],
     };
 
     for (let input of inputList) {
@@ -288,9 +311,23 @@ const loadForm = () => {
         });
       });
 
+    /** MANAGERS */
+    $("#managers-list")
+      .children(".item")
+      .each((_, row) => {
+        const manager = $(row).find("[data-manager]");
+
+        for (let i = 0; i < json.managers.length; i++) {
+          if (json.managers[i] === manager.val()) return;
+        }
+
+        json.managers.push(manager.val());
+      });
+
     axios
       .post("/curriculum/api/edit?id=" + e.target.dataset.curriculum, json)
       .then((res) => {
+        console.log(res.data);
         const badge = document.getElementById("badge-edit-success");
         badge.style.display = "block";
 
@@ -341,6 +378,15 @@ const loadForm = () => {
   });
 
   $("#experience-list").on("click", ".btn-danger", (e) => {
+    $(e.target).parent(".item").remove();
+  });
+
+  /** MANAGER */
+  $("#add-manager").click((e) => {
+    $("#managers-list").append(createManagerRow());
+  });
+
+  $("#managers-list").on("click", ".btn-danger", (e) => {
     $(e.target).parent(".item").remove();
   });
 };
