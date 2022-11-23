@@ -67,7 +67,7 @@
 
     <?php echo "<script>const availableRoles = [";
     foreach($roles as $role){
-      echo "{id: {$role['id']}, name: '{$role['name']}'}";
+      echo "{id: {$role['id']}, name: '{$role['name']}'},";
     }
     echo "]</script>";?>
     <script src="/<?=$_ENV['SRC_DIR']?>/assets/js/editPage.js"></script>

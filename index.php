@@ -1,12 +1,15 @@
 <?php
   require_once __DIR__ . '/config.php';
 
+  if(!RoleController::exists($_ENV['ADMIN_ROLE'])) RoleController::create($_ENV['ADMIN_ROLE'], "Administrator Role");
+  if(!RoleController::exists($_ENV['MANAGER_ROLE'])) RoleController::create($_ENV['MANAGER_ROLE'], "Manager Role");
+
+
   if (!UserController::validate($_ENV['ROOT_USERNAME'], $_ENV['ROOT_PASSWORD'])){
     UserController::create($_ENV['ROOT_USERNAME'], $_ENV['ROOT_PASSWORD']);
   }
 
   if(!UserController::hasRole($_ENV['ROOT_USERNAME'], $_ENV['ADMIN_ROLE'])) {
-    if(!RoleController::exists($_ENV['ADMIN_ROLE'])) RoleController::create($_ENV['ADMIN_ROLE'], "Administrator Role");
     UserController::addRole($_ENV['ROOT_USERNAME'], $_ENV['ADMIN_ROLE']);
   }
 
