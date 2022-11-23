@@ -22,13 +22,19 @@
   background-color: var(--white);
 }
 
-.messages .messages-list .message .message-title {
+.messages .messages-list .message .message-title-wrapper {
   font-size: 1.5rem;
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
-.messages .messages-list .message .message-title small {
+.messages .messages-list .message .message-title-wrapper .message-date {
   font-size: 0.8rem;
+  line-height: 1.5rem;
   font-weight: 300;
+  white-space: nowrap;
 }
 
 .messages .messages-list .message h5 {
@@ -45,17 +51,24 @@
   margin-top: 10px;
   padding: 10px 0;
   border-top: 1px solid var(--secondary);
-  border-bottom: 1px solid var(--secondary);
+}
+
+.messages .messages-list .message .message-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
 }
 
 .messages .messages-list .message .message-options {
-  padding-top: 10px;
   display: flex;
+  justify-content: flex-end;
   gap: 16px;
+  padding-top: 10px;
 }
 
 .messages .messages-list .message .message-options > * {
   cursor: pointer;
+  white-space: nowrap;
 }
 
 .messages .messages-list .message .message-options .message-read,
@@ -77,4 +90,11 @@
 
 .messages .messages-list .message.message-viewed .message-read {
   display: none;
+}
+
+@media only screen and (max-width: 576px) {
+  .messages .messages-list .message .message-title-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }

@@ -44,16 +44,18 @@
 
           <?php foreach($messages as $item):?>
               <div class="message <?php if($item["viewed"] == 1){ echo "message-viewed"; }?>" data-id="<?= $item['id']?>">
-                <h3 class="message-title"><?=$item['subject']?> <small><?=$item['created_at']?></small></h3>
+                <div class="message-header">
+                  <div class="message-title-wrapper"><h3 class="message-title"><?=$item['subject']?></h3> <h3 class="message-date"><?=$item['created_at']?></h3></div>
+                  <div class="message-options">
+                    <h6 class="message-read">Mark As Read</h6>
+                    <h6 class="message-unread">Mark As Unread</h6>
+                  </div>
+                </div>
                 <h5 class="message-sender">By: <b><?="{$item['first_name']} {$item['last_name']}"?></b></h5>
                 <h6><?=$item['email']?></h6>
                 <h6><?=$item['phone']?></h6>
                 <div class="message-body">
                   <p><?=$item['message']?></p>
-                </div>
-                <div class="message-options">
-                  <h6 class="message-read">Mark as Read</h6>
-                  <h6 class="message-unread">Mark as Unread</h6>
                 </div>
               </div>
           <?php endforeach;?>
