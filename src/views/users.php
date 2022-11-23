@@ -22,38 +22,39 @@
   <body>
     <?php require_once("navbar.php")?>
 
-    <div class="users-list">
-      <h1>Users</h1>
-      <table>
-        <thead>
-          <tr>
-            <th>Username</th>
-            <th>Roles</th>
-            <th class="text-center">Options</th>
-          </tr>
-        </thead>
-        <tbody>
-          <?php foreach($list as $item):?>
+    <div class="container">
+      <div class="users-list">
+        <h1>Users</h1>
+        <table>
+          <thead>
             <tr>
-              <td><?= $item["username"]?></td>
-              <td>
-                  <?php foreach($item["roles"] as $role): ?>
-                    <?= $role["name"] ?>
-                  <?php endforeach;?>
-              </td>
-              <td class="text-center">
-                <a class="icon color-warning" href="#">
-                  <i class="fa-solid fa-pen-to-square"></i>
-                </a>
-              </td>
+              <th>Username</th>
+              <th>Roles</th>
+              <th class="text-center">Options</th>
             </tr>
-          <?php endforeach;?>
-        </tbody>
-      </table>
-      
+          </thead>
+          <tbody>
+            <?php foreach($list as $item):?>
+              <tr>
+                <td><?= $item["username"]?></td>
+                <td>
+                    <?php foreach($item["roles"] as $role): ?>
+                      <?= $role["name"] ?>
+                    <?php endforeach;?>
+                </td>
+                <td class="text-center">
+                  <a class="icon color-warning" href="#">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                  </a>
+                </td>
+              </tr>
+            <?php endforeach;?>
+          </tbody>
+        </table>
+        
+      </div>
     </div>
     
-
     <script src="/<?=$_ENV['SRC_DIR']?>/assets/js/lib/jquery.js"></script>
     <script src="/<?= $_ENV['SRC_DIR']?>/assets/js/script.js"></script>
   </body>

@@ -38,15 +38,16 @@
         }
 
         public function getByID() {
-            $sql = "SELECT * FROM role WHERE id = " . $this->id;
+            $sql = "SELECT * FROM role WHERE id = :id";
 
             $this->connect();
-            $result = $this->conn->query($sql);
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute(['id' => $this->id]);
+            $result = $stmt->fetch();
             $this->close();
 
-            if(!isset($result) || $result->num_rows <= 0) return null;
-
-            foreach ($result as $row) return $row;
+            if($result) return $result;
+            return null;
         }
 
         public function exists(){
