@@ -18,6 +18,23 @@
             return $result;
         }
 
+        public static function indexCurriculums($id) {
+            $array =  Curriculum::indexByManager($id);
+            foreach($array as $key => $curriculum) {
+                $messages = MessageController::indexByCurriculum($curriculum['id']);
+                $array[$key]['unread_messages'] = false;
+
+                foreach($messages as $message) {
+                    if(!$message['viewed']){
+                        $array[$key]['unread_messages'] = true;
+                        break;
+                    }
+                }
+            }
+
+            return $array;
+        }
+
         public static function indexByCurriculum($id) {
             $result = Curriculum::indexManagers($id);
             foreach ($result as $key => $item){

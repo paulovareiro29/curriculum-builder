@@ -19,6 +19,8 @@
     } 
   }
 
+  $user = UserController::getByUsername($_SESSION['user']);
+
 ?>
 
 <!DOCTYPE html>
@@ -157,6 +159,48 @@
           <?php endforeach; ?>
         </div>
       </div>
+
+      <?php if(UserController::hasRole($user['username'], $_ENV['MANAGER_ROLE'])):?>
+        <div class="curriculums">
+          <div class="title">
+            <h1>Managing Curriculums</h1>
+          </div>
+          
+          <div class="curriculums-list">
+            <?php $managingList = ManagerController::indexCurriculums($user['id']); ?>
+
+            <?php if(!$managingList || sizeof($managingList) <= 0):?>
+              <div class="empty-state">
+                <img src="/<?=$_ENV['SRC_DIR']?>/assets/images/file.svg" alt="">
+                <h3>No Curriculums Found.</h3>
+                <p>It seems like you have no curriculums, yet! Why don't you try to create one?</p>
+              </div>
+            <?php endif;?>
+
+            <?php foreach($managingList as $curriculum):?>
+              <div class="curriculum" data-id="<?=$curriculum['id']?>">
+                <div class="curriculum-body">
+                  <div class="curriculum-avatar">
+                    <img src="<?=$curriculum['avatar'];?>" alt="">
+                  </div>
+                  <div class="curriculum-info">
+                    <h3><?= $curriculum['name']?></h3>
+                    <p><?= $curriculum['description']?></p>
+                  </div>
+                </div>
+                <div class="curriculum-options">
+                  <a class="icon" href="/<?=$_ENV["BASE_DIR"] ?>/view?id=<?=$curriculum['id']?>">
+                    <i class="fa-solid fa-eye"></i>
+                  </a>
+                  <a class="icon <?php if($curriculum["unread_messages"]){echo "color-info";}?>" href="/<?=$_ENV["BASE_DIR"] ?>/backoffice/messages?id=<?=$curriculum['id']?>">
+                    <i class="fa-solid fa-envelope"></i>
+                  </a>
+                </div>
+              </div>
+            <?php endforeach; ?>
+          </div>
+        </div>
+      <?php endif;?>
       
     </div>
     

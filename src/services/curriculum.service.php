@@ -85,6 +85,20 @@
             return $result;
         }
 
+        public static function indexByManager($id) {
+            $sql = "SELECT curriculum.* FROM curriculum, manager WHERE manager.user_id = :id AND manager.curriculum_id = curriculum.id";
+            
+            $db = new Database();
+            $db->connect();
+
+            $stmt = $db->conn->prepare($sql);
+            $stmt->execute(['id' => $id]);
+            $result = $stmt->fetchAll();
+            $db->close();
+
+            return $result;
+        }
+
         public function softdelete() {
             if(!isset($this->id)) return false;
 
