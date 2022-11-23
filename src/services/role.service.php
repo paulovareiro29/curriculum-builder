@@ -15,31 +15,26 @@
             $sql = "INSERT INTO role (name, description) VALUES (?,?)";
 
             $this->connect();
-
-            $stmt = $this->conn->stmt_init();
             $stmt = $this->conn->prepare($sql);
-            $stmt->bind_param("ss", $this->name, $this->description);
-            $result = $stmt->execute();
-
+            $stmt->execute([$this->name, $this->description]);
+            $result = $stmt->fetch();
             $this->close();
 
-            if($result == 1){
-                return true;
-            }
-
+            if($result) return true;
             return false;
         }
 
         public function get() {
-            $sql = "SELECT * FROM role WHERE name LIKE \"" . $this->name . "\"";
+            $sql = "SELECT * FROM role WHERE name LIKE ?";
 
             $this->connect();
-            $result = $this->conn->query($sql);
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute([$this->name]);
+            $result = $stmt->fetch();
             $this->close();
 
-            if(!isset($result) || $result->num_rows <= 0) return null;
-
-            foreach ($result as $row) return $row;
+            if($result) return $result;
+            return null;
         }
 
         public function getByID() {

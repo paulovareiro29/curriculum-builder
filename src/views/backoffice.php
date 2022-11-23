@@ -24,21 +24,10 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800;900&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="/<?= $_ENV['SRC_DIR']?>/assets/css/style.css" />
+    <?php require_once("head.php"); ?>
+    
     <link rel="stylesheet" href="/<?= $_ENV['SRC_DIR']?>/assets/css/backoffice.css" />
     <title>Curriculum Builder</title>
-
-    <script src="/<?= $_ENV['SRC_DIR']?>/assets/js/lib/axios.js"></script>
-    <script src="https://kit.fontawesome.com/be947b2e4a.js" crossorigin="anonymous"></script>
   </head>
   <body>
     <?php require_once("navbar.php")?>
@@ -109,7 +98,7 @@
       </div>
     </div>
 
-    <div class="backoffice">
+    <div class="backoffice container">
 
       <?php if($success == 1):?>
         <div class="new alert alert-success">New curriculum has been created!</div>
@@ -125,7 +114,7 @@
       <div class="curriculums">
         <div class="title">
           <h1>My Curriculums</h1>
-          <button onclick="showModal('new-curriculum')" class="btn btn-primary mb-1">New Curriculum</button>
+          <button onclick="showModal('new-curriculum')" class="btn btn-primary mb-1 btn-circle-md"><i class="fa-solid  fa-plus"></i></button>
         </div>
         
         <div class="curriculums-list">
@@ -154,7 +143,7 @@
                 <a class="icon" href="/<?=$_ENV["BASE_DIR"] ?>/view?id=<?=$curriculum['id']?>">
                   <i class="fa-solid fa-eye"></i>
                 </a>
-                <a class="icon" href="/<?=$_ENV["BASE_DIR"] ?>/backoffice/messages?id=<?=$curriculum['id']?>">
+                <a class="icon <?php if($curriculum["unread_messages"]){echo "color-info";}?>" href="/<?=$_ENV["BASE_DIR"] ?>/backoffice/messages?id=<?=$curriculum['id']?>">
                   <i class="fa-solid fa-envelope"></i>
                 </a>
                 <a class="icon color-warning" href="/<?=$_ENV["BASE_DIR"] ?>/backoffice/edit?id=<?=$curriculum['id']?>">
@@ -171,8 +160,6 @@
       
     </div>
     
-    <script src="/<?=$_ENV['SRC_DIR']?>/assets/js/lib/jquery.js"></script>
-    <script src="/<?= $_ENV['SRC_DIR']?>/assets/js/script.js"></script>
     <script src="/<?= $_ENV['SRC_DIR']?>/assets/js/backoffice.js"></script> 
   </body>
 </html>
