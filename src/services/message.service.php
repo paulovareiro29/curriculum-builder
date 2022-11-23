@@ -72,7 +72,7 @@
 
         public function read() {
             $sql = "UPDATE message SET 
-            read = TRUE 
+            viewed = TRUE 
             WHERE id = {$this->id}";
         
             $this->connect();
@@ -85,12 +85,14 @@
 
         public function unread() {
             $sql = "UPDATE message SET 
-            read = FALSE  
+            viewed = FALSE  
             WHERE id = {$this->id}";
         
             $this->connect();
             $stmt = $this->conn->query($sql);
             $this->close();
+
+            var_dump($stmt);
 
             if($stmt->rowCount() > 0) return true;
             return false;

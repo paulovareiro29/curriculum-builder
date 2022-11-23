@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="/<?= $_ENV['SRC_DIR']?>/assets/css/messages.css" />
     <title>Curriculum Builder</title>
 
+    <script src="/<?= $_ENV['SRC_DIR']?>/assets/js/lib/axios.js"></script>
     <script src="https://kit.fontawesome.com/be947b2e4a.js" crossorigin="anonymous"></script>
   </head>
   <body>
@@ -42,13 +43,17 @@
           <?php endif;?>
 
           <?php foreach($messages as $item):?>
-              <div class="message">
+              <div class="message <?php if($item["viewed"] == 1){ echo "message-viewed"; }?>" data-id="<?= $item['id']?>">
                 <h3 class="message-title"><?=$item['subject']?> <small><?=$item['created_at']?></small></h3>
                 <h5 class="message-sender">By: <b><?="{$item['first_name']} {$item['last_name']}"?></b></h5>
                 <h6><?=$item['email']?></h6>
                 <h6><?=$item['phone']?></h6>
                 <div class="message-body">
                   <p><?=$item['message']?></p>
+                </div>
+                <div class="message-options">
+                  <h6 class="message-read">Mark as Read</h6>
+                  <h6 class="message-unread">Mark as Unread</h6>
                 </div>
               </div>
           <?php endforeach;?>
@@ -57,5 +62,6 @@
 
     <script src="/<?=$_ENV['SRC_DIR']?>/assets/js/lib/jquery.js"></script>
     <script src="/<?= $_ENV['SRC_DIR']?>/assets/js/script.js"></script>
+    <script src="/<?= $_ENV['SRC_DIR']?>/assets/js/messages.js"></script>
   </body>
 </html>

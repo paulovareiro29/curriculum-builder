@@ -43,6 +43,38 @@
 
 .messages .messages-list .message .message-body {
   margin-top: 10px;
-  padding-top: 10px;
+  padding: 10px 0;
   border-top: 1px solid var(--secondary);
+  border-bottom: 1px solid var(--secondary);
+}
+
+.messages .messages-list .message .message-options {
+  padding-top: 10px;
+  display: flex;
+  gap: 16px;
+}
+
+.messages .messages-list .message .message-options > * {
+  cursor: pointer;
+}
+
+.messages .messages-list .message .message-options .message-read,
+.messages .messages-list .message .message-options .message-unread {
+  font-weight: 700;
+}
+
+.messages .messages-list .message .message-unread {
+  display: none;
+}
+
+.messages .messages-list .message .message-read {
+  display: block;
+}
+
+.messages .messages-list .message.message-viewed .message-unread {
+  display: block;
+}
+
+.messages .messages-list .message.message-viewed .message-read {
+  display: none;
 }
