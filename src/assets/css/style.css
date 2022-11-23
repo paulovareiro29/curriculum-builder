@@ -141,6 +141,10 @@ p {
   color: var(--warning);
 }
 
+.color-info {
+  color: var(--info);
+}
+
 /* BUTTONS */
 .btn {
   cursor: pointer;

@@ -16,7 +16,21 @@
             $user = new User($username);
             if(($user = $user->get()) === null) return false;
 
-            return Curriculum::indexByUser($user['id']);
+            $array = Curriculum::indexByUser($user['id']);
+
+            foreach($array as $key => $curriculum) {
+                $messages = MessageController::indexByCurriculum($curriculum['id']);
+                $array[$key]['unread_messages'] = false;
+
+                foreach($messages as $message) {
+                    if(!$message['viewed']){
+                        $array[$key]['unread_messages'] = true;
+                        break;
+                    }
+                }
+            }
+
+            return $array;
         }
 
         public static function get($id){
@@ -29,6 +43,16 @@
             $curriculum['skills'] = SkillController::indexByCurriculum($id);
             $curriculum['education'] = EducationController::indexByCurriculum($id);
             $curriculum['experience'] = ExperienceController::indexByCurriculum($id);
+
+            $messages = MessageController::indexByCurriculum($curriculum['id']);
+            $curriculum['unread_messages'] = false;
+
+            foreach($messages as $message) {
+                if(!$message['viewed']){
+                    $curriculum['unread_messages'] = true;
+                    break;
+                }
+            }
 
             return $curriculum;
         }

@@ -154,7 +154,7 @@
                 <a class="icon" href="/<?=$_ENV["BASE_DIR"] ?>/view?id=<?=$curriculum['id']?>">
                   <i class="fa-solid fa-eye"></i>
                 </a>
-                <a class="icon" href="/<?=$_ENV["BASE_DIR"] ?>/backoffice/messages?id=<?=$curriculum['id']?>">
+                <a class="icon <?php if($curriculum["unread_messages"]){echo "color-info";}?>" href="/<?=$_ENV["BASE_DIR"] ?>/backoffice/messages?id=<?=$curriculum['id']?>">
                   <i class="fa-solid fa-envelope"></i>
                 </a>
                 <a class="icon color-warning" href="/<?=$_ENV["BASE_DIR"] ?>/backoffice/edit?id=<?=$curriculum['id']?>">
