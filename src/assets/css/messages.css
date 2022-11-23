@@ -101,6 +101,7 @@
 
 .messages .messages-list .message .message-read {
   display: block;
+  color: var(--info);
 }
 
 .messages .messages-list .message.message-viewed .message-unread {
