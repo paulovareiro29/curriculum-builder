@@ -46,7 +46,6 @@
             <li><a href="/<?=$_ENV["BASE_DIR"] ?>/login">Sign in</a></li>
           <?php endif;?>
         </ul>
-          
       </div>
     </div>
 </nav>
