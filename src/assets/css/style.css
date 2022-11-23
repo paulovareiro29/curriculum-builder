@@ -582,6 +582,8 @@ table tbody tr:hover {
 
   display: flex;
   flex-direction: column;
+
+  overflow-y: auto;
 }
 
 .navbar .navbar-mobile-drawer.open .drawer-content {

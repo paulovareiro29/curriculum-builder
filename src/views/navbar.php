@@ -7,7 +7,7 @@
           <?php endif;?>
           <a href="/<?=$_ENV["BASE_DIR"] ?>/public" class="desktop-link">Public Curriculums</a>
           <?php if(AuthController::isAdmin()):?>
-            <a href="/<?=$_ENV["BASE_DIR"] ?>/users">Users</a>
+            <a href="/<?=$_ENV["BASE_DIR"] ?>/users" class="desktop-link">Users</a>
           <?php endif;?>
       </div>
       <div>
@@ -44,6 +44,12 @@
           <?php endif;?>
             <li><a href="/<?=$_ENV["BASE_DIR"] ?>/public">Public Curriculums</a></li>
         </ul>
+        <?php if(AuthController::isAdmin()):?>
+          <h2>Admin</h2>
+          <ul>
+          <li><a href="/<?=$_ENV["BASE_DIR"] ?>/users">Users</a></li><li><a href="/<?=$_ENV["BASE_DIR"] ?>/users">Users</a></li><li><a href="/<?=$_ENV["BASE_DIR"] ?>/users">Users</a></li><li><a href="/<?=$_ENV["BASE_DIR"] ?>/users">Users</a></li><li><a href="/<?=$_ENV["BASE_DIR"] ?>/users">Users</a></li><li><a href="/<?=$_ENV["BASE_DIR"] ?>/users">Users</a></li><li><a href="/<?=$_ENV["BASE_DIR"] ?>/users">Users</a></li><li><a href="/<?=$_ENV["BASE_DIR"] ?>/users">Users</a></li><li><a href="/<?=$_ENV["BASE_DIR"] ?>/users">Users</a></li><li><a href="/<?=$_ENV["BASE_DIR"] ?>/users">Users</a></li><li><a href="/<?=$_ENV["BASE_DIR"] ?>/users">Users</a></li><li><a href="/<?=$_ENV["BASE_DIR"] ?>/users">Users</a></li><li><a href="/<?=$_ENV["BASE_DIR"] ?>/users">Users</a></li><li><a href="/<?=$_ENV["BASE_DIR"] ?>/users">Users</a></li><li><a href="/<?=$_ENV["BASE_DIR"] ?>/users">Users</a></li><li><a href="/<?=$_ENV["BASE_DIR"] ?>/users">Users</a></li><li><a href="/<?=$_ENV["BASE_DIR"] ?>/users">Users</a></li><li><a href="/<?=$_ENV["BASE_DIR"] ?>/users">Users</a></li><li><a href="/<?=$_ENV["BASE_DIR"] ?>/users">Users</a></li><li><a href="/<?=$_ENV["BASE_DIR"] ?>/users">Users</a></li><li><a href="/<?=$_ENV["BASE_DIR"] ?>/users">Users</a></li><li><a href="/<?=$_ENV["BASE_DIR"] ?>/users">Users</a></li><li><a href="/<?=$_ENV["BASE_DIR"] ?>/users">Users</a></li><li><a href="/<?=$_ENV["BASE_DIR"] ?>/users">Users</a></li>
+          </ul>
+        <?php endif;?>
         <h2>Account</h2>
         <ul>
           <?php if(AuthController::isLoggedIn()):?>
