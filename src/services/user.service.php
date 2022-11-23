@@ -50,6 +50,26 @@
             return null;
         }
 
+        public static function index() {
+            $sql = "SELECT * FROM user";
+
+            $conn = new mysqli($_ENV['DB_SERVER'], $_ENV['DB_USERNAME'], $_ENV['DB_PASSWORD'], $_ENV['DB_NAME']);
+
+            if($conn->connect_error) {
+                die("Connection to Database has failed: " . $conn->connect_error);
+            }
+
+            $result = $conn->query($sql);
+            $conn->close();
+
+            $array = array();
+            foreach ($result as $row){
+                array_push($array, $row);
+            }
+
+            return $array;
+        }
+
         public function exists(){
             return $this->get() !== null;
         }
@@ -110,6 +130,37 @@
             $stmt = $this->conn->prepare($sql);
             $stmt->execute(['userid' => $user['id'], 'roleid' => $role['id']]);
             $this->close();
+
+            if($stmt->rowCount() > 0) return true;
+            return false;
+        }
+
+        public function indexRoles() {
+            $user = $this->get();
+
+            $sql = "SELECT * FROM user_role WHERE user_id = :userid";
+
+            $this->connect();
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute(['userid' => $user['id']]);
+            $result = $stmt->fetchAll();
+            $this->close();
+
+            if($result) return $result;
+            return [];
+        }
+
+        public function removeAllRoles() {
+            $user = $this->get();
+
+            $sql = "DELETE FROM user_role WHERE user_id = :id";
+
+            $db = new Database();
+            $db->connect();
+
+            $stmt = $db->conn->prepare($sql);
+            $stmt->execute(['id' => $user['id']]);
+            $db->close();
 
             if($stmt->rowCount() > 0) return true;
             return false;

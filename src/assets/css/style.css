@@ -351,6 +351,43 @@ button.icon {
   height: 16px;
 }
 
+/* TABLE */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  overflow: hidden;
+}
+
+table thead {
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+table thead th {
+  text-align: start;
+  padding: 12px 8px;
+}
+
+table tbody {
+  background-color: var(--white);
+}
+
+table tbody td {
+  padding: 8px;
+}
+
+table {
+  border: 1px solid var(--primary);
+}
+
+table tr:not(:last-child) {
+  border-bottom: 1px solid var(--primary);
+}
+
+table tbody tr:hover {
+  background-color: var(--secondary);
+}
+
 /* MODAL */
 .modal {
   position: fixed;

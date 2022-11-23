@@ -6,6 +6,9 @@
             <a href="/<?=$_ENV["BASE_DIR"] ?>/backoffice" class="desktop-link">Dashboard</a>
           <?php endif;?>
           <a href="/<?=$_ENV["BASE_DIR"] ?>/public" class="desktop-link">Public Curriculums</a>
+          <?php if(AuthController::isAdmin()):?>
+            <a href="/<?=$_ENV["BASE_DIR"] ?>/users">Users</a>
+          <?php endif;?>
       </div>
       <div>
       <div>

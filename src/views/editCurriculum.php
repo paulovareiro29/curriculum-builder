@@ -1,6 +1,7 @@
 <?php
   $user = UserController::getByUsername($_SESSION["user"]);
   $curriculum = CurriculumController::get($_GET['id']);
+
   if($curriculum === null || $user === null || $user['id'] !== $curriculum['user_id']) AuthController::redirectTo("/" . $_ENV['BASE_DIR'] . "/backoffice");
   
   $info = $curriculum['info'];
@@ -25,12 +26,12 @@
     <?php require_once("navbar.php")?>
       
     <div class="container">
-      <div id="badge-edit-success" class="main-container alert alert-success d-none">Curriculum has been saved successfuly!</div>
-      <div id="badge-edit-error" class="main-container alert alert-danger d-none">An error occured while trying to save.</div>
+      <div id="badge-edit-success" class="alert alert-success d-none">Curriculum has been saved successfuly!</div>
+      <div id="badge-edit-error" class="alert alert-danger d-none">An error occured while trying to save.</div>
     </div>
 
 
-    <div class="main-container edit container">
+    <div class="edit-container container">
       <nav id="edit-navigation" class="col">
         <ul>
           <li class="active" data-link="general"><i class="fa-solid fa-house"></i><p>General</p></li>
@@ -403,6 +404,7 @@
       </form>
     </div>
 
-    <script src="/<?=$_ENV['SRC_DIR']?>/assets/js/edit.js"></script>
+    <script src="/<?=$_ENV['SRC_DIR']?>/assets/js/editPage.js"></script>
+    <script src="/<?=$_ENV['SRC_DIR']?>/assets/js/editCurriculum.js"></script>
   </body>
 </html>

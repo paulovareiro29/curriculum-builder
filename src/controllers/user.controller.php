@@ -13,12 +13,47 @@
         public static function get($id){
             $user = new User();
             $user->id = $id;
-            return $user->getByID();
+            $result = $user->getByID();
+
+            if(!isset($result)) return null;
+
+            $user->username = $result["username"];
+            $roles = $user->indexRoles();
+
+            $array = [];
+            foreach ($roles as $role) {
+                array_push($array, RoleController::get($role["role_id"]));
+            }
+            $result["roles"] = $array;
+            return $result;
+        }
+
+        public static function index(){
+            $result = User::index();
+            foreach ($result as $key => $item){
+                $user = new User($item["username"]);                
+                $roles = $user->indexRoles();
+
+                $array = [];
+                foreach ($roles as $role) {
+                    array_push($array, RoleController::get($role["role_id"]));
+                }
+                $result[$key]["roles"] = $array;
+            }
+            return $result;
         }
 
         public static function getByUsername($username){
             $user = new User($username);
-            return $user->get();
+            $roles = $user->indexRoles();
+
+            $array = [];
+            foreach ($roles as $role) {
+                array_push($array, RoleController::get($role["role_id"]));
+            }
+            $result = $user->get();
+            $result["roles"] = $array;
+            return $result;
         }
 
         public static function validate($username, $password) {
@@ -41,6 +76,11 @@
         public static function removeRole($username, $rolename) {
             $user = new User($username);
             return $user->removeRole($rolename);
+        }
+
+        public static function removeAllRoles($username) {
+            $user = new User($username);
+            return $user->removeAllRoles();
         }
 
         public static function isAdmin($username) {

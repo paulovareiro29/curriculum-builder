@@ -1,12 +1,15 @@
 <?php
   require_once __DIR__ . '/config.php';
 
+  if(!RoleController::exists($_ENV['ADMIN_ROLE'])) RoleController::create($_ENV['ADMIN_ROLE'], "Administrator Role");
+  if(!RoleController::exists($_ENV['MANAGER_ROLE'])) RoleController::create($_ENV['MANAGER_ROLE'], "Manager Role");
+
+
   if (!UserController::validate($_ENV['ROOT_USERNAME'], $_ENV['ROOT_PASSWORD'])){
     UserController::create($_ENV['ROOT_USERNAME'], $_ENV['ROOT_PASSWORD']);
   }
 
   if(!UserController::hasRole($_ENV['ROOT_USERNAME'], $_ENV['ADMIN_ROLE'])) {
-    if(!RoleController::exists($_ENV['ADMIN_ROLE'])) RoleController::create($_ENV['ADMIN_ROLE'], "Administrator Role");
     UserController::addRole($_ENV['ROOT_USERNAME'], $_ENV['ADMIN_ROLE']);
   }
 
@@ -51,6 +54,22 @@
           require __DIR__ . '/src/views/login.php';
         }
         break;
+    case '/users':
+      case '/users/':
+        if(AuthController::isAdmin()){
+          require __DIR__ . '/src/views/users.php';
+        }else{
+          require __DIR__ . '/src/views/login.php';
+        }
+        break;
+    case '/users/edit':
+      case '/users/edit/':
+        if(AuthController::isAdmin()){
+          require __DIR__ . '/src/views/editUser.php';
+        }else{
+          require __DIR__ . '/src/views/login.php';
+        }
+        break;
     case '/api/delete':
       case '/api/delete/':
         if(AuthController::isLoggedIn()){
@@ -62,7 +81,7 @@
     case '/backoffice/edit':
       case '/backoffice/edit/':
         if(AuthController::isLoggedIn()){
-          require __DIR__ . '/src/views/edit.php';
+          require __DIR__ . '/src/views/editCurriculum.php';
         }else{
           require __DIR__ . '/src/views/error403.php';
         }
@@ -79,6 +98,14 @@
         case '/api/edit/': 
         if(AuthController::isLoggedIn()) {
           require __DIR__ . '/src/routes/curriculum/edit.route.php';
+        }else{
+          require __DIR__ . '/src/views/error403.php';
+        }
+        break;
+      case '/api/user/edit': 
+        case '/api/user/edit/': 
+        if(AuthController::isLoggedIn()) {
+          require __DIR__ . '/src/routes/user/edit.route.php';
         }else{
           require __DIR__ . '/src/views/error403.php';
         }
