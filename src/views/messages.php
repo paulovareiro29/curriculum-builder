@@ -50,15 +50,6 @@
           <?php endforeach;?>
         </div>
     </div>
-<<<<<<< HEAD
-=======
-
-    <script src="/<?=$_ENV['SRC_DIR']?>/assets/js/lib/jquery.js"></script>
-    <script src="/<?= $_ENV['SRC_DIR']?>/assets/js/script.js"></script>
     <script src="/<?= $_ENV['SRC_DIR']?>/assets/js/messages.js"></script>
-<<<<<<< HEAD
->>>>>>> 6d682f38dd80cd29aa3f11959261301615582561
-=======
->>>>>>> 6d682f38dd80cd29aa3f11959261301615582561
   </body>
 </html>

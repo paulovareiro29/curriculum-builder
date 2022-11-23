@@ -8,8 +8,8 @@
     rel="stylesheet"
 />
 <link rel="stylesheet" href="/<?= $_ENV['SRC_DIR']?>/assets/css/style.css" />
-<script src="/<?= $_ENV['SRC_DIR']?>/assets/js/lib/axios.js"></script>
 <script src="https://kit.fontawesome.com/be947b2e4a.js" crossorigin="anonymous"></script>
 
+<script src="/<?= $_ENV['SRC_DIR']?>/assets/js/lib/axios.js"></script>
 <script src="/<?=$_ENV['SRC_DIR']?>/assets/js/lib/jquery.js"></script>
 <script src="/<?= $_ENV['SRC_DIR']?>/assets/js/script.js" defer></script>
