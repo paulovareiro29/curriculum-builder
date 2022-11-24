@@ -7,7 +7,7 @@ $(".message-read").click((e) => {
       $(e.target).parent().closest(".message").addClass("message-viewed");
     })
     .catch((err) => {
-      console.log(err.data);
+      console.log(err);
     });
 });
 
@@ -20,6 +20,6 @@ $(".message-unread").click((e) => {
       $(e.target).parent().closest(".message").removeClass("message-viewed");
     })
     .catch((err) => {
-      console.log(err.data);
+      console.log(err);
     });
 });
