@@ -35,4 +35,9 @@
             $message = new Message($id);
             return $message->unread();
         }
+
+        public static function get($id) {
+            $message = new Message($id);
+            return $message->get();
+        }
     }

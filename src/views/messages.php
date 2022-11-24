@@ -1,7 +1,29 @@
 <?php 
-    if(!isset($_GET['id'])) AuthController::redirectTo("/" . $_ENV['BASE_DIR'] . "/backoffice");
+
+    # Check if is logged in
+    if(!isset($_SESSION["user"])){
+      AuthController::redirectTo("/" . $_ENV['BASE_DIR'] . "/");
+      return; 
+    }
+
+    $user = UserController::getByUsername($_SESSION["user"]);
+
+    if(!isset($_GET['id'])){ 
+      AuthController::redirectTo("/" . $_ENV['BASE_DIR'] . "/backoffice");
+      return;
+    }
+
     $curriculum = CurriculumController::get($_GET['id']);
-    if($curriculum === null) AuthController::redirectTo("/" . $_ENV['BASE_DIR'] . "/backoffice");
+    if($curriculum === null){ 
+      AuthController::redirectTo("/" . $_ENV['BASE_DIR'] . "/backoffice");
+      return;
+    }
+
+    # Can only access if user is the owner or an allowed manager or admin
+    if($curriculum['user_id'] !== $user['id'] && !CurriculumController::isManager($curriculum['id'], $_GET['id']) && !UserController::isAdmin($user['username'])){
+      AuthController::redirectTo("/" . $_ENV['BASE_DIR'] . "/backoffice");
+      return;
+    }
 
     $messages = MessageController::indexByCurriculum($_GET['id'])
 ?>
