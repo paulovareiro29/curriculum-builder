@@ -87,4 +87,13 @@
             return $curriculum->update();
         }
 
+        public static function isManager($id, $userid) {
+            $managers = Curriculum::indexManagers($id);
+            foreach($managers as $manager) {
+                if($manager['id'] == $userid) return true;
+            }
+
+            return false;
+        }
+
     }
