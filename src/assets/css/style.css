@@ -707,7 +707,7 @@ table tbody tr:hover {
 }
 
 .curriculums-list {
-  display: flex;
+  flex-direction: column;
   align-items: flex-start;
   gap: 8px;
 }
@@ -721,16 +721,16 @@ table tbody tr:hover {
   background-color: var(--white);
 
   padding: 20px;
-  max-width: 500px;
-  min-width: 250px;
+  width: 100%;
+  min-width: 100%;
 }
 
 .curriculums-list .curriculum .curriculum-body {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: flex-start;
   align-items: center;
-  gap: 8px;
+  gap: 16px;
   margin-bottom: 20px;
 }
 
@@ -739,10 +739,10 @@ table tbody tr:hover {
   justify-content: center;
   align-items: center;
   background-color: var(--secondary);
-  width: 120px;
-  height: 120px;
-  min-width: 120px;
-  min-height: 120px;
+  width: 80px;
+  height: 80px;
+  min-width: 80px;
+  min-height: 80px;
   overflow: hidden;
   border-radius: 50%;
 }
@@ -754,12 +754,11 @@ table tbody tr:hover {
 
 .curriculums-list .curriculum .curriculum-info * {
   margin: 0;
-  text-align: center;
 }
 
 .curriculums-list .curriculum .curriculum-options {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   align-items: center;
   gap: 8px;
 
@@ -773,34 +772,16 @@ table tbody tr:hover {
 }
 
 @media only screen and (max-width: 576px) {
-  .curriculums-list {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .curriculums-list .curriculum {
-    width: 100%;
-    min-width: 100%;
-  }
-
   .curriculums-list .curriculum .curriculum-body {
-    flex-direction: row;
-    justify-content: flex-start;
+    gap: 8px;
   }
 
   .curriculums-list .curriculum .curriculum-avatar {
+    background-color: var(--secondary);
     width: 60px;
     height: 60px;
     min-width: 60px;
     min-height: 60px;
-  }
-
-  .curriculums-list .curriculum .curriculum-options {
-    justify-content: flex-start;
-  }
-
-  .curriculums-list .curriculum .curriculum-info * {
-    text-align: start;
   }
 }
 

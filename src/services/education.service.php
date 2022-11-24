@@ -40,16 +40,26 @@
         }
 
         public function update() {
+            $data = [
+                'start_date' => $this->start_date,
+                'end_date' => $this->end_date,
+                'school' => $this->school,
+                'course' => $this->course,
+                'location' => $this->location,
+                'id' => $this->id,
+            ];
+
             $sql = "UPDATE education SET 
-                start_date = '{$this->start_date}',
-                end_date = '{$this->end_date}',
-                school = '{$this->school}',
-                course = '{$this->course}',
-                location = '{$this->location}'
-                WHERE id = {$this->id}";
+                start_date = :start_date,
+                end_date = :end_date,
+                school = :school,
+                course = :course,
+                location = :location
+                WHERE id = :id";
             
             $this->connect();
-            $stmt = $this->conn->query($sql);
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute($data);
             $this->close();
 
             if($stmt->rowCount() > 0) return true;

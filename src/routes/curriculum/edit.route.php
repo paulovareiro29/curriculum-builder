@@ -28,7 +28,8 @@
     $data = json_decode(file_get_contents('php://input'), true);
 
     $curriculum = array_diff_key($data, ['info' => []]);
-    CurriculumController::update($id, $curriculum);
+    
+    var_dump(CurriculumController::update($id, $data));
 
     $results = [];
     $info = $data['info'];

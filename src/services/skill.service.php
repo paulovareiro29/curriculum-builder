@@ -37,13 +37,21 @@
         }
 
         public function update() {
-            $sql = "UPDATE skill SET 
-                content = '{$this->content}',
-                rating = {$this->rating}
-                WHERE id = {$this->id}";
+            $data = [
+                'content' => $this->content,
+                'rating' => $this->rating,
+                'id' => $this->id,
+            ];
             
+            $sql = "UPDATE skill SET 
+                content = :content,
+                rating = :rating
+                WHERE id = :id";
+            
+
             $this->connect();
-            $stmt = $this->conn->query($sql);
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute($data);
             $this->close();
 
             if($stmt->rowCount() > 0) return true;

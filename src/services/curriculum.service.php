@@ -114,23 +114,41 @@
         }
 
         public function update() {
+            $data = [
+                'name' => $this->name,
+                'person_name' => $this->person_name,
+                'description' => $this->description,
+                'role' => $this->role,
+                'avatar' => $this->avatar,
+                'summary' => $this->summary,
+                'is_public' => $this->is_public,
+                'profile_header' => $this->profile_header,
+                'info_header' => $this->info_header,
+                'skills_header' => $this->skills_header,
+                'education_header' => $this->education_header,
+                'experience_header' => $this->experience_header,
+                'id' => $this->id,
+            ];
+
             $sql = "UPDATE curriculum SET 
-                name = '{$this->name}',
-                person_name = '{$this->person_name}',
-                role = '{$this->role}',
-                avatar = '{$this->avatar}',
-                summary = '{$this->summary}',
-                is_public = {$this->is_public},
-                profile_header = '{$this->profile_header}',
-                info_header = '{$this->info_header}',
-                skills_header = '{$this->skills_header}',
-                education_header = '{$this->education_header}',
-                experience_header = '{$this->experience_header}'
-                WHERE id = {$this->id}";
+                name = :name,
+                description = :description,
+                person_name = :person_name,
+                role = :role,
+                avatar = :avatar,
+                summary = :summary,
+                is_public = :is_public,
+                profile_header = :profile_header,
+                info_header = :info_header,
+                skills_header = :skills_header,
+                education_header = :education_header,
+                experience_header = :experience_header
+                WHERE id = :id";
             
             
             $this->connect();
-            $stmt = $this->conn->query($sql);
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute($data);
             $this->close();
 
             if($stmt->rowCount() > 0) return true;

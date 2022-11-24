@@ -40,16 +40,26 @@
         }
 
         public function update() {
+            $data = [
+                'start_date' => $this->start_date,
+                'end_date' => $this->end_date,
+                'company' => $this->company,
+                'role' => $this->role,
+                'summary' => $this->summary,
+                'id' => $this->id,
+            ];
+            
             $sql = "UPDATE experience SET 
-                start_date = '{$this->start_date}',
-                end_date = '{$this->end_date}',
-                company = '{$this->company}',
-                role = '{$this->role}',
-                summary = '{$this->summary}'
-                WHERE id = {$this->id}";
+                start_date = :start_date,
+                end_date = :end_date,
+                company = :company,
+                role = :role,
+                summary = :summary
+                WHERE id = :id";
             
             $this->connect();
-            $stmt = $this->conn->query($sql);
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute($data);
             $this->close();
 
             if($stmt->rowCount() > 0) return true;

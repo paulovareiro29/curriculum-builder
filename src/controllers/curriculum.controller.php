@@ -79,7 +79,6 @@
         public static function update($id, $data) {
             $curriculum = new Curriculum($id);
             if($curriculum->get() === null) return false;
-
             foreach($data as $key => $field) {
                $curriculum->$key = $field;
             }

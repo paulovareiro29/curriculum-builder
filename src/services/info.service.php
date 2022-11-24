@@ -38,14 +38,22 @@
         }
 
         public function update() {
+            $data = [
+                'href' => $this->href,
+                'content' => $this->content,
+                'icon' => $this->icon,
+                'id' => $this->id,
+            ];
+
             $sql = "UPDATE info SET 
-                href = '{$this->href}',
-                content = '{$this->content}',
-                icon = '{$this->icon}'
-                WHERE id = {$this->id}";
+                href = :href,
+                content = :content,
+                icon = :icon
+                WHERE id = :id";
             
             $this->connect();
-            $stmt = $this->conn->query($sql);
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute($data);
             $this->close();
 
             if($stmt->rowCount() > 0) return true;
