@@ -21,8 +21,8 @@
         die("Invalid request");
     } 
 
-    if($curriculum['user_id'] !== $user['id'] && !CurriculumController::isManager($curriculum['id'], $user['id']) && AuthController::isAdmin()){
-        http_response_code(401);
+    if($curriculum['user_id'] !== $user['id'] && !CurriculumController::isManager($curriculum['id'], $user['id']) && !AuthController::isAdmin()){
+        http_response_code(403);
         die("Unauthorized");
     }
 
