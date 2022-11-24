@@ -1,4 +1,9 @@
 <?php 
+  if(!AuthController::isAdmin()){
+    AuthController::redirectTo("/" . $_ENV['BASE_DIR'] . "/backoffice");
+    return;
+  }
+
   $list = UserController::index();
 ?>
 <!DOCTYPE html>

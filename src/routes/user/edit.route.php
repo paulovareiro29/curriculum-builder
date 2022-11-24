@@ -1,4 +1,9 @@
 <?php
+    if(!AuthController::isAdmin()){
+    AuthController::redirectTo("/" . $_ENV['BASE_DIR'] . "/backoffice");
+    return;
+    }
+
     $id = $_GET['id'];
 
     if(!isset($_GET['id']) || empty($_GET['id'])) {

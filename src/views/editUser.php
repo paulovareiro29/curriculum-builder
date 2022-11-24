@@ -1,7 +1,12 @@
 <?php 
-    $user = UserController::get($_GET['id']);
-    if($user === null) AuthController::redirectTo("/" . $_ENV['BASE_DIR'] . "/users");
-    $roles = RoleController::index();
+  if(!AuthController::isAdmin()){
+    AuthController::redirectTo("/" . $_ENV['BASE_DIR'] . "/backoffice");
+    return;
+  }
+
+  $user = UserController::get($_GET['id']);
+  if($user === null) AuthController::redirectTo("/" . $_ENV['BASE_DIR'] . "/users");
+  $roles = RoleController::index();
 ?>
 
 <!DOCTYPE html>
