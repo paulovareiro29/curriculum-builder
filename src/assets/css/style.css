@@ -512,6 +512,8 @@ table tbody tr:hover {
 .navbar .navbar-wrapper {
   display: flex;
   align-items: center;
+  justify-content: center;
+  height: 100%;
 
   gap: 8px;
   flex: 1;
@@ -522,6 +524,7 @@ table tbody tr:hover {
   align-items: center;
   justify-content: flex-start;
   gap: 16px;
+  height: 100%;
 
   flex: 1;
 }
@@ -621,9 +624,61 @@ table tbody tr:hover {
   text-transform: uppercase;
 }
 
+.navbar .hoverable-link {
+  position: relative;
+  height: 100%;
+  cursor: pointer;
+}
+
+.navbar a:hover,
+.navbar i:hover,
+.navbar .hoverable-link:hover {
+  color: var(--warning);
+}
+
+body.darkmode .navbar a:hover,
+body.darkmode .navbar i:hover,
+body.darkmode .navbar .hoverable-link:hover {
+  color: var(--secondary);
+}
+
+.navbar .hoverable-link .hoverable-group {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  padding: 20px;
+  background-color: var(--white);
+  border-radius: 8px;
+  min-width: 100px;
+  transform: translateX(-50%);
+  border: 1px solid var(--secondary);
+  box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%), inset 0 -1px 0 rgb(0 0 0 / 15%);
+}
+
+.navbar .hoverable-link .hoverable-group * {
+  white-space: nowrap;
+}
+
+.navbar ul {
+  list-style-type: none;
+}
+
+.navbar .navbar-link {
+  display: flex;
+  align-items: center;
+
+  height: 100%;
+}
+
+.navbar .navbar-link > * {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
 @media only screen and (max-width: 768px) {
   .navbar .navbar-wrapper #mobile-drawer-btn {
-    display: block;
+    display: flex;
   }
 
   .navbar .navbar-wrapper .desktop-link {
@@ -785,56 +840,6 @@ table tbody tr:hover {
   }
 }
 
-/* SLIDER CHECKBOX */
-/* .switch {
-  display: inline-block;
-  height: 24px;
-  position: relative;
-  width: 42px;
-}
-
-.switch input {
-  display: none;
-}
-
-.slider {
-  background-color: #ccc;
-  bottom: 0;
-  cursor: pointer;
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
-  transition: 0.4s;
-}
-
-.slider:before {
-  background-color: var(--background);
-  bottom: 4px;
-  content: "";
-  height: 16px;
-  left: 4px;
-  position: absolute;
-  transition: 0.4s;
-  width: 16px;
-}
-
-input:checked + .slider {
-  background-color: var(--primary);
-}
-
-input:checked + .slider:before {
-  transform: translateX(18px);
-}
-
-.slider.round {
-  border-radius: 999px;
-}
-
-.slider.round:before {
-  border-radius: 50%;
-} */
-
 .darkmode-switch {
   font-size: 22px;
   width: 32px;
@@ -843,6 +848,14 @@ input:checked + .slider:before {
   align-items: center;
   justify-content: center;
   cursor: pointer;
+}
+
+.darkmode-switch:hover * {
+  color: var(--secondary) !important;
+}
+
+body.darkmode .darkmode-switch:hover * {
+  color: var(--warning) !important;
 }
 
 body .darkmode-switch .light-icon {

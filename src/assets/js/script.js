@@ -99,6 +99,14 @@ const loadNavbar = () => {
   $(".drawer-background").click(() => {
     $("#mobile-drawer").removeClass("open");
   });
+
+  $(".hoverable-group").hide();
+  $(".hoverable-link").mouseenter(function () {
+    $(this).children(".hoverable-group").show();
+  });
+  $(".hoverable-link").mouseleave(function () {
+    $(this).children(".hoverable-group").hide();
+  });
 };
 
 loadNavbar();

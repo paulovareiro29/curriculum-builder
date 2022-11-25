@@ -1,37 +1,50 @@
 <nav class="navbar">
     <div class="navbar-wrapper container">
-      <div>
-        <a href="/<?=$_ENV["BASE_DIR"] ?>/" class="logo">CBuilder</a>
-          <?php if(AuthController::isLoggedIn()):?>
-            <a href="/<?=$_ENV["BASE_DIR"] ?>/backoffice" class="desktop-link">Dashboard</a>
-          <?php endif;?>
-          <a href="/<?=$_ENV["BASE_DIR"] ?>/public" class="desktop-link">Public Curriculums</a>
-          <?php if(AuthController::isAdmin()):?>
-            <a href="/<?=$_ENV["BASE_DIR"] ?>/users" class="desktop-link">Users</a>
-          <?php endif;?>
-      </div>
-      <div>
-      <div>
-        <div class="darkmode-switch" id="darkmode-switch">
+      <ul>
+        <li class="navbar-link"><a href="/<?=$_ENV["BASE_DIR"] ?>/" class="logo">CBuilder</a></li>
+        <?php if(AuthController::isLoggedIn()):?>
+          <li class="navbar-link desktop-link"><a href="/<?=$_ENV["BASE_DIR"] ?>/backoffice">Dashboard</a></li>
+        <?php endif;?>
+        <li class="navbar-link desktop-link"><a href="/<?=$_ENV["BASE_DIR"] ?>/public">Public Curriculums</a></li>
+        <?php if(AuthController::isAdmin()):?>
+          <li class="navbar-link hoverable-link desktop-link" >
+            Admin
+            <ul class="hoverable-group">
+              <a href="/<?=$_ENV["BASE_DIR"] ?>/users">Users List</a>
+            </ul>
+          </li>
+        <?php endif;?>
+      </ul>
+      <ul>
+        <li class="navbar-link">
+          <div class="darkmode-switch"  id="darkmode-switch">
             <i class="fa-solid fa-sun light-icon"></i>
             <i class="fa-solid fa-moon dark-icon"></i>
           </div>
-        </div>
+        </li>
         <?php if(AuthController::isLoggedIn()):?>
             <p class="text-end desktop-link">Hello, <b><?php echo $_SESSION["user"]; ?></b></p>
-            <a href="/<?=$_ENV["BASE_DIR"] ?>/logout" class="desktop-link">
-              <i class="fa-solid fa-arrow-right-from-bracket"></i>
-            </a>
+            <li class="navbar-link desktop-link">
+              <a href="/<?=$_ENV["BASE_DIR"] ?>/logout">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+              </a>
+            </li>
         <?php else:?>
-          <a href="/<?=$_ENV["BASE_DIR"] ?>/register" class="desktop-link">
-            Create an account
-          </a>
-          <a href="/<?=$_ENV["BASE_DIR"] ?>/login">
-            Sign in
-          </a>
+          <li class="navbar-link desktop-link">
+            <a href="/<?=$_ENV["BASE_DIR"] ?>/register">
+              Create an account
+            </a>
+          </li>
+          <li class="navbar-link">
+            <a href="/<?=$_ENV["BASE_DIR"] ?>/login">
+              Sign in
+            </a>
+          </li>
         <?php endif;?>
-        <i class="fa-solid fa-bars" id="mobile-drawer-btn"></i>
-      </div>
+        <li class="navbar-link">
+          <i class="fa-solid fa-bars" id="mobile-drawer-btn"></i>
+        </li>
+      </ul>
     </div>
     <div class="navbar-mobile-drawer" id="mobile-drawer">
       <div class="drawer-background"></div>
