@@ -1,0 +1,37 @@
+#landing h1 {
+  font-size: 74px;
+  font-weight: 900;
+  line-height: 4rem;
+}
+
+#landing h2 {
+  font-size: 32px;
+}
+
+section.full-page {
+  padding: 0px 0 120px;
+  min-height: calc(100vh - 106px);
+}
+
+#landing {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#landing .cta {
+  margin-top: 24px;
+}
+
+#landing p {
+  margin-top: 8px;
+  font-size: 18px;
+}
+
+#landing .content {
+  max-width: 500px;
+}
+
+#landing .btn {
+  font-size: 18px;
+}

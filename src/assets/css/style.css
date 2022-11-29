@@ -175,6 +175,18 @@ p {
   border-color: #e23e3e;
 }
 
+.btn-outline {
+  border: 1px solid var(--primary);
+  background-color: transparent;
+  color: var(--primary);
+}
+
+.btn-outline:hover {
+  border: 1px solid var(--dark-primary);
+  background-color: var(--primary);
+  color: var(--white);
+}
+
 .btn-circle-md {
   display: flex;
   align-items: center;
@@ -660,6 +672,7 @@ body.darkmode .navbar .hoverable-link:hover {
 
 .navbar ul {
   list-style-type: none;
+  padding: 0;
 }
 
 .navbar .navbar-link {
