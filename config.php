@@ -6,6 +6,8 @@ $dotenv->load();
 
 $dotenv->required(["BASE_DIR", "SRC_DIR", "DB_NAME", "DB_SERVER", "DB_USERNAME", "ROOT_USERNAME", "ROOT_PASSWORD"])->notEmpty();
 
+define("__ROOT__", dirname(__FILE__) . "/src");
+
 include_once __DIR__ . '/src/controllers/user.controller.php';
 include_once __DIR__ . '/src/controllers/role.controller.php';
 include_once __DIR__ . '/src/controllers/auth.controller.php';

@@ -30,57 +30,55 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <html lang="en">
 
 <head>
-    <?php require_once("head.php"); ?>
+    <?php require_once(__ROOT__ . "/layout/head.php"); ?>
 
     <link rel="stylesheet" href="/<?= $_ENV['SRC_DIR'] ?>/assets/css/register.css" />
     <title>Curriculum Builder</title>
 </head>
 
-<body>
-    <?php require_once("navbar.php") ?>
+<?php require_once(__ROOT__ . "/layout/body.php") ?>
+<?php require_once(__ROOT__ . "/layout/navbar.php") ?>
 
-    <div class="container d-flex justify-center">
-        <div class="register">
-            <div class="register-header">
-                <h1>Sign Up For Free</h1>
-                <p>Create an account and start creating curriculums</p>
-                <?php
-                if ($msg !== "") echo "<p class=\"color-danger\">{$msg}</p>";
-                ?>
+<div class="container d-flex justify-center">
+    <div class="register">
+        <div class="register-header">
+            <h1>Sign Up For Free</h1>
+            <p>Create an account and start creating curriculums</p>
+            <?php
+            if ($msg !== "") echo "<p class=\"color-danger\">{$msg}</p>";
+            ?>
+        </div>
+
+
+        <form action="#" method="POST" id="register-form">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" name="username" id="username" placeholder="Username" required />
+                </div>
             </div>
-
-
-            <form action="#" method="POST" id="register-form">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="username">Username</label>
-                        <input type="text" name="username" id="username" placeholder="Username" required />
-                    </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" placeholder="Password" required />
                 </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="password" name="password" id="password" placeholder="Password" required />
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="confirm_password">Confirm Password</label>
-                        <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm Password" required />
-                    </div>
-                </div>
-                <div class="form-row">
-                    <button type="submit">SUBMIT</button>
-                </div>
-            </form>
-
-            <div class="copyright">
-                <p><small>Paulo Vareiro @ 2022 All Rights Reserved</small></p>
             </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="confirm_password">Confirm Password</label>
+                    <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm Password" required />
+                </div>
+            </div>
+            <div class="form-row">
+                <button type="submit">SUBMIT</button>
+            </div>
+        </form>
+
+        <div class="copyright">
+            <p><small>Paulo Vareiro @ 2022 All Rights Reserved</small></p>
         </div>
     </div>
+</div>
 
-    <script src="/<?= $_ENV['SRC_DIR'] ?>/assets/js/register.js"></script>
-</body>
-
-</html>
+<script src="/<?= $_ENV['SRC_DIR'] ?>/assets/js/register.js"></script>
+<?php require_once(__ROOT__ . "/layout/footer.php") ?>

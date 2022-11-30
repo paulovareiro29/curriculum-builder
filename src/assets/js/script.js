@@ -78,16 +78,12 @@ const loadDarkmode = () => {
     switcher.onclick = (e) => {
       if (body.contains("darkmode")) {
         body.remove("darkmode");
-        localStorage.setItem("darkmode", false);
+        document.cookie = "theme=light";
       } else {
         body.add("darkmode");
-        localStorage.setItem("darkmode", true);
+        document.cookie = "theme=dark";
       }
     };
-
-  if (localStorage.getItem("darkmode") === "true") {
-    body.add("darkmode");
-  }
 };
 
 /* NAVBAR */
