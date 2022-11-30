@@ -5,7 +5,7 @@
       <?php if (AuthController::isLoggedIn()) : ?>
         <li class="navbar-link desktop-link"><a href="/<?= $_ENV["BASE_DIR"] ?>/backoffice">Dashboard</a></li>
       <?php endif; ?>
-      <li class="navbar-link desktop-link"><a href="/<?= $_ENV["BASE_DIR"] ?>/public">Public Curriculums</a></li>
+      <li class="navbar-link desktop-link"><a href="/<?= $_ENV["BASE_DIR"] ?>/showcase">Showcase</a></li>
       <?php if (AuthController::isAdmin()) : ?>
         <li class="navbar-link hoverable-link desktop-link">
           Admin
@@ -55,7 +55,7 @@
         <?php if (AuthController::isLoggedIn()) : ?>
           <li><a href="/<?= $_ENV["BASE_DIR"] ?>/backoffice">Dashboard</a></li>
         <?php endif; ?>
-        <li><a href="/<?= $_ENV["BASE_DIR"] ?>/public">Public Curriculums</a></li>
+        <li><a href="/<?= $_ENV["BASE_DIR"] ?>/showcase">Showcase</a></li>
       </ul>
       <?php if (AuthController::isAdmin()) : ?>
         <h2>Admin</h2>

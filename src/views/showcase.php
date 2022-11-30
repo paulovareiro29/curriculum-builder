@@ -19,14 +19,14 @@ $list = CurriculumController::index();
 
   <div class="landing main-container container">
     <div class="curriculums">
-      <h1 class="title">Public Curriculums</h1>
+      <h1 class="title">Showcase</h1>
       <div class="curriculums-list">
 
         <?php if (!$list || sizeof($list) <= 0) : ?>
           <div class="empty-state">
             <img src="/<?= $_ENV['SRC_DIR'] ?>/assets/images/file.svg" alt="">
             <h3>No Curriculums Found.</h3>
-            <p>It seems like there are no public curriculums, yet! Why aren't you the first to create one?</p>
+            <p>It seems like there are no curriculums to showcase, yet! Why aren't you the first to create one?</p>
           </div>
         <?php endif; ?>
 
