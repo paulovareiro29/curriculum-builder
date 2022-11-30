@@ -10,9 +10,8 @@
 
 <body>
     <?php require_once("navbar.php") ?>
-
-    <div class="container">
-        <section id="landing" class="full-page">
+    <section id="landing" class="full-page">
+        <div class="container">
             <div class="content">
                 <h2>Build your own</h2>
                 <h1>Curriculum</h1>
@@ -24,8 +23,9 @@
                 </div>
             </div>
 
-        </section>
-    </div>
+            <img src="/<?= $_ENV['SRC_DIR'] ?>/assets/images/cv.png" alt="" class="banner">
+        </div>
+    </section>
 </body>
 
 </html>
