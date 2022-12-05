@@ -25,7 +25,9 @@ section.full-page {
 }
 
 #landing .cta {
-  margin-top: 24px;
+  margin-top: 16px;
+  display: flex;
+  gap: 8px;
 }
 
 #landing p {
@@ -39,6 +41,7 @@ section.full-page {
 
 #landing .btn {
   font-size: 18px;
+  padding: 8px 16px;
 }
 
 #landing .banner {
