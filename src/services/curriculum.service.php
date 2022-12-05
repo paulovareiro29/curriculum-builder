@@ -16,6 +16,7 @@ class Curriculum extends Database
     public $skills_header;
     public $education_header;
     public $experience_header;
+    public $views;
 
     public function __construct($id = null)
     {
@@ -159,6 +160,19 @@ class Curriculum extends Database
         $this->connect();
         $stmt = $this->conn->prepare($sql);
         $stmt->execute($data);
+        $this->close();
+
+        if ($stmt->rowCount() > 0) return true;
+        return false;
+    }
+
+    public function viewed()
+    {
+        $sql = "UPDATE curriculum SET views = views + 1 WHERE id = :id";
+
+        $this->connect();
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute(['id' => $this->id]);
         $this->close();
 
         if ($stmt->rowCount() > 0) return true;
