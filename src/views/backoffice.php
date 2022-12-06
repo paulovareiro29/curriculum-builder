@@ -122,7 +122,7 @@ $user = UserController::getByUsername($_SESSION['user']);
               <img src="<?= $curriculum['avatar']; ?>" alt="">
             </div>
             <div class="curriculum-info">
-              <h3><?= $curriculum['name'] ?></h3>
+              <h3><?= $curriculum['name'] ?> - <span class="curriculum-views"><?= $curriculum['views'] ?> views</span></h3>
               <p><?= $curriculum['description'] ?></p>
             </div>
           </div>
