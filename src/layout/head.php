@@ -15,7 +15,7 @@
 <script src="https://kit.fontawesome.com/be947b2e4a.js" crossorigin="anonymous"></script>
 
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-JQBZ6DL5BC"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KWD0QRX0DR"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
 
@@ -24,8 +24,9 @@
     }
     gtag('js', new Date());
 
-    gtag('config', 'G-JQBZ6DL5BC');
+    gtag('config', 'G-KWD0QRX0DR');
 </script>
+<!-- Google tag (gtag.js) -->
 
 <script src="/<?= $_ENV['SRC_DIR'] ?>/assets/js/lib/axios.js"></script>
 <script src="/<?= $_ENV['SRC_DIR'] ?>/assets/js/lib/jquery.js"></script>
