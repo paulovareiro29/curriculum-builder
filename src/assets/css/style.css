@@ -823,6 +823,12 @@ body.darkmode .navbar .hoverable-link:hover {
   margin: 0;
 }
 
+.curriculums-list .curriculum .curriculum-views {
+  margin-top: 8px;
+  opacity: 0.6;
+  font-size: 16px;
+}
+
 .curriculums-list .curriculum .curriculum-options {
   display: flex;
   justify-content: flex-start;

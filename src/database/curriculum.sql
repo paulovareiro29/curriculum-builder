@@ -47,6 +47,7 @@ CREATE TABLE `curriculum` (
     `skills_header` VARCHAR(255) NOT NULL DEFAULT 'Skills',
     `education_header` VARCHAR(255) NOT NULL DEFAULT 'Education',
     `experience_header` VARCHAR(255) NOT NULL DEFAULT 'Experience',
+    `views` INT NOT NULL DEFAULT 0,
     `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     `deleted_at` TIMESTAMP NULL DEFAULT NULL,
@@ -150,3 +151,5 @@ CREATE TABLE `manager` (
         FOREIGN KEY (`curriculum_id`)
             REFERENCES curriculum(`id`)
 );
+
+/* ANALYTICS */

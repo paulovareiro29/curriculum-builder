@@ -3,6 +3,8 @@ if (!isset($_GET['id'])) AuthController::redirectTo("/" . $_ENV['BASE_DIR'] . "/
 $curriculum = CurriculumController::get($_GET['id']);
 if ($curriculum === null) AuthController::redirectTo("/" . $_ENV['BASE_DIR'] . "/backoffice");
 
+
+CurriculumController::viewed($curriculum['id']);
 ?>
 
 <!DOCTYPE html>

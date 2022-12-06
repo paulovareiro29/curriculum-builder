@@ -102,4 +102,10 @@ class CurriculumController
 
         return false;
     }
+
+    public static function viewed($id)
+    {
+        $curriculum = new Curriculum($id);
+        return $curriculum->viewed();
+    }
 }

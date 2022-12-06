@@ -14,6 +14,19 @@
 <link rel="stylesheet" href="/<?= $_ENV['SRC_DIR'] ?>/assets/css/style.css" />
 <script src="https://kit.fontawesome.com/be947b2e4a.js" crossorigin="anonymous"></script>
 
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JQBZ6DL5BC"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-JQBZ6DL5BC');
+</script>
+
 <script src="/<?= $_ENV['SRC_DIR'] ?>/assets/js/lib/axios.js"></script>
 <script src="/<?= $_ENV['SRC_DIR'] ?>/assets/js/lib/jquery.js"></script>
 <script src="/<?= $_ENV['SRC_DIR'] ?>/assets/js/script.js" defer></script>
