@@ -228,7 +228,7 @@ foreach ($curriculum['managers'] as $manager) {
         <div class="form-row">
           <div class="form-checkbox">
             <input type="checkbox" name="is_public" id="is_public" data-field="is_public" <?php if ($curriculum['is_public'] == 1) : ?> checked <?php endif; ?> />
-            <label for="is_public">Public Curriculum</label>
+            <label for="is_public">Showcase Curriculum</label>
           </div>
         </div>
       </div>
