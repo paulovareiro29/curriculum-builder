@@ -120,6 +120,10 @@ p {
   gap: 16px;
 }
 
+.mb-16 {
+  margin-bottom: 16px;
+}
+
 /* TEXT */
 .text-end {
   text-align: end;
@@ -777,13 +781,6 @@ body.darkmode .navbar .hoverable-link:hover {
 /* CURRICULUMS */
 .curriculums {
   margin-top: 32px;
-}
-
-.curriculums .title {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin: 0 0 16px;
 }
 
 .curriculums-list {

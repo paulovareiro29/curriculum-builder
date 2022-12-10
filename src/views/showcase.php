@@ -19,7 +19,9 @@ $list = CurriculumController::index();
 
 <div class="landing main-container container">
   <div class="curriculums">
-    <h1 class="title">Showcase</h1>
+    <div class="d-flex align-center gap-8 mb-16">
+      <h1>Showcase</h1>
+    </div>
     <div class="curriculums-list">
 
       <?php if (!$list || sizeof($list) <= 0) : ?>

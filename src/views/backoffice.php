@@ -120,7 +120,7 @@ $user = UserController::getByUsername($_SESSION['user']);
 
 
   <div class="curriculums">
-    <div class="title">
+    <div class="d-flex align-center gap-8 mb-16">
       <h1>My Curriculums</h1>
       <button onclick="showModal('guide-dashboard')" class="btn btn-circle-md guide-btn">?</button>
       <button onclick="showModal('new-curriculum')" class="btn btn-primary mb-1 btn-circle-md"><i class="fa-solid  fa-plus"></i></button>
