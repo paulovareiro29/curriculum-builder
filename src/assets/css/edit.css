@@ -75,8 +75,15 @@
   padding: 20px;
 }
 
-.edit-container #main-content h1 {
+.edit-container #main-content .header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   margin-bottom: 20px;
+}
+
+.edit-container #main-content .header :first-child {
+  flex: 1;
 }
 
 .edit-container #main-content > *:not(:first-child) {
@@ -85,7 +92,6 @@
 
 /* CONTENT - EDITABLE HEADERS */
 .edit-container .editable-header {
-  margin-bottom: 20px;
   border: 0;
   font-size: 2em;
   font-weight: bold;
