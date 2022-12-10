@@ -80,8 +80,8 @@ $user = UserController::getByUsername($_SESSION['user']);
     </h4>
     <div class="modal-body">
       <div class="modal-options">
-        <button class="btn btn-danger" name="delete-curriculum" onclick="closeModal('delete-curriculum')">CANCEL</button>
-        <button class="btn" name="delete-curriculum" id="delete-curriculum-btn">CONFIRM</button>
+        <button type="button" class="btn btn-danger" name="delete-curriculum" onclick="closeModal('delete-curriculum')">CANCEL</button>
+        <button type="button" class="btn" name="delete-curriculum" id="delete-curriculum-btn">CONFIRM</button>
       </div>
     </div>
   </div>
@@ -101,7 +101,7 @@ $user = UserController::getByUsername($_SESSION['user']);
         <p>3) After the curriculum is successfuly created you can visualize <i class="fa-solid fa-eye"></i>, personalize <i class="fa-solid fa-pen-to-square color-warning"></i> and delete <i class="fa-solid fa-trash color-danger"></i></p>
         <p>4) You can also check all the messages sent to you on a specified curriculum <i class="fa-solid fa-envelope"></i>. If you have unread messages the icon becomes blue <i class="fa-solid fa-envelope color-info"></i></p>
       </div>
-      <button class="btn btn-md" onclick="closeModal('guide-dashboard')">GOT IT</button>
+      <button type="button" class="btn btn-md" onclick="closeModal('guide-dashboard')">GOT IT</button>
     </div>
   </div>
 </div>
@@ -122,8 +122,8 @@ $user = UserController::getByUsername($_SESSION['user']);
   <div class="curriculums">
     <div class="d-flex align-center gap-8 mb-16">
       <h1>My Curriculums</h1>
-      <button onclick="showModal('guide-dashboard')" class="btn btn-circle-md guide-btn">?</button>
-      <button onclick="showModal('new-curriculum')" class="btn btn-primary mb-1 btn-circle-md"><i class="fa-solid  fa-plus"></i></button>
+      <button type="button" onclick="showModal('guide-dashboard')" class="btn btn-circle-md guide-btn">?</button>
+      <button type="button" onclick="showModal('new-curriculum')" class="btn btn-primary mb-1 btn-circle-md"><i class="fa-solid  fa-plus"></i></button>
     </div>
 
     <div class="curriculums-list">

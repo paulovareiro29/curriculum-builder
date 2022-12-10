@@ -31,7 +31,7 @@ $list = CurriculumController::index();
         <p>2) Click on <i class="fa-solid fa-pen-to-square color-warning"></i></p>
         <p>3) General > <strong>Showcase curriculum</strong> <i class="fa-solid fa-check color-success"></i></p>
       </div>
-      <button class="btn btn-md" onclick="closeModal('guide-showcase')">GOT IT</button>
+      <button type="button" class="btn btn-md" onclick="closeModal('guide-showcase')">GOT IT</button>
     </div>
   </div>
 </div>
@@ -40,7 +40,7 @@ $list = CurriculumController::index();
   <div class="curriculums">
     <div class="d-flex align-center gap-8 mb-16">
       <h1>Showcase</h1>
-      <button onclick="showModal('guide-showcase')" class="btn btn-circle-md guide-btn">?</button>
+      <button type="button" onclick="showModal('guide-showcase')" class="btn btn-circle-md guide-btn">?</button>
     </div>
     <div class="curriculums-list">
 

@@ -55,7 +55,7 @@ $messages = MessageController::indexByCurriculum($_GET['id'])
         <p>2) You can mark as <strong>read</strong> / <strong>unread</strong> on message top right corner.</p>
         <p>3) Sender information can be seen on message header, while message itself is on the message footer.</p>
       </div>
-      <button class="btn btn-md" onclick="closeModal('guide-messages')">GOT IT</button>
+      <button type="button" class="btn btn-md" onclick="closeModal('guide-messages')">GOT IT</button>
     </div>
   </div>
 </div>
@@ -63,7 +63,7 @@ $messages = MessageController::indexByCurriculum($_GET['id'])
 <div class="main-container messages container">
   <div class="d-flex align-center gap-8">
     <h1>Messages</h1>
-    <button onclick="showModal('guide-messages')" class="btn btn-circle-md guide-btn">?</button>
+    <button type="button" onclick="showModal('guide-messages')" class="btn btn-circle-md guide-btn">?</button>
   </div>
 
   <h4><?= $curriculum['name'] ?></h4>
