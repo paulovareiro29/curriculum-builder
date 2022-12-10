@@ -17,9 +17,31 @@ $list = CurriculumController::index();
 <?php require_once(__ROOT__ . "/layout/body.php") ?>
 <?php require_once(__ROOT__ . "/layout/navbar.php") ?>
 
+<div class="modal guide-modal" id="guide-showcase">
+  <div class="modal-background"></div>
+  <div class="modal-wrapper">
+    <h4 class="modal-title">
+      How does it work?
+      <i class="fa-solid fa-xmark modal-close"></i>
+    </h4>
+    <div class="modal-body">
+      <div>
+        <p>Here is where you can see all public curriculums on showcase. You can also create your own and showcase it. To do so you need to make it <strong>public</strong>:</p>
+        <p>1) Go to <strong>dashboard</strong></p>
+        <p>2) Click on <i class="fa-solid fa-pen-to-square color-warning"></i></p>
+        <p>3) General > <strong>Showcase curriculum</strong> <i class="fa-solid fa-check color-success"></i></p>
+      </div>
+      <button type="button" class="btn btn-md" onclick="closeModal('guide-showcase')">GOT IT</button>
+    </div>
+  </div>
+</div>
+
 <div class="landing main-container container">
   <div class="curriculums">
-    <h1 class="title">Showcase</h1>
+    <div class="d-flex align-center gap-8 mb-16">
+      <h1>Showcase</h1>
+      <button type="button" onclick="showModal('guide-showcase')" class="btn btn-circle-md guide-btn">?</button>
+    </div>
     <div class="curriculums-list">
 
       <?php if (!$list || sizeof($list) <= 0) : ?>

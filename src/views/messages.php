@@ -40,8 +40,32 @@ $messages = MessageController::indexByCurriculum($_GET['id'])
 
 <?php require_once(__ROOT__ . "/layout/body.php") ?>
 <?php require_once(__ROOT__ . "/layout/navbar.php") ?>
+
+<div class="modal guide-modal" id="guide-messages">
+  <div class="modal-background"></div>
+  <div class="modal-wrapper">
+    <h4 class="modal-title">
+      How does it work?
+      <i class="fa-solid fa-xmark modal-close"></i>
+    </h4>
+    <div class="modal-body">
+      <div>
+        <p>Here is where you can see all the messages sent to you on a specific curriculum.</p>
+        <p>1) Unread messages appear <span class="color-info"><strong>blue.</strong></span></p>
+        <p>2) You can mark as <strong>read</strong> / <strong>unread</strong> on message top right corner.</p>
+        <p>3) Sender information can be seen on message header, while message itself is on the message footer.</p>
+      </div>
+      <button type="button" class="btn btn-md" onclick="closeModal('guide-messages')">GOT IT</button>
+    </div>
+  </div>
+</div>
+
 <div class="main-container messages container">
-  <h1>Messages</h1>
+  <div class="d-flex align-center gap-8">
+    <h1>Messages</h1>
+    <button type="button" onclick="showModal('guide-messages')" class="btn btn-circle-md guide-btn">?</button>
+  </div>
+
   <h4><?= $curriculum['name'] ?></h4>
 
   <div class="messages-list">
