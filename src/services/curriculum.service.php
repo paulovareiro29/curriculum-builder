@@ -123,6 +123,21 @@ class Curriculum extends Database
         return false;
     }
 
+    public function delete()
+    {
+        if (!isset($this->id)) return false;
+
+        $sql = "DELETE FROM curriculum WHERE id = :id";
+
+        $this->connect();
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute(['id' => $this->id]);
+        $this->close();
+
+        if ($stmt->rowCount() > 0) return true;
+        return false;
+    }
+
     public function update()
     {
         $data = [

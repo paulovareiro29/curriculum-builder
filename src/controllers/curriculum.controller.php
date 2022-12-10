@@ -79,7 +79,7 @@ class CurriculumController
     public static function delete($id)
     {
         $curriculum = new Curriculum($id);
-        return $curriculum->softdelete();
+        return $curriculum->delete();
     }
 
     public static function update($id, $data)

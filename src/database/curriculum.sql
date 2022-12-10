@@ -69,6 +69,7 @@ CREATE TABLE `info` (
     CONSTRAINT FK_IC_INFO
         FOREIGN KEY (`curriculum_id`)
             REFERENCES curriculum(`id`)
+            ON DELETE CASCADE
 );
 
 CREATE TABLE `skill` (
@@ -82,6 +83,7 @@ CREATE TABLE `skill` (
     CONSTRAINT FK_SC_SKILL
         FOREIGN KEY (`curriculum_id`)
             REFERENCES curriculum(`id`)
+            ON DELETE CASCADE
 );
 
 CREATE TABLE `education` (
@@ -98,6 +100,7 @@ CREATE TABLE `education` (
     CONSTRAINT FK_EC_EDUCATION
         FOREIGN KEY (`curriculum_id`)
             REFERENCES curriculum(`id`)
+            ON DELETE CASCADE
 );
 
 CREATE TABLE `experience` (
@@ -114,6 +117,7 @@ CREATE TABLE `experience` (
     CONSTRAINT FK_EC_EXPERIENCE
         FOREIGN KEY (`curriculum_id`)
             REFERENCES curriculum(`id`)
+            ON DELETE CASCADE
 );
 
 /* CONTACTS */
@@ -133,7 +137,8 @@ CREATE TABLE `message` (
     PRIMARY KEY (`id`),
     CONSTRAINT FK_CC_CURRICULUM
         FOREIGN KEY (`curriculum_id`)
-            REFERENCES curriculum(`id`),
+            REFERENCES curriculum(`id`)
+            ON DELETE CASCADE,
     CONSTRAINT FK_CNU_USER
         FOREIGN KEY (`user_id`)
             REFERENCES user(`id`)
@@ -150,6 +155,5 @@ CREATE TABLE `manager` (
     CONSTRAINT FK_M_CURRICULUM
         FOREIGN KEY (`curriculum_id`)
             REFERENCES curriculum(`id`)
+            ON DELETE CASCADE
 );
-
-/* ANALYTICS */
