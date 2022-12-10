@@ -11,7 +11,8 @@
   --success: #57b657;
   --light-success: #d4edda;
   --dark-success: #155724;
-  --info: #17a2b8;
+  --info: #0dcaf0;
+  --dark-info: #17a2b8;
   --white: white;
   --dark-primary: #1e252b;
 }
@@ -148,7 +149,7 @@ p {
 /* BUTTONS */
 .btn {
   cursor: pointer;
-  padding: 8px;
+  padding: 8px 16px;
   border-radius: 8px;
   border: 1px solid var(--primary);
   background-color: var(--primary);
@@ -473,7 +474,19 @@ table tbody tr:hover {
 }
 
 .modal .modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
   padding: 20px;
+}
+.modal .modal-options {
+  display: flex;
+  gap: 8px;
+}
+
+.modal .modal-options * {
+  flex: 1;
+  text-align: center;
 }
 
 .modal .modal-wrapper input {
@@ -886,4 +899,19 @@ body.darkmode .darkmode-switch .light-icon {
 
 body.darkmode .darkmode-switch .dark-icon {
   display: none;
+}
+
+/* GUIDE */
+.guide-btn {
+  background-color: var(--info);
+  border-color: var(--info);
+}
+
+.guide-btn:hover {
+  background-color: var(--dark-info);
+  border-color: var(--dark-info);
+}
+
+.guide-modal p:not(:last-child) {
+  margin-bottom: 8px;
 }
