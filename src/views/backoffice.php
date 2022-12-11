@@ -141,7 +141,11 @@ $user = UserController::getByUsername($_SESSION['user']);
         <div class="curriculum" data-id="<?= $curriculum['id'] ?>">
           <div class="curriculum-body">
             <div class="curriculum-avatar">
-              <img src="<?= $curriculum['avatar']; ?>" alt="">
+              <img src="<?php if (empty($curriculum['avatar'])) {
+                          echo "/{$_ENV["SRC_DIR"]}/assets/images/avatar.png";
+                        } else {
+                          echo $curriculum['avatar'];
+                        } ?>" alt="">
             </div>
             <div class="curriculum-info">
               <h3><?= $curriculum['name'] ?> - <span class="curriculum-views"><?= $curriculum['views'] ?> views</span></h3>

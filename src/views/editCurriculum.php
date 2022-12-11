@@ -244,7 +244,11 @@ foreach ($curriculum['managers'] as $manager) {
             <div class="profile-avatar">
               <label>
                 <figure class="avatar-container">
-                  <img id="avatar-img" src="<?= $curriculum['avatar']; ?>" alt="">
+                  <img id="avatar-img" src="<?php if (empty($curriculum['avatar'])) {
+                                              echo "/{$_ENV["SRC_DIR"]}/assets/images/avatar.png";
+                                            } else {
+                                              echo $curriculum['avatar'];
+                                            } ?>" alt="">
                   <figcaption>
                     Upload
                   </figcaption>
