@@ -1,0 +1,297 @@
+/* PROFILE HEADER */
+#default-template .curriculum-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 64px;
+  padding: 32px 0;
+
+  background-color: aliceblue;
+}
+
+body.darkmode #default-template .curriculum-header-info > * {
+  color: var(--white);
+}
+
+#default-template .curriculum-header .curriculum-picture {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: var(--secondary);
+}
+
+#default-template .curriculum-header .curriculum-picture img {
+  width: 100%;
+}
+
+#default-template .curriculum-header .curriculum-header-info > * {
+  margin: 0;
+  color: var(--primary);
+  text-transform: uppercase;
+}
+
+#default-template .curriculum-header .curriculum-header-info h2 {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+#default-template .curriculum-header .curriculum-header-info h1 {
+  font-size: 42px;
+  letter-spacing: 4px;
+  font-weight: 700;
+}
+
+#default-template .curriculum-header .curriculum-header-info h4 {
+  letter-spacing: 2px;
+  font-weight: 400;
+}
+
+@media only screen and (max-width: 768px) {
+  #default-template .curriculum-header {
+    padding: 32px;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  #default-template .curriculum-header {
+    text-align: center;
+  }
+}
+
+/* PROFILE BODY */
+#default-template .curriculum-body {
+  display: flex;
+  border-bottom: 1px solid var(--primary);
+  border-top: 1px solid var(--primary);
+  background-color: var(--white);
+}
+
+#default-template .curriculum-body .col {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding: 20px;
+}
+
+#default-template .curriculum-body .col:first-child {
+  flex: 1;
+  /*   outline: 1px solid var(--primary); */
+  border-right: 1px solid var(--primary);
+}
+
+#default-template .curriculum-body .col:first-child::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: 4px solid transparent;
+  border-top: 4px solid var(--primary);
+  border-right: 4px solid var(--primary);
+  width: 0;
+  height: 0;
+}
+
+#default-template .curriculum-body .col:last-child {
+  flex: 2;
+  /*   outline: 1px solid var(--primary); */
+  /*   border-left: 1px solid var(--primary); */
+}
+
+#default-template .curriculum-body .col:last-child::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 4px solid transparent;
+  border-top: 4px solid var(--primary);
+  border-left: 4px solid var(--primary);
+  width: 0;
+  height: 0;
+}
+
+#default-template .curriculum-body h2 {
+  font-size: 24px;
+  letter-spacing: 2px;
+  margin: 0 0 8px 0;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+#default-template .curriculum-body h4 {
+  font-size: 18px;
+  margin: 0;
+}
+
+@media only screen and (max-width: 768px) {
+  #default-template .curriculum-body {
+    flex-direction: column-reverse;
+  }
+
+  #default-template .curriculum-body .col {
+    border: 0 !important;
+  }
+
+  #default-template .curriculum-body .col:first-child::before,
+  #default-template .curriculum-body .col:last-child::before {
+    display: none;
+  }
+}
+
+/* PROFILE BODY - CONTACTS */
+#default-template .curriculum-body .info-section > *:not(h2) {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  gap: 4px;
+  /*   border-bottom: 1px solid var(--primary); */
+}
+
+#default-template .curriculum-body .info-section > *:not(h2)::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  border-bottom: 1px solid var(--primary);
+}
+
+#default-template .curriculum-body .info-section a {
+  display: flex;
+  align-items: center;
+}
+
+#default-template .curriculum-body .info-section i {
+  display: flex;
+  justify-content: center;
+
+  width: 44px;
+  height: 44px;
+  padding: 4px 0;
+  background-color: var(--primary);
+
+  margin-right: 4px;
+}
+
+#default-template .curriculum-body .info-section i::before {
+  color: var(--white);
+}
+
+/* PROFILE BODY - SKILLS */
+#default-template .curriculum-body .skills-section > div {
+  display: flex;
+  align-items: center;
+
+  border-bottom: 1px solid var(--primary);
+  padding: 12px 0;
+}
+
+#default-template .curriculum-body .skills-section > div p {
+  margin: 0;
+  flex: 1;
+  white-space: wrap;
+}
+
+#default-template .curriculum-body .skills-section > div ul {
+  flex: 1;
+
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* PROFILE BODY - EDUCATION */
+
+#default-template
+  .curriculum-body
+  .education-section
+  .education:not(:last-child) {
+  margin-bottom: 32px;
+}
+
+#default-template .curriculum-body .education-section .education * {
+  margin: 0;
+  line-height: 2rem;
+}
+
+#default-template
+  .curriculum-body
+  .education-section
+  .education
+  .education-date {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+/* PROFILE BODY - PROFILE */
+#default-template .curriculum-body .profile-section p {
+  text-align: justify;
+  line-height: 2rem;
+}
+
+/* PROFILE BODY - EXPERIENCE */
+
+#default-template
+  .curriculum-body
+  .experience-section
+  .experience:not(:last-child) {
+  margin-bottom: 32px;
+}
+
+#default-template
+  .curriculum-body
+  .experience-section
+  .experience
+  .experience-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#default-template
+  .curriculum-body
+  .experience-section
+  .experience
+  .experience-date {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#default-template .curriculum-body .experience-section .experience p {
+  margin: 0;
+  line-height: 2rem;
+}
+
+#default-template .curriculum-body .experience-section .experience ul {
+  margin: 0;
+}
+
+#default-template .curriculum-body .experience-section .experience li {
+  line-height: 2rem;
+}
+
+@media only screen and (max-width: 576px) {
+  #default-template
+    .curriculum-body
+    .experience-section
+    .experience
+    .experience-title {
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
