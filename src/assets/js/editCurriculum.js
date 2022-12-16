@@ -231,6 +231,8 @@ const loadForm = () => {
         case "avatar":
           if (input.files[0]) {
             json["avatar"] = await toBase64(input.files[0]);
+          } else {
+            json["avatar"] = document.getElementById("avatar-img").src;
           }
           break;
         case "is_public":
@@ -327,7 +329,7 @@ const loadForm = () => {
     axios
       .post("/curriculum/api/edit?id=" + e.target.dataset.curriculum, json)
       .then((res) => {
-        console.log(res.data);
+        /* console.log(res.data); */
         const badge = document.getElementById("badge-edit-success");
         badge.style.display = "block";
 
