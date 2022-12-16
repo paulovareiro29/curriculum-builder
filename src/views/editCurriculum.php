@@ -12,7 +12,7 @@ if ($user['id'] !== $curriculum['user_id'] && !AuthController::isAdmin()) {
   return;
 }
 
-$icons = ["envelope",  "phone", "location-dot"];
+$icons = ["envelope",  "phone", "location-dot", "linkedin", "globe", "twitter", "instagram", "facebook", "baby", "cake-candles"];
 $availableManagers = ManagerController::index();
 
 $info = $curriculum['info'];
