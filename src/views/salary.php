@@ -20,6 +20,11 @@
         </h4>
         <div class="modal-body">
             <div>
+                <p>The salary is calculated considering that you are from Portugal, not married, and no dependents.</p>
+                <p>1) Start by filling your gross income.</p>
+                <p>2) Select the type of meal allowance.</p>
+                <p>3) Input the correct value of your meal allowance.</p>
+                <p>4) Check if the number of days of your meal allowance is correct. This field has a minimum of <strong>1</strong> and a maximum of <strong>31</strong></p>
             </div>
             <button type="button" class="btn btn-md" onclick="closeModal('salary-calculator')">GOT IT</button>
         </div>
