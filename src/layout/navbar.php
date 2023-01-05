@@ -57,6 +57,7 @@
           <li><a href="/<?= $_ENV["BASE_DIR"] ?>/backoffice">Dashboard</a></li>
         <?php endif; ?>
         <li><a href="/<?= $_ENV["BASE_DIR"] ?>/showcase">Showcase</a></li>
+        <li><a href="/<?= $_ENV["BASE_DIR"] ?>/salary">Salary</a></li>
       </ul>
       <?php if (AuthController::isAdmin()) : ?>
         <h2>Admin</h2>
