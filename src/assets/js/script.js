@@ -7,6 +7,24 @@ const toBase64 = (file) =>
     reader.onerror = (error) => reject(error);
   });
 
+const toSafeInt = (value, defaultValue) => {
+  const res = parseInt(value);
+
+  return isNaN(res) ? defaultValue : res;
+};
+
+const toSafeFloat = (value, defaultValue) => {
+  const res = parseFloat(value);
+
+  return isNaN(res) ? defaultValue : res;
+};
+
+const minMax = (value, min, max) => {
+  if (value < min) return min;
+  if (value > max) return max;
+  return value;
+};
+
 /* MODAL */
 const loadModals = () => {
   const modals = document.getElementsByClassName("modal-background");

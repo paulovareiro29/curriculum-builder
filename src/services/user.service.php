@@ -4,6 +4,7 @@ include_once "{$_SERVER['DOCUMENT_ROOT']}/{$_ENV['SRC_DIR']}" . '/services/role.
 
 class User extends Database
 {
+    public $id;
     public $username;
     public $password;
 

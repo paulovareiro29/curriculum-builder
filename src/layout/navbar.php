@@ -6,6 +6,7 @@
         <li class="navbar-link desktop-link"><a href="/<?= $_ENV["BASE_DIR"] ?>/backoffice">Dashboard</a></li>
       <?php endif; ?>
       <li class="navbar-link desktop-link"><a href="/<?= $_ENV["BASE_DIR"] ?>/showcase">Showcase</a></li>
+      <li class="navbar-link desktop-link"><a href="/<?= $_ENV["BASE_DIR"] ?>/salary">Salary</a></li>
       <?php if (AuthController::isAdmin()) : ?>
         <li class="navbar-link hoverable-link desktop-link">
           Admin

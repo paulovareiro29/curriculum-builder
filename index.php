@@ -54,6 +54,10 @@ switch ($baseUri) {
       require __DIR__ . '/src/views/login.php';
     }
     break;
+  case '/salary':
+  case '/salary/':
+    require __DIR__ . '/src/views/salary.php';
+    break;
   case '/users':
   case '/users/':
     if (AuthController::isAdmin()) {
