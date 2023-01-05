@@ -27,7 +27,7 @@ const calculateSalary = () => {
   const mealDays = minMax(toSafeInt(mealDaysInput.value, 0), 1, 31);
   let gross = toSafeFloat(grossInput.value, 0);
   let mealDaily =
-    mealType !== "none" ? Math.min(toSafeFloat(mealDailyInput.value, 0), 0) : 0;
+    mealType !== "none" ? Math.max(toSafeFloat(mealDailyInput.value, 0), 0) : 0;
 
   let limit = mealDailyLimit[mealType] || 0;
 
