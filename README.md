@@ -14,6 +14,8 @@ An university project with the main purpose of building curriculums.
 
 - Able to message a curriculum creator on the curriculum preview.
 
+- Able to calculate your liquid salary according to Portugal tax values.
+
 ## Stack
 
 ![PHP](https://img.shields.io/badge/php-%23777BB4.svg?style=for-the-badge&logo=php&logoColor=white)
