@@ -6,6 +6,7 @@ class Curriculum extends Database
     public $id;
     public $user_id;
     public $name;
+    public $description;
     public $person_name;
     public $role;
     public $avatar;
